@@ -1,0 +1,32 @@
+---
+import { site } from "../data/site";
+const year = new Date().getUTCFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-lead">
+    <p>George B. Johnson</p>
+    <p>Technical consulting specializing in AI-driven automation.</p>
+  </div>
+  <div class="footer-links">
+    <div>
+      <span>Explore</span>
+      <a href="/projects/">Projects</a>
+      <a href="/insights/">Field notes</a>
+      <a href="/my-books/">Books</a>
+    </div>
+    <div>
+      <span>Connect</span>
+      <a href={site.social.linkedin}>LinkedIn</a>
+      <a href={site.social.youtube}>YouTube</a>
+      <a href={site.skoolUrl}>Builders Lab</a>
+    </div>
+    <div>
+      <span>Site</span>
+      <a href="/about/">About</a>
+      <a href="/community-consulting/">Community consulting</a>
+      <a href="/privacy/">Privacy</a>
+    </div>
+  </div>
+  <div class="footer-base"><span>© {year} George B. Johnson</span><span>Built to remain useful.</span></div>
+</footer>

@@ -1,0 +1,48 @@
+---
+import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { site } from "../../data/site";
+---
+
+<InnerPageLayout
+  title="Builders Lab | George B. Johnson’s Skool Community"
+  description="Builders Lab is George B. Johnson’s Skool community for deeper discussions about AI systems, SEO operations, AtsKaleSEO, and useful tools."
+  canonicalPath="/builders-lab/"
+  eyebrow="Builders Lab"
+  heading="Builders Lab on Skool"
+  lead="Builders Lab is George B. Johnson’s community for deeper discussions about AI systems, SEO operations, AtsKaleSEO, and turning domain expertise into useful tools."
+  currentPage="Builders Lab"
+>
+  <section class="page-section section-pad" aria-labelledby="inside-title">
+    <div class="section-label"><span>01</span><span>Inside the lab</span></div>
+    <div class="editorial-split">
+      <h2 id="inside-title">Go deeper on the systems behind the work.</h2>
+      <div class="entity-list">
+        <article><h3>AI systems</h3><p>Deeper discussions from the process of structuring practical AI-assisted systems.</p></article>
+        <article><h3>SEO operations</h3><p>How search work can be organized, tested, and improved as an operating system.</p></article>
+        <article><h3>AtsKaleSEO</h3><p>Discussion from the build-in-public process around the active system.</p></article>
+        <article><h3>Useful tools</h3><p>Turning domain expertise into tools and documentation other technical builders can use.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt section-pad" aria-labelledby="membership-title">
+    <div class="section-label"><span>02</span><span>Membership</span></div>
+    <div class="editorial-split">
+      <h2 id="membership-title">Review the current details on Skool.</h2>
+      <div class="prose">
+        <p>Builders Lab is hosted on Skool. Visit the community page to review its current description and membership details before joining.</p>
+        <a class="button button-dark" href={site.skoolUrl}>View Builders Lab on Skool <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Builders Lab"
+    title="Join the community."
+    text="Continue to Skool to review the current Builders Lab details and choose whether it fits what you want to explore."
+    href={site.skoolUrl}
+    label="Join Builders Lab"
+    external
+  />
+</InnerPageLayout>

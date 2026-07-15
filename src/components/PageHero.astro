@@ -1,0 +1,25 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lead: string;
+  currentPage: string;
+}
+
+const { eyebrow, title, lead, currentPage } = Astro.props;
+---
+
+<section class="inner-hero" aria-labelledby="page-title">
+  <div class="inner-hero-grid" aria-hidden="true"></div>
+  <div class="inner-hero-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">{currentPage}</li>
+      </ol>
+    </nav>
+    <p class="eyebrow"><span>{eyebrow}</span><span>George B. Johnson</span></p>
+    <h1 id="page-title">{title}</h1>
+    <p class="inner-lead">{lead}</p>
+  </div>
+</section>

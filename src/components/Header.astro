@@ -1,0 +1,26 @@
+---
+import { site } from "../data/site";
+
+const path = Astro.url.pathname;
+const current = (href: string) => path === href;
+---
+
+<header class="site-header" data-theme="dark">
+  <a class="wordmark" href="/" aria-label="George B. Johnson home">
+    <span class="wordmark-monogram">GBJ</span>
+    <span class="wordmark-name">George B. Johnson</span>
+  </a>
+
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+    <span>Menu</span>
+    <span class="menu-lines" aria-hidden="true"></span>
+  </button>
+
+  <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+    <a href="/projects/" aria-current={current("/projects/") ? "page" : undefined}>Projects</a>
+    <a href="/insights/" aria-current={current("/insights/") ? "page" : undefined}>Field notes</a>
+    <a href="/about/" aria-current={current("/about/") ? "page" : undefined}>About</a>
+    <a href="/my-books/" aria-current={current("/my-books/") ? "page" : undefined}>Books</a>
+    <a class="nav-cta" href={site.social.linkedin}>Discuss a project <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>

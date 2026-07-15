@@ -1,0 +1,23 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  text: string;
+  href: string;
+  label: string;
+  external?: boolean;
+}
+
+const { eyebrow, title, text, href, label, external = false } = Astro.props;
+---
+
+<section class="cta-band section-pad" aria-labelledby={`cta-${eyebrow.toLowerCase().replaceAll(" ", "-")}`}>
+  <div>
+    <p class="eyebrow"><span>{eyebrow}</span><span>Next step</span></p>
+    <h2 id={`cta-${eyebrow.toLowerCase().replaceAll(" ", "-")}`}>{title}</h2>
+  </div>
+  <div class="cta-band-action">
+    <p>{text}</p>
+    <a class="button button-primary" href={href}>{label} <span aria-hidden="true">{external ? "↗" : "→"}</span></a>
+  </div>
+</section>

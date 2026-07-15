@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | George B. Johnson"
+  description="The requested page could not be found. Explore George B. Johnson’s projects, books, field notes, and Builders Lab community."
+  canonicalPath={false}
+  noindex
+>
+  <section class="error-page" aria-labelledby="error-title">
+    <div class="inner-hero-grid" aria-hidden="true"></div>
+    <div>
+      <p class="eyebrow"><span>404</span><span>Page not found</span></p>
+      <h1 id="error-title">This path does not lead to a current page.</h1>
+      <p>The page may have moved or the address may be incomplete. Return home or use the project index to continue.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="/">Return home <span aria-hidden="true">→</span></a>
+        <a class="text-link text-link-inverse" href="/projects/">See the projects <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { site } from "../../data/site";
+---
+
+<InnerPageLayout
+  title="Community Consulting for Local Nonprofits | George B. Johnson"
+  description="George B. Johnson offers discounted technical consulting for local nonprofit organizations across websites, SEO, and digital strategy."
+  canonicalPath="/community-consulting/"
+  eyebrow="Community consulting"
+  heading="Technical consulting for local nonprofit organizations"
+  lead="George B. Johnson offers discounted technical consulting to local nonprofit organizations that need practical help with websites, SEO, or digital strategy."
+  currentPage="Community consulting"
+>
+  <section class="page-section section-pad" aria-labelledby="fit-title">
+    <div class="section-label"><span>01</span><span>Fit</span></div>
+    <div class="editorial-split">
+      <h2 id="fit-title">Who community consulting is for.</h2>
+      <div class="prose">
+        <p>This service is for local nonprofit organizations with a specific technical or digital constraint. The aim is to make practical technical advice and hands-on support more accessible through discounted consulting.</p>
+        <p>No fixed package or public discount percentage is listed. The organization, need, and appropriate next step can be discussed directly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt section-pad" aria-labelledby="topics-title">
+    <div class="section-label"><span>02</span><span>Consulting topics</span></div>
+    <div class="editorial-split">
+      <h2 id="topics-title">What we can discuss.</h2>
+      <div class="entity-list">
+        <article><h3>Website development</h3><p>Technical questions and hands-on support related to a nonprofit website.</p></article>
+        <article><h3>Search engine optimization</h3><p>Practical SEO guidance for making useful local information easier to find.</p></article>
+        <article><h3>Digital strategy</h3><p>Technical advice for clarifying digital priorities and the systems that support them.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Community consulting"
+    title="Discuss your nonprofit’s technical need."
+    text="Connect with George on LinkedIn and share your organization, the specific constraint, and the support you are considering."
+    href={site.social.linkedin}
+    label="Discuss community consulting"
+    external
+  />
+</InnerPageLayout>

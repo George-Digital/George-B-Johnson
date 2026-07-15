@@ -1,0 +1,63 @@
+---
+import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { site } from "../../data/site";
+
+const bookSchema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  name: "The Med Spa Organic Blueprint",
+  author: {
+    "@type": "Person",
+    "@id": `${site.url}/#person`,
+    name: "George B. Johnson",
+  },
+  url: `${site.url}/my-books/`,
+  sameAs: site.bookUrl,
+};
+---
+
+<InnerPageLayout
+  title="Books by George B. Johnson"
+  description="View The Med Spa Organic Blueprint, the current book by George B. Johnson, and explore the practical systems behind his writing."
+  canonicalPath="/my-books/"
+  eyebrow="Books"
+  heading="Books by George B. Johnson"
+  lead="The current title by George B. Johnson is The Med Spa Organic Blueprint, part of his practical writing about search and digital systems."
+  currentPage="Books"
+  schema={bookSchema}
+>
+  <section class="page-section section-pad" aria-labelledby="book-title">
+    <div class="section-label"><span>01</span><span>Current title</span></div>
+    <article class="book-feature">
+      <div class="book-index" aria-hidden="true"><span>GBJ</span><strong>01</strong><span>Publishing</span></div>
+      <div>
+        <p class="mono-kicker">Book / George B. Johnson</p>
+        <h2 id="book-title"><cite>The Med Spa Organic Blueprint</cite></h2>
+        <p>Practical writing from George’s work in SEO and digital operations. Visit the Amazon listing for the current description, formats, availability, and price.</p>
+        <a class="button button-dark" href={site.bookUrl} rel="sponsored">View the book on Amazon <span aria-hidden="true">↗</span></a>
+        <p class="affiliate-disclosure"><strong>Affiliate disclosure:</strong> If you purchase through this Amazon link, I may earn a commission at no additional cost to you.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="page-section page-section-alt section-pad" aria-labelledby="writing-title">
+    <div class="section-label"><span>02</span><span>Writing</span></div>
+    <div class="editorial-split">
+      <h2 id="writing-title">Writing grounded in the work.</h2>
+      <div class="prose">
+        <p>George’s publishing follows the same operating loop as his systems work: observe the constraint, structure what matters, and document the useful parts.</p>
+        <p>For ongoing discussions about SEO operations, AI systems, and building useful tools, explore Builders Lab.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Builders Lab"
+    title="Go deeper on the systems behind the writing."
+    text="Join George’s Skool community for deeper discussions from the build-in-public process."
+    href={site.skoolUrl}
+    label="Join Builders Lab"
+    external
+  />
+</InnerPageLayout>

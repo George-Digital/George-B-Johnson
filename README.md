@@ -1,17 +1,19 @@
-# George B. Johnson static site
+# George B. Johnson
 
-Static copy of the current WordPress/Oxygen site at https://georgebjohnson.com.
+Static Astro production site for [georgebjohnson.com](https://georgebjohnson.com).
 
-## Build
+## Requirements
+
+- Node.js 22.12 or newer
+- npm
+
+## Commands
 
 ```bash
+npm install
+npm run dev
 npm run build
+npm run preview
 ```
 
-The build copies `public/` to `dist/` for Cloudflare Pages or any static host.
-
-## Notes
-
-- The source WordPress site remains live until DNS is switched.
-- Static pages preserve the current visual style and downloaded local images/assets.
-- The contact form is copied from WordPress markup; confirm the desired static form/email handling before DNS cutover.
+Astro writes the static site to `dist/`. Production URLs use trailing slashes, and Cloudflare-compatible redirects are defined in `public/_redirects`.

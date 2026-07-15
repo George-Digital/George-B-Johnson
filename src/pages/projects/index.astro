@@ -1,0 +1,65 @@
+---
+import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { site } from "../../data/site";
+---
+
+<InnerPageLayout
+  title="Projects | George B. Johnson"
+  description="Explore George B. Johnson’s AI-driven automation, SEO engineering, publishing, community, and technical consulting work."
+  canonicalPath="/projects/"
+  eyebrow="Projects"
+  heading="Projects and systems by George B. Johnson"
+  lead="George’s work connects AI-driven automation, SEO engineering, digital operations, community learning, practical publishing, and technical consulting."
+  currentPage="Projects"
+>
+  <section class="page-section section-pad" aria-labelledby="project-index-title">
+    <div class="section-label"><span>01</span><span>Current work</span></div>
+    <div class="work-heading inner-work-heading">
+      <h2 id="project-index-title">The project index.</h2>
+      <p>Each project is a different expression of the same practice: understand the system, reduce friction, and build a tighter learning loop.</p>
+    </div>
+
+    <div class="project-index">
+      <article class="project-row">
+        <span class="project-number">01</span>
+        <div class="project-name"><h3>George Digital</h3><span>Company</span></div>
+        <p>SEO delivery and digital operations through the agency George founded in 2013.</p>
+        <a href={site.georgeDigitalUrl} aria-label="Visit George Digital">Visit <span aria-hidden="true">↗</span></a>
+      </article>
+      <article class="project-row">
+        <span class="project-number">02</span>
+        <div class="project-name"><h3>AtsKaleSEO</h3><span>System</span></div>
+        <p>A system George is building at the intersection of AI and SEO operations.</p>
+        <span class="project-status">Active system</span>
+      </article>
+      <article class="project-row">
+        <span class="project-number">03</span>
+        <div class="project-name"><h3>Builders Lab</h3><span>Community</span></div>
+        <p>Deeper discussions about AI systems, SEO operations, and building useful tools in public.</p>
+        <a href="/builders-lab/" aria-label="Explore Builders Lab">Explore <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="project-row">
+        <span class="project-number">04</span>
+        <div class="project-name"><h3>The Med Spa Organic Blueprint</h3><span>Book</span></div>
+        <p>Practical writing from George’s work in search and digital systems.</p>
+        <a href="/my-books/" aria-label="View The Med Spa Organic Blueprint">View <span aria-hidden="true">→</span></a>
+      </article>
+      <article class="project-row">
+        <span class="project-number">05</span>
+        <div class="project-name"><h3>Community consulting</h3><span>Service</span></div>
+        <p>Discounted technical consulting for local nonprofit organizations.</p>
+        <a href="/community-consulting/" aria-label="View community consulting">Discuss <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Builders Lab"
+    title="Follow the systems as they develop."
+    text="Builders Lab is the Skool community for deeper discussions about AI systems, SEO operations, AtsKaleSEO, and useful tools."
+    href={site.skoolUrl}
+    label="Join Builders Lab"
+    external
+  />
+</InnerPageLayout>

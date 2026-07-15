@@ -1,16 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://georgebjohnson.com/sitemaps_xsl.xsl"?>
-<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<sitemap>
-<loc>https://georgebjohnson.com/post-sitemap1.xml</loc>
-</sitemap>
-<sitemap>
-<loc>https://georgebjohnson.com/page-sitemap1.xml</loc>
-<lastmod>2025-03-28T23:14:15-07:00</lastmod>
-</sitemap>
-<sitemap>
-<loc>https://georgebjohnson.com/category-sitemap1.xml</loc>
-</sitemap>
-<sitemap>
-<loc>https://georgebjohnson.com/post_tag-sitemap1.xml</loc>
-</sitemap>
-</sitemapindex>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://georgebjohnson.com/</loc></url>
+  <url><loc>https://georgebjohnson.com/about/</loc></url>
+  <url><loc>https://georgebjohnson.com/projects/</loc></url>
+  <url><loc>https://georgebjohnson.com/my-books/</loc></url>
+  <url><loc>https://georgebjohnson.com/community-consulting/</loc></url>
+  <url><loc>https://georgebjohnson.com/builders-lab/</loc></url>
+</urlset>

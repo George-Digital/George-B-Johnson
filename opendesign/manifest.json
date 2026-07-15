@@ -1,0 +1,63 @@
+{
+  "generated": "2026-07-15T18:49:40Z",
+  "sections": [
+    {
+      "id": "mockups",
+      "label": "Mockups",
+      "groups": [
+        {
+          "slug": "homepage-seo-redesign",
+          "files": [
+            {
+              "label": "Homepage SEO redesign",
+              "path": "mockups/homepage-seo-redesign/index.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "design-systems",
+      "label": "Design Systems",
+      "groups": [
+        {
+          "slug": "george-personal-brand",
+          "files": [
+            {
+              "label": "README",
+              "path": "design-systems/george-personal-brand/README.md"
+            },
+            {
+              "label": "Portable design skill",
+              "path": "design-systems/george-personal-brand/SKILL.md"
+            },
+            {
+              "label": "Color and type tokens",
+              "path": "design-systems/george-personal-brand/tokens/colors_and_type.css"
+            },
+            {
+              "label": "Voice and tone",
+              "path": "design-systems/george-personal-brand/brand/voice-and-tone.md"
+            },
+            {
+              "label": "Style notes",
+              "path": "design-systems/george-personal-brand/brand/style-notes.md"
+            },
+            {
+              "label": "George portrait",
+              "path": "design-systems/george-personal-brand/assets/imagery/george-b-johnson.jpg"
+            },
+            {
+              "label": "GBJ mark",
+              "path": "design-systems/george-personal-brand/assets/logos/gbj-mark.png"
+            },
+            {
+              "label": "GeorgeBJohnson.com wordmark",
+              "path": "design-systems/george-personal-brand/assets/logos/georgebjohnson-wordmark.png"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,2 +1,29 @@
+/contact-me/index.html /builders-lab/ 301
+/contact-me/ /builders-lab/ 301
+/contact-me /builders-lab/ 301
+
+/go/skool/index.html https://www.skool.com/local-seo-engineering-7047/about 302
 /go/skool/ https://www.skool.com/local-seo-engineering-7047/about 302
 /go/skool https://www.skool.com/local-seo-engineering-7047/about 302
+
+/index.html / 301
+/about/index.html /about/ 301
+/projects/index.html /projects/ 301
+/my-books/index.html /my-books/ 301
+/insights/index.html /insights/ 301
+/community-consulting/index.html /community-consulting/ 301
+/builders-lab/index.html /builders-lab/ 301
+/privacy/index.html /privacy/ 301
+
+/sitemaps.xml /sitemap.xml 301
+/sitemap_index.xml /sitemap.xml 301
+/sitemap-index.xml /sitemap.xml 301
+/page-sitemap1.xml /sitemap.xml 301
+/post-sitemap1.xml /sitemap.xml 301
+/category-sitemap1.xml /sitemap.xml 301
+/post_tag-sitemap1.xml /sitemap.xml 301
+/sitemaps_xsl.xsl /sitemap.xml 301
+/sitemap/index.html /sitemap.xml 301
+/sitemap/ /sitemap.xml 301
+/sitemaps/index.html /sitemap.xml 301
+/sitemaps/ /sitemap.xml 301

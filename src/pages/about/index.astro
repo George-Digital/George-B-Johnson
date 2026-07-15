@@ -1,0 +1,49 @@
+---
+import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { site } from "../../data/site";
+---
+
+<InnerPageLayout
+  title="About George B. Johnson | Technical Consultant"
+  description="Learn how George B. Johnson applies AI-driven automation, SEO engineering, and digital operations across his consulting, systems, writing, and community work."
+  canonicalPath="/about/"
+  eyebrow="About"
+  heading="About George B. Johnson"
+  lead="George B. Johnson is a technical consultant specializing in AI-driven automation. His supporting competencies include SEO engineering and digital operations."
+  currentPage="About"
+>
+  <section class="page-section section-pad" aria-labelledby="approach-title">
+    <div class="section-label"><span>01</span><span>Approach</span></div>
+    <div class="editorial-split">
+      <h2 id="approach-title">Technical consulting grounded in engineering.</h2>
+      <div class="prose">
+        <p>I specialize in AI-driven automation: understanding a workflow, identifying the real constraint, and engineering a practical system that reduces repeated work.</p>
+        <p>SEO engineering and digital operations are supporting competencies within that practice. Across each area, I look for where information enters, how decisions get made, and which feedback can improve the next cycle.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section page-section-alt section-pad" aria-labelledby="work-connects-title">
+    <div class="section-label"><span>02</span><span>Connected work</span></div>
+    <div class="editorial-split">
+      <h2 id="work-connects-title">How the work connects.</h2>
+      <div class="entity-list">
+        <article><h3>George Digital</h3><p>SEO delivery and digital operations through the agency I founded in 2013.</p></article>
+        <article><h3>AtsKaleSEO</h3><p>A system I’m building at the intersection of AI and SEO operations.</p></article>
+        <article><h3>Builders Lab</h3><p>A community for deeper discussions about AI systems, SEO operations, and building useful tools in public.</p></article>
+        <article><h3>Books and field notes</h3><p>Practical writing that turns lessons from the work into something other people can use.</p></article>
+        <article><h3>Community consulting</h3><p>Discounted technical consulting for local nonprofit organizations.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Technical consulting"
+    title="Discuss a workflow that should run better."
+    text="Connect on LinkedIn with the repeated work, current tools, and outcome you want to improve through AI-driven automation."
+    href={site.social.linkedin}
+    label="Discuss an automation project"
+    external
+  />
+</InnerPageLayout>

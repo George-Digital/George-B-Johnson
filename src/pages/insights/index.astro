@@ -1,0 +1,37 @@
+---
+import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
+import CtaBand from "../../components/CtaBand.astro";
+import { site } from "../../data/site";
+---
+
+<InnerPageLayout
+  title="Insights and Field Notes | George B. Johnson"
+  description="Field notes from George B. Johnson about SEO engineering, AI-assisted operations, and building useful digital systems."
+  canonicalPath="/insights/"
+  eyebrow="Field notes"
+  heading="Insights and field notes"
+  lead="This section will collect George B. Johnson’s writing about SEO engineering, AI-assisted operations, and building useful systems. No articles are published here yet."
+  currentPage="Insights"
+  noindex
+>
+  <section class="page-section section-pad" aria-labelledby="topics-title">
+    <div class="section-label"><span>01</span><span>Topics</span></div>
+    <div class="editorial-split">
+      <h2 id="topics-title">What the field notes will cover.</h2>
+      <div class="entity-list">
+        <article><h3>SEO engineering</h3><p>The systems, constraints, and feedback loops behind search work.</p></article>
+        <article><h3>AI-assisted operations</h3><p>Practical ways to structure AI within digital workflows.</p></article>
+        <article><h3>Building useful systems</h3><p>Lessons from turning domain knowledge into tools and documented practice.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    eyebrow="Builders Lab"
+    title="Continue the discussion on Skool."
+    text="Builders Lab is where George shares deeper discussions about AI systems, SEO operations, AtsKaleSEO, and useful tools."
+    href={site.skoolUrl}
+    label="Join Builders Lab"
+    external
+  />
+</InnerPageLayout>

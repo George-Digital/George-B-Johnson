@@ -1,0 +1,242 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+
+const title = "George B. Johnson | Technical Consultant for AI Automation";
+const description = "George B. Johnson is a technical consultant specializing in AI-driven automation, with supporting expertise in SEO engineering and digital operations.";
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${site.url}/#person`,
+      name: "George B. Johnson",
+      url: `${site.url}/`,
+      image: `${site.url}/images/george-b-johnson.jpg`,
+      jobTitle: site.role,
+      knowsAbout: [site.specialty, "SEO engineering", "Digital operations"],
+      worksFor: {
+        "@type": "Organization",
+        name: "George Digital",
+        url: site.georgeDigitalUrl,
+      },
+      sameAs: [
+        site.social.linkedin,
+        site.social.youtube,
+        site.social.facebook,
+        site.social.x,
+        site.social.wikidata,
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site.url}/#website`,
+      name: "George B. Johnson",
+      url: `${site.url}/`,
+      publisher: { "@id": `${site.url}/#person` },
+    },
+  ],
+};
+---
+
+<BaseLayout {title} {description} canonicalPath="/" {schema}>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="signal-path" aria-hidden="true">
+      <span class="signal-line"></span>
+      <span class="signal-node"></span>
+    </div>
+
+    <div class="hero-copy">
+      <p class="eyebrow"><span>Technical consultant</span><span>AI-driven automation</span></p>
+      <h1 id="hero-title">I engineer systems that make digital work easier to <em>find, run,</em> and improve.</h1>
+      <p class="hero-lead">I’m George B. Johnson, a technical consultant specializing in AI-driven automation, with supporting expertise in SEO engineering and digital operations.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#selected-work">Explore the work <span aria-hidden="true">↓</span></a>
+        <a class="text-link text-link-inverse" href={site.social.linkedin}>Discuss an automation project <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <aside class="hero-profile" aria-label="George B. Johnson profile">
+      <div class="portrait-frame">
+        <img src="/images/george-b-johnson.jpg" width="302" height="403" alt="Portrait of George B. Johnson" />
+        <span class="portrait-index" aria-hidden="true">01 / GBJ</span>
+      </div>
+      <dl class="profile-facts">
+        <div><dt>Role</dt><dd>Technical consultant</dd></div>
+        <div><dt>Specialty</dt><dd>AI-driven automation</dd></div>
+        <div><dt>Competency</dt><dd>SEO engineering</dd></div>
+      </dl>
+    </aside>
+
+    <div class="hero-status" aria-label="Current roles and work">
+      <span>Founder, George Digital</span>
+      <span>Builder, AtsKaleSEO</span>
+      <span>Author</span>
+      <span>Builders Lab</span>
+    </div>
+  </section>
+
+  <section class="intro section-pad" aria-labelledby="intro-title">
+    <div class="section-label" data-reveal>
+      <span>00</span>
+      <span>Operating thesis</span>
+    </div>
+    <div class="intro-grid">
+      <h2 id="intro-title" data-reveal>Good digital work should behave like a well-engineered system.</h2>
+      <div class="intro-copy" data-reveal>
+        <p>Clear inputs. Useful outputs. Feedback that makes the next decision better.</p>
+        <p>That idea connects the companies, tools, writing, and communities I build. Each one turns hard-won knowledge into something people can use.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="consulting-entry section-pad" aria-labelledby="consulting-entry-title">
+    <div class="section-label" data-reveal>
+      <span>01</span>
+      <span>Technical consulting</span>
+    </div>
+    <div class="intro-grid">
+      <h2 id="consulting-entry-title" data-reveal>Bring the workflow that should not still be manual.</h2>
+      <div class="intro-copy" data-reveal>
+        <p>A consulting conversation starts with one process: repeated handoffs, scattered inputs, slow decisions, or work that depends on too much copying and checking.</p>
+        <p>We can map the current workflow, identify where AI-driven automation is useful—and where it is not—and define a practical next system.</p>
+        <a class="button button-dark" href={site.social.linkedin}>Discuss an automation project <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="selected-work" class="work section-pad" aria-labelledby="work-title">
+    <div class="section-label" data-reveal>
+      <span>02</span>
+      <span>Selected systems</span>
+    </div>
+    <div class="work-heading">
+      <h2 id="work-title" data-reveal>Where the work lives.</h2>
+      <p data-reveal>Different expressions of the same practice: understand the system, reduce friction, and build a tighter learning loop.</p>
+    </div>
+
+    <div class="project-index" data-reveal>
+      <article class="project-row">
+        <span class="project-number">01</span>
+        <div class="project-name"><h3>George Digital</h3><span>Company</span></div>
+        <p>SEO delivery and digital operations through the agency I founded in 2013.</p>
+        <a href={site.georgeDigitalUrl} aria-label="Visit George Digital">Visit <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="project-row">
+        <span class="project-number">02</span>
+        <div class="project-name"><h3>AtsKaleSEO</h3><span>System</span></div>
+        <p>A system I’m building at the intersection of AI and SEO operations.</p>
+        <span class="project-status">Active system</span>
+      </article>
+
+      <article class="project-row">
+        <span class="project-number">03</span>
+        <div class="project-name"><h3>Builders Lab</h3><span>Community</span></div>
+        <p>Deeper discussions about AI systems, SEO operations, and building useful tools in public.</p>
+        <a href={site.skoolUrl} aria-label="Join Builders Lab">Join <span aria-hidden="true">↗</span></a>
+      </article>
+
+      <article class="project-row">
+        <span class="project-number">04</span>
+        <div class="project-name"><h3>Books</h3><span>Publishing</span></div>
+        <p>Practical writing from the work, beginning with <cite>The Med Spa Organic Blueprint</cite>.</p>
+        <a href="/my-books/" aria-label="View George B. Johnson’s books">View <span aria-hidden="true">→</span></a>
+      </article>
+
+      <article class="project-row">
+        <span class="project-number">05</span>
+        <div class="project-name"><h3>Community consulting</h3><span>Service</span></div>
+        <p>Discounted technical consulting for local nonprofit organizations.</p>
+        <a href="/community-consulting/" aria-label="View community consulting">Discuss <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+
+    <a class="button button-dark work-all" href="/projects/">See all projects <span aria-hidden="true">→</span></a>
+  </section>
+
+  <section class="method section-pad" aria-labelledby="method-title">
+    <div class="section-label section-label-light" data-reveal>
+      <span>03</span>
+      <span>Operating method</span>
+    </div>
+    <div class="method-grid">
+      <div class="method-sticky">
+        <p class="method-kicker">The loop</p>
+        <h2 id="method-title" data-reveal>Observe.<br />Structure.<br /><em>Improve.</em></h2>
+      </div>
+      <ol class="method-steps">
+        <li data-reveal>
+          <span>01</span>
+          <div><h3>Find the real constraint</h3><p>Start with evidence, not a fashionable tool or a predetermined answer.</p></div>
+        </li>
+        <li data-reveal>
+          <span>02</span>
+          <div><h3>Build the smallest useful loop</h3><p>Connect the minimum inputs, actions, and checks needed to produce a measurable result.</p></div>
+        </li>
+        <li data-reveal>
+          <span>03</span>
+          <div><h3>Measure what changed</h3><p>Use the result to decide what deserves refinement, automation, or removal.</p></div>
+        </li>
+        <li data-reveal>
+          <span>04</span>
+          <div><h3>Document what holds</h3><p>Turn durable lessons into systems, writing, and shared practice.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="about-george" class="about section-pad" aria-labelledby="about-title">
+    <div class="section-label" data-reveal>
+      <span>04</span>
+      <span>About George</span>
+    </div>
+    <div class="about-grid">
+      <div class="about-image" data-reveal>
+        <img src="/images/george-b-johnson.jpg" width="302" height="403" alt="George B. Johnson outdoors" loading="lazy" />
+        <div class="image-caption"><span>George B. Johnson</span><span>Technical consultant / Builder / Author</span></div>
+      </div>
+      <div class="about-copy">
+        <h2 id="about-title" data-reveal>Engineering is how I make sense of search, business, and new technology.</h2>
+        <p data-reveal>I look for the system underneath the surface: where information enters, how decisions get made, and which feedback can improve the next cycle.</p>
+        <p data-reveal>As a technical consultant specializing in AI-driven automation, I connect that systems approach with SEO engineering and digital operations. Since 2013, I’ve also run George Digital.</p>
+        <a class="text-link" href="/about/" data-reveal>More about George <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="field-notes" class="notes section-pad" aria-labelledby="notes-title">
+    <div class="section-label" data-reveal>
+      <span>05</span>
+      <span>Field notes</span>
+    </div>
+    <div class="notes-grid">
+      <div>
+        <h2 id="notes-title" data-reveal>Ideas made useful through documentation.</h2>
+        <p data-reveal>I write about the systems behind the work—not just the finished output.</p>
+      </div>
+      <div class="note-topics" data-reveal>
+        <div class="note-topic"><span>01</span><strong>SEO engineering</strong><span>Topic</span></div>
+        <div class="note-topic"><span>02</span><strong>AI-assisted operations</strong><span>Topic</span></div>
+        <div class="note-topic"><span>03</span><strong>Building useful systems</strong><span>Topic</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="community section-pad" aria-labelledby="community-title">
+    <div class="community-copy" data-reveal>
+      <p class="eyebrow"><span>Builders Lab</span><span>On Skool</span></p>
+      <h2 id="community-title">Go deeper on the systems behind the work.</h2>
+      <p>Builders Lab is where I share deeper discussions from the build-in-public process: AI systems, SEO operations, AtsKaleSEO, and turning domain expertise into useful tools.</p>
+      <a class="button button-primary" href={site.skoolUrl}>Join Builders Lab <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="community-diagram" aria-hidden="true" data-reveal>
+      <span class="diagram-core">BUILD</span>
+      <span class="diagram-node node-one">SEARCH</span>
+      <span class="diagram-node node-two">SYSTEMS</span>
+      <span class="diagram-node node-three">AI</span>
+      <span class="diagram-node node-four">SHARE</span>
+    </div>
+  </section>
+</BaseLayout>
