@@ -1,11 +1,11 @@
-# georgebjohnson.com Cloudflare DNS cutover staging — 2026-07-15
+# georgebjohnson.com Cloudflare DNS cutover — 2026-07-15
 
-## Safety state
+## Initial staging safety state (historical)
 
-This is **staging only**. Public authority was not changed because a complete SiteGround zone export was unavailable and outbound-mail sources have not been confirmed.
+At initial staging, public authority was not changed because a complete SiteGround zone export was unavailable and outbound-mail sources had not been confirmed. This historical state was superseded by the operator authorization and final cutover execution documented below.
 
-- Public nameservers remain `ns1.siteground.net` and `ns2.siteground.net`.
-- No Namecheap `setCustom` call was made.
+- Public nameservers remained `ns1.siteground.net` and `ns2.siteground.net`.
+- No Namecheap `setCustom` call had yet been made.
 - Read-only Namecheap `namecheap.domains.getInfo` returned API status `OK`, provider type `CUSTOM`, and nameservers `ns1.siteground.net` / `ns2.siteground.net`.
 - DNSSEC, registrar lock, and SiteGround were not changed.
 - No SiteGround NS or SOA records were copied into Cloudflare.
@@ -134,9 +134,9 @@ Current SiteGround non-web values are the staged mail/service, MX, Google verifi
 v=spf1 +a +mx +ip4:34.174.193.71  include:georgebjohnson.com.spf.auto.dnssmarthost.net ~all
 ```
 
-## Remaining blockers and cutover gate
+## Pre-authorization blockers and cutover gate (superseded)
 
-Do **not** change Namecheap nameservers yet. Before cutover:
+The original staging gate was as follows; it was superseded by the operator’s explicit residual-risk acceptance below. Before cutover:
 
 1. Obtain a complete SiteGround zone export or equivalent authoritative inventory and reconcile any unknown subdomains, SRV records, verification records, and service records missing from this known-record preflight.
 2. Confirm every legitimate outbound-mail source, especially whether `34.174.41.163`, `34.174.193.71`, the MX hosts, and the dnssmarthost include are all still required.
@@ -144,3 +144,117 @@ Do **not** change Namecheap nameservers yet. Before cutover:
 4. After any future nameserver change, wait for the zone and both Pages domains/certificates to become active, then verify DNS via multiple public resolvers, mail records, apex HTTPS, and the `www` 301 with path/query preservation.
 
 Do not alter DNSSEC, registrar lock, or SiteGround as part of that follow-up unless separately approved.
+
+## Final cutover authorization
+
+- UTC timestamp: `2026-07-15T21:08:34Z`
+- Exact operator risk acceptance: `Proceed with the 13 discovered records`, accepting residual unknown-record risk.
+
+## Final cutover execution and validation
+
+This section supersedes the historical staging-only state and pre-authorization gate above.
+
+### Pre-mutation gate
+
+Immediately after recording the authorization at `2026-07-15T21:08:34Z`, read-only preflight confirmed:
+
+- Cloudflare zone `2c23c29e39dc54a290f59494dd3124cd` was still `pending`, assigned only `nena.ns.cloudflare.com` and `sri.ns.cloudflare.com`, and reported the original nameservers as `ns1.siteground.net` and `ns2.siteground.net`.
+- The Cloudflare DNS API returned exactly the verified 13-record inventory documented above, with both web CNAMEs proxied and all 11 mail/service/verification records DNS-only.
+- Both Pages domains remained attached to project `george-b-johnson`; both were pending before delegation changed.
+- The rollback nameservers and web-only fallback A value `34.174.41.163` were already documented above.
+- Namecheap read-only `namecheap.domains.getInfo` returned API status `OK`, provider type `CUSTOM`, and the two SiteGround nameservers before mutation.
+
+### Registrar mutation
+
+At `2026-07-15T21:09:25Z`, the approved Namecheap command was sent:
+
+```text
+namecheap.domains.dns.setCustom
+SLD=georgebjohnson
+TLD=com
+Nameservers=nena.ns.cloudflare.com,sri.ns.cloudflare.com
+```
+
+Sanitized API response:
+
+```text
+ApiResponse Status=OK
+Errors=[]
+DomainDNSSetCustomResult Domain=georgebjohnson.com Updated=true
+```
+
+Immediate `namecheap.domains.getInfo` readback returned API status `OK`, no errors, provider type `CUSTOM`, and exactly:
+
+```text
+nena.ns.cloudflare.com
+sri.ns.cloudflare.com
+```
+
+During the final registrar readback at approximately `2026-07-15T21:29:48Z`, the same-value `setCustom` request was idempotently reasserted with exactly those two Cloudflare nameservers; it returned `OK` / `Updated=true` and introduced no different registrar value. No other registrar setting was changed. SiteGround hosting and its legacy zone were left intact. DNSSEC was not enabled: the `.com` parent returned no DS record, and the Cloudflare DNSSEC API reported `disabled`.
+
+### Cloudflare and Pages activation window
+
+Polling covered `2026-07-15T21:10:13Z` through a final API check at `2026-07-15T21:32:03Z`:
+
+- The Cloudflare zone changed from `pending` to `active` by `2026-07-15T21:10:46Z` and still had exactly 13 DNS records at the end of the window.
+- Both Pages domain ownership/verification states changed to `active`.
+- `www.georgebjohnson.com` reached full Pages status `active`, verification `active`, and HTTP/certificate validation `active` by `2026-07-15T21:25:05Z`.
+- The apex Pages API remained status `pending` with verification `active`, HTTP validation `pending`, no verification error, and certificate authority `google` at `2026-07-15T21:32:03Z`.
+- Despite that lagging apex Pages API state, direct requests to the newly authoritative Cloudflare edge completed a valid TLS handshake and returned the correct Pages deployment. The served certificate covered `georgebjohnson.com` and `*.georgebjohnson.com`, was issued by Google Trust Services, and was valid during testing. There was no web outage, so the web-only A-record fallback and full nameserver rollback were not used.
+
+### Delegation and DNS propagation observed
+
+The `.com` parent referral and a fresh `dig +trace` returned the current authoritative delegation:
+
+```text
+nena.ns.cloudflare.com
+sri.ns.cloudflare.com
+```
+
+Direct non-recursive queries to both assigned Cloudflare nameservers returned the same authoritative records: Cloudflare web-edge A answers for apex/`www`; the three expected MX records; the adjusted SPF; Google verification; DKIM; DMARC; and `mail`, `ftp`, `autodiscover`, and `autoconfig` at `34.174.41.163`.
+
+At the `2026-07-15T21:28:35Z` public-resolver snapshot, propagation was still mixed:
+
+| Source | NS view | Web/SPF view | Interpretation |
+|---|---|---|---|
+| `.com` parent | Cloudflare | N/A | Current delegation/source of truth |
+| `nena` / `sri` direct | Cloudflare authoritative | Cloudflare edge; adjusted SPF | Current authoritative zone |
+| System resolver | SiteGround | SiteGround A and original SPF | Stale cached delegation |
+| `1.1.1.1` | Cloudflare in the first snapshot, but five immediate samples still returned SiteGround | Apex current while `www` and SPF were stale in that snapshot | Mixed anycast/cache propagation |
+| `8.8.8.8` | Cloudflare in the first snapshot; four of five immediate samples were current and one stale | `www` and SPF current while apex A was stale in that snapshot | Mixed anycast/cache propagation |
+
+A final `2026-07-15T21:32:18Z` snapshot still showed the system resolver on SiteGround; `1.1.1.1` had a stale SiteGround NS/apex view but current Cloudflare `www` and adjusted SPF answers; and `8.8.8.8` returned Cloudflare NS, web-edge A, and adjusted SPF answers throughout that snapshot. The `.com` parent continued to return only the two Cloudflare nameservers.
+
+The differing records from the public resolvers are cached SiteGround answers, not the current parent delegation. Direct queries proved the retained SiteGround zone still answered its prior records, as required for rollback safety, but it was no longer parent-delegated. The old authoritative NS RRset had an 86,400-second TTL and the new parent referral showed 172,800 seconds, so uneven resolver convergence is expected during the residual cache window.
+
+### Live web and mail validation
+
+At `2026-07-15T21:29:14Z`, TLS-valid requests forced to the currently authoritative Cloudflare edge verified:
+
+- Apex HTTP returned `301` to the same HTTPS URL; apex HTTPS returned `200`.
+- Both HTTP and HTTPS `www` requests returned `301` to apex while preserving `/cutover-check/path?one=1&two=two` exactly.
+- `/`, `/about/`, `/projects/`, `/my-books/`, `/insights/`, `/community-consulting/`, `/builders-lab/`, and `/privacy/` each returned `200` HTML.
+- `/robots.txt`, `/sitemap.xml`, and `/images/george-b-johnson-og.jpg` each returned `200` with the expected text, XML, and JPEG content types.
+- The apex robots meta was `index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1`; no apex `noindex` was present. The OG image meta referenced the tested image URL.
+- HTTPS included the deployed CSP, Permissions Policy, Referrer Policy, one-year HSTS, `X-Content-Type-Options: nosniff`, and `X-Frame-Options: SAMEORIGIN` headers.
+- Local `npm run build` completed successfully with all nine static pages generated. No site deployment was needed for the registrar-only cutover.
+
+Email DNS on both Cloudflare authoritative nameservers returned:
+
+- MX priorities `10`, `20`, and `30` for `mx10`, `mx20`, and `mx30.mailspamprotection.com`.
+- The adjusted SPF containing explicit `ip4:34.174.41.163`, `+mx`, `ip4:34.174.193.71`, and the dnssmarthost include.
+- The expected DKIM CNAME and a resolvable downstream DKIM public key.
+- DMARC `v=DMARC1; p=none; aspf=r; adkim=r;`.
+- `mail`, `autodiscover`, and `autoconfig` A records at `34.174.41.163`.
+- All three MX hosts and the downstream SPF/DKIM targets resolved through both `1.1.1.1` and `8.8.8.8`.
+
+### Final status and residual follow-up
+
+The registrar and `.com` parent now delegate to Cloudflare; the Cloudflare zone is active; authoritative web and mail DNS are correct; and apex/`www` HTTP and HTTPS are live on Pages. No rollback was performed.
+
+Residual follow-up:
+
+1. Continue polling until the apex Pages custom-domain API changes from `pending/active/pending` to fully `active`, even though valid HTTPS and correct content are already live at the authoritative edge.
+2. Recheck system, `1.1.1.1`, and `8.8.8.8` after the old SiteGround delegation/record caches expire and confirm consistent Cloudflare NS, web A, and adjusted SPF answers.
+3. Retain SiteGround hosting/zone and the documented rollback values until propagation and a suitable post-cutover observation period complete.
+4. Residual unknown-record risk remains explicitly accepted under the operator’s exact authorization recorded above.
