@@ -1,0 +1,123 @@
+# Decision Rules and Quality Rubric Template
+
+**Copy this resource into your System Pack to capture the judgment, common path, boundaries, and quality standard behind one AI-assisted workflow.**
+
+Use plain language and safe, authorized examples. AI may help organize, draft, or check the work; the named human owner validates rules, resolves exceptions, and approves outputs.
+
+## System and owner
+
+- **System name:**
+- **Specific user:**
+- **Useful output:**
+- **User’s next action:**
+- **Human owner responsible for rules and final review:**
+- **Current version and date:**
+
+## Decision rules
+
+Write rules for the conditions that change the work. A useful rule says what to notice, what action to take, what evidence is needed, and when to stop or escalate.
+
+| Condition or signal | Action the workflow takes | Why this rule exists | Evidence to check | Exception, stop, or escalation | Human owner |
+| --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+|  |  |  |  |  |  |
+
+- **Rule that needs validation against a past example:**
+- **Rule that should not be automated or delegated:**
+- **Known disagreement or judgment call to resolve:**
+
+## Minimum useful SOP
+
+Write the common path only. Keep the steps short, name the artifact produced, and use the decision rules where the path changes.
+
+1. **Start when:**
+2. **Gather these required inputs:**
+3. **Check these fields, sources, or decision rules:**
+4. **Generate or assemble this draft/output:**
+5. **Human review: who checks what:**
+6. **Deliver or hand off to:**
+7. **Record this evidence or update:**
+
+- **Stop or escalate when:**
+- **Common path intentionally covered:**
+- **Workflow step where AI assists:**
+- **Workflow step that requires human judgment:**
+- **Revision made after a test:**
+
+## Inputs and boundaries
+
+### Input contract
+
+- **Required inputs:**
+- **Optional context:**
+- **Authoritative source when information conflicts:**
+- **Expected format or structure:**
+- **Missing input response:**
+- **Data to exclude, anonymize, or handle only with approved access:**
+
+### Constraints
+
+- **The workflow may use these sources:**
+- **The workflow must not invent or assume:**
+- **Required output format or fields:**
+- **Privacy or confidentiality boundary:**
+- **Scope or approval boundary:**
+- **Prohibited claim, recommendation, or decision:**
+
+### Edge cases
+
+| Edge case | Why the normal path does not apply | Response: request, fallback, route, or decline | Human owner or destination |
+| --- | --- | --- | --- |
+| Missing required information |  |  |  |
+| Conflicting or stale source |  |  |  |
+| Sensitive, high-impact, or out-of-scope request |  |  |  |
+| Other |  |  |  |
+
+## Quality rubric
+
+Define what a reviewer can observe in the finished output. Mark any non-negotiable criterion as a gate: failing it means the output cannot proceed even if other criteria are strong.
+
+| Criterion | What a pass looks like | What needs revision | Gate? | Evidence the reviewer checks |
+| --- | --- | --- | --- | --- |
+| Factual grounding |  |  | Yes / No |  |
+| Required elements and completeness |  |  | Yes / No |  |
+| Format and usability |  |  | Yes / No |  |
+| Supports the user’s next action |  |  | Yes / No |  |
+| Scope, privacy, and safety boundary |  |  | Yes / No |  |
+| Domain-specific criterion |  |  | Yes / No |  |
+
+- **Pass rule:**
+- **Revision rule:**
+- **Reject, stop, or escalate rule:**
+- **Human reviewer who makes the final call:**
+
+## Test record
+
+### Test output 1
+
+- **Safe input summary:**
+- **Rubric result by criterion:**
+- **Gate passed or failed:**
+- **What worked:**
+- **What failed or was unclear:**
+- **Revision to the rule, SOP, boundary, or prompt:**
+
+### Test output 2
+
+- **Safe input summary:**
+- **Rubric result by criterion:**
+- **Gate passed or failed:**
+- **What worked:**
+- **What failed or was unclear:**
+- **Revision to the rule, SOP, boundary, or prompt:**
+
+## Ready for critique
+
+- **Artifact shared:**
+- **Who it is for:**
+- **What good should look like:**
+- **Specific decision question for reviewers:**
+- **One limitation I want reviewers to challenge:**

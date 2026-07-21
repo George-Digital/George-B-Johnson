@@ -1,0 +1,25 @@
+{
+  "model": "google:4@1",
+  "referenceImage": "/home/heman1320/GeorgeBJohnson/public/wp-content/uploads/George-B.-Johnson.jpg",
+  "generatedAt": "2026-07-04T03:25:19Z",
+  "cover": {
+    "taskType": "imageInference",
+    "imageUUID": "718acb8e-4c47-4263-b3ef-c6e4aac5c194",
+    "taskUUID": "be66e8da-47fd-41ab-8753-238ee5263317",
+    "seed": 2040851944,
+    "imageURL": "https://im.runware.ai/image/os/a10dlim3/ws/4/ii/718acb8e-4c47-4263-b3ef-c6e4aac5c194.png",
+    "localPath": "/home/heman1320/GeorgeBJohnson/design/skool/runware-raw-cover.png"
+  },
+  "icon": {
+    "taskType": "imageInference",
+    "imageUUID": "87cc639f-e4ea-48e7-85ea-cb930bb8a94d",
+    "taskUUID": "c729f6e8-7f16-41e6-a566-180052130c74",
+    "seed": 321910126,
+    "imageURL": "https://im.runware.ai/image/os/a07dlim3/ws/4/ii/87cc639f-e4ea-48e7-85ea-cb930bb8a94d.png",
+    "localPath": "/home/heman1320/GeorgeBJohnson/design/skool/runware-raw-icon.png"
+  },
+  "finalFiles": {
+    "cover": "/home/heman1320/GeorgeBJohnson/design/skool/builders-lab-skool-cover-1084x576.png",
+    "icon": "/home/heman1320/GeorgeBJohnson/design/skool/builders-lab-skool-icon-128x128.png"
+  }
+}
