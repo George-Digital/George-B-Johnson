@@ -14,6 +14,8 @@ Each update should cover seven fields: what I changed, what I tested, evidence I
 
 When you ask for critique, ask one decision question at a time. You might ask: “Does this checklist let a new coordinator tell whether a request is complete?” Or: “Which of these two output sections should come first for a field technician?” Include the relevant artifact and context. Do not ask members to guess what lives only in your head.
 
+Use the thread for peer critique and for the scheduled critique opportunities announced inside Builders Lab. Posting an update is not a private support ticket and does not guarantee an immediate personal response from me. A clear artifact and decision question make it easier for the right member—or for me during a scheduled review—to give useful feedback.
+
 There is no penalty for reporting a failure. In fact, a failed output is often the most useful update you can share. Say what input you used, what you expected, what happened, and which hypothesis you will test next. Avoid blaming the model as if that ends the investigation. Ask whether the input was incomplete, the instructions were vague, an example was missing, a constraint was not stated, or the task itself needs a human decision.
 
 Make your build log easy to scan. Use dated updates, short headings, and links or pasted excerpts. Remove confidential data. Replace names, addresses, and identifying details with safe placeholders. If you cannot share an artifact publicly in the community, describe the structure and use a sanitized example so the group can still help with the system design.
@@ -22,22 +24,35 @@ I also want you to use the thread to notice your own patterns. After a few updat
 
 The goal is not to impress anyone with speed. The goal is to leave a trail that turns your work into a system you can revisit. Open the thread today, make the first post incomplete on purpose if necessary, and give the community one clear way to help.
 
+## Your Start Here result
+
+After publishing this opening post, you can:
+
+- explain one bounded system using its user, problem, input, output, and next action;
+- show a realistic four-week finish line;
+- keep the System Pack and build log connected;
+- share a safe artifact with enough context for useful critique; and
+- name the next test instead of adding features without evidence.
+
+You now have a scoped build brief and a working record. The system itself is not finished. Week 1 will strengthen the problem and output definition; later weeks will add decision rules, the workflow, quality checks, test evidence, and revisions.
+
 ## Concrete example
 
 A local-service dispatcher creates “Build Log: Emergency-call triage brief for dispatchers.” The first update includes an anonymized call note and a draft brief. After feedback, the dispatcher adds a field for access restrictions because technicians kept arriving without gate instructions. The next update records that change and tests it on two more notes.
 
 ## Action checklist
 
-- Copy the build-log template.
+- Copy the Build Log Thread Template.
 - Create one thread with a clear title.
-- Post my problem, user, output, and four-week finish line.
-- Add or link one safe first artifact.
+- Post the scoped statement and four-week finish line from my System Pack.
+- Link the System Pack or include a safe excerpt that shows the current scope.
+- Add one safe first artifact, or state the date I will share it.
 - Ask one specific decision question.
-- Schedule my first Friday update.
+- Name my next test and schedule my first Friday update.
 
 ## Required deliverable
 
-Publish your build-log thread with the completed opening post and one named next test. Keep all future sprint updates in that same thread.
+Publish your build-log thread with the completed opening post, a safe System Pack link or excerpt, and one named next test. Keep all future sprint updates in that same thread.
 
 ## Community prompt
 

@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+
+  /* Raw color tokens */
+  --ink-950: oklch(0.16 0.014 150);
+  --ink-900: oklch(0.21 0.016 150);
+  --ink-800: oklch(0.29 0.014 150);
+  --ink-650: oklch(0.43 0.012 150);
+  --ink-500: oklch(0.56 0.01 150);
+  --paper-50: oklch(0.975 0.014 85);
+  --paper-100: oklch(0.945 0.018 85);
+  --paper-200: oklch(0.895 0.018 85);
+  --white: oklch(0.995 0.004 85);
+  --bronze-700: oklch(0.50 0.13 60);
+  --bronze-600: oklch(0.59 0.13 60);
+  --bronze-500: oklch(0.66 0.13 60);
+  --signal-600: oklch(0.59 0.13 190);
+  --signal-500: oklch(0.66 0.13 190);
+  --error-600: oklch(0.54 0.18 25);
+
+  /* Semantic color tokens */
+  --text-primary: var(--ink-950);
+  --text-secondary: var(--ink-650);
+  --text-inverse: var(--paper-50);
+  --surface-primary: var(--paper-50);
+  --surface-secondary: var(--paper-100);
+  --surface-inverse: var(--ink-950);
+  --surface-elevated: var(--white);
+  --border-subtle: color-mix(in oklch, var(--ink-950) 14%, transparent);
+  --border-strong: color-mix(in oklch, var(--ink-950) 34%, transparent);
+  --accent-primary: var(--bronze-600);
+  --accent-primary-hover: var(--bronze-700);
+  --accent-secondary: var(--signal-600);
+  --focus-ring: var(--signal-500);
+
+  /* Families */
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Manrope", "Trebuchet MS", sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, monospace;
+
+  /* Weight */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Fluid type scale */
+  --type-display: clamp(3.5rem, 9vw, 8.5rem);
+  --type-h1: clamp(3.1rem, 7.4vw, 7rem);
+  --type-h2: clamp(2.4rem, 5vw, 4.8rem);
+  --type-h3: clamp(1.45rem, 2.2vw, 2.1rem);
+  --type-lead: clamp(1.1rem, 1.8vw, 1.45rem);
+  --type-body: 1rem;
+  --type-small: 0.875rem;
+  --type-label: 0.75rem;
+
+  /* Semantic type */
+  --h1-family: var(--font-display);
+  --h1-size: var(--type-h1);
+  --h1-weight: var(--weight-regular);
+  --h1-leading: 0.91;
+  --h1-tracking: -0.035em;
+  --h2-family: var(--font-display);
+  --h2-size: var(--type-h2);
+  --h2-leading: 0.96;
+  --body-family: var(--font-body);
+  --body-size: var(--type-body);
+  --body-leading: 1.65;
+  --label-family: var(--font-mono);
+  --label-size: var(--type-label);
+  --label-leading: 1.4;
+  --label-tracking: 0.08em;
+
+  /* Space */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6.5rem;
+  --space-10: 9rem;
+
+  /* Shape and depth */
+  --radius-small: 0.25rem;
+  --radius-medium: 0.75rem;
+  --radius-large: 1.5rem;
+  --shadow-float: 0 24px 70px color-mix(in oklch, var(--ink-950) 16%, transparent);
+
+  /* Motion */
+  --duration-fast: 160ms;
+  --duration-base: 320ms;
+  --duration-slow: 780ms;
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-linear: linear;
+}

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-15T18:49:40Z",
+  "generated": "2026-07-22T15:24:56.298974Z",
   "sections": [
     {
       "id": "mockups",
@@ -9,8 +9,26 @@
           "slug": "homepage-seo-redesign",
           "files": [
             {
-              "label": "Homepage SEO redesign",
+              "label": "George B. Johnson | Technical Consultant for AI Automation",
               "path": "mockups/homepage-seo-redesign/index.html"
+            }
+          ]
+        },
+        {
+          "slug": "skool-course-cover-sprint",
+          "files": [
+            {
+              "label": "AI Systems Builder Sprint course cover",
+              "path": "mockups/skool-course-cover-sprint/index.html"
+            }
+          ]
+        },
+        {
+          "slug": "skool-course-upload-dashboard",
+          "files": [
+            {
+              "label": "Builders Lab course upload desk",
+              "path": "mockups/skool-course-upload-dashboard/index.html"
             }
           ]
         }
@@ -32,18 +50,6 @@
               "path": "design-systems/george-personal-brand/SKILL.md"
             },
             {
-              "label": "Color and type tokens",
-              "path": "design-systems/george-personal-brand/tokens/colors_and_type.css"
-            },
-            {
-              "label": "Voice and tone",
-              "path": "design-systems/george-personal-brand/brand/voice-and-tone.md"
-            },
-            {
-              "label": "Style notes",
-              "path": "design-systems/george-personal-brand/brand/style-notes.md"
-            },
-            {
               "label": "George portrait",
               "path": "design-systems/george-personal-brand/assets/imagery/george-b-johnson.jpg"
             },
@@ -54,6 +60,18 @@
             {
               "label": "GeorgeBJohnson.com wordmark",
               "path": "design-systems/george-personal-brand/assets/logos/georgebjohnson-wordmark.png"
+            },
+            {
+              "label": "Style notes",
+              "path": "design-systems/george-personal-brand/brand/style-notes.md"
+            },
+            {
+              "label": "Voice and tone",
+              "path": "design-systems/george-personal-brand/brand/voice-and-tone.md"
+            },
+            {
+              "label": "Color and type tokens",
+              "path": "design-systems/george-personal-brand/tokens/colors_and_type.css"
             }
           ]
         }

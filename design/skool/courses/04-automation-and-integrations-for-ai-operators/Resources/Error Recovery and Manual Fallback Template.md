@@ -14,18 +14,88 @@ Complete it before a live pilot. Keep error records minimal and use secure refer
 - **Human approval boundary:**
 - **Data, access, and credential boundary:**
 
-## Recovery table and output
+## Recovery scenarios and operating rules
 
-| Error category or signal | Impact | First operator action | Retry, timeout, or limit | Stop or manual-fallback condition | Owner or escalation route | Minimal event record |
-| --- | --- | --- | --- | --- | --- | --- |
-| Missing or invalid input |  |  |  |  |  |  |
-| Duplicate or uncertain prior run |  |  |  |  |  |  |
-| Unavailable or stale source |  |  |  |  |  |  |
-| Transformation or quality failure |  |  |  |  |  |  |
-| Review delay or rejection |  |  |  |  |  |  |
-| Delivery or destination failure |  |  |  |  |  |  |
-| Unexpected sensitive or out-of-scope content |  |  |  |  |  |  |
-| Unknown error |  |  |  |  |  |  |
+### Missing or invalid input
+
+- **Error category or signal:** Missing or invalid input
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
+### Duplicate or uncertain prior run
+
+- **Error category or signal:** Duplicate or uncertain prior run
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
+### Unavailable or stale source
+
+- **Error category or signal:** Unavailable or stale source
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
+### Transformation or quality failure
+
+- **Error category or signal:** Transformation or quality failure
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
+### Review delay or rejection
+
+- **Error category or signal:** Review delay or rejection
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
+### Delivery or destination failure
+
+- **Error category or signal:** Delivery or destination failure
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
+### Unexpected sensitive or out-of-scope content
+
+- **Error category or signal:** Unexpected sensitive or out-of-scope content
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
+### Unknown error
+
+- **Error category or signal:** Unknown error
+- **Impact:**
+- **First operator action:**
+- **Retry, timeout, or limit:**
+- **Stop or manual-fallback condition:**
+- **Owner or escalation route:**
+- **Minimal event record:**
+
 
 - **State after retry is exhausted:**
 - **Who may pause the automated path:**
@@ -37,21 +107,19 @@ Use a minimal operator log to make the current case state, recovery work, and ac
 
 ### Required event fields
 
-| Field | Record a safe, operator-useful value |
-| --- | --- |
-| **Event/time** | The event and its time with the applicable time zone or agreed time standard. |
-| **Workflow/case safe ID** | An opaque or approved reference that identifies the workflow version and case without copying sensitive case content. |
-| **State** | The visible state before or after the event, such as validating, waiting for input, ready for review, manually handled, stopped, or completed. |
-| **Trigger** | The approved trigger or event category that started or changed the case. |
-| **Validation result** | Pass, missing, conflicting, stale, duplicate, out of scope, or another bounded result from the input contract. |
-| **Error class** | The matching recovery-table category, or `none` when no error applies. |
-| **Attempt/retry count** | The attempt number, retry count, and whether the retry limit was exhausted. |
-| **Stop/timeout** | The stop condition or timeout state, including `none` when neither occurred. |
-| **Fallback** | Whether the manual fallback was required, its visible state, and the approved procedure reference. |
-| **Human owner** | The current responsible role or approved owner reference; use a role where a personal name is unnecessary. |
-| **Decision** | The documented operating decision. When recording a pilot decision, use only: **continue pilot, launch within scope, revise, narrow, or pause**. Record a case-response action in the fallback field instead. |
-| **Resolution** | The observed outcome, resolution time, and next state; do not label an uncertain action as resolved. |
-| **Safe evidence reference** | A minimal, approved reference to the reviewed record, test result, or incident route; do not copy its contents into the log. |
+- **Event/time:** Record the event and its time with the applicable time zone or agreed time standard.
+- **Workflow/case safe ID:** Use an opaque or approved reference that identifies the workflow version and case without copying sensitive case content.
+- **State:** Record the visible state before or after the event, such as validating, waiting for input, ready for review, manually handled, stopped, or completed.
+- **Trigger:** Record the approved trigger or event category that started or changed the case.
+- **Validation result:** Record pass, missing, conflicting, stale, duplicate, out of scope, or another bounded result from the input contract.
+- **Error class:** Use the matching recovery scenario category, or `none` when no error applies.
+- **Attempt/retry count:** Record the attempt number, retry count, and whether the retry limit was exhausted.
+- **Stop/timeout:** Record the stop condition or timeout state, including `none` when neither occurred.
+- **Fallback:** Record whether the manual fallback was required, its visible state, and the approved procedure reference.
+- **Human owner:** Record the current responsible role or approved owner reference; use a role where a personal name is unnecessary.
+- **Decision:** Record the documented operating decision. For a pilot decision, use only **continue pilot, launch within scope, revise, narrow, or pause**. Record a case-response action in the fallback field instead.
+- **Resolution:** Record the observed outcome, resolution time, and next state; do not label an uncertain action as resolved.
+- **Safe evidence reference:** Use a minimal, approved reference to the reviewed record, test result, or incident route; do not copy its contents into the log.
 
 ### Privacy and redaction rules
 

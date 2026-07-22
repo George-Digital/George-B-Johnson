@@ -17,13 +17,51 @@ Use plain language and safe, authorized examples. AI may help organize, draft, o
 
 Write rules for the conditions that change the work. A useful rule says what to notice, what action to take, what evidence is needed, and when to stop or escalate.
 
-| Condition or signal | Action the workflow takes | Why this rule exists | Evidence to check | Exception, stop, or escalation | Human owner |
-| --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
+### Rule 1 — Short condition or rule name
+
+- **Condition or signal:**
+- **Action the workflow takes:**
+- **Why this rule exists:**
+- **Evidence to check:**
+- **Exception, stop, or escalation:**
+- **Human owner:**
+
+### Rule 2 — Short condition or rule name
+
+- **Condition or signal:**
+- **Action the workflow takes:**
+- **Why this rule exists:**
+- **Evidence to check:**
+- **Exception, stop, or escalation:**
+- **Human owner:**
+
+### Rule 3 — Short condition or rule name
+
+- **Condition or signal:**
+- **Action the workflow takes:**
+- **Why this rule exists:**
+- **Evidence to check:**
+- **Exception, stop, or escalation:**
+- **Human owner:**
+
+### Rule 4 — Short condition or rule name
+
+- **Condition or signal:**
+- **Action the workflow takes:**
+- **Why this rule exists:**
+- **Evidence to check:**
+- **Exception, stop, or escalation:**
+- **Human owner:**
+
+### Rule 5 — Short condition or rule name
+
+- **Condition or signal:**
+- **Action the workflow takes:**
+- **Why this rule exists:**
+- **Evidence to check:**
+- **Exception, stop, or escalation:**
+- **Human owner:**
+
 
 - **Rule that needs validation against a past example:**
 - **Rule that should not be automated or delegated:**
@@ -69,25 +107,87 @@ Write the common path only. Keep the steps short, name the artifact produced, an
 
 ### Edge cases
 
-| Edge case | Why the normal path does not apply | Response: request, fallback, route, or decline | Human owner or destination |
-| --- | --- | --- | --- |
-| Missing required information |  |  |  |
-| Conflicting or stale source |  |  |  |
-| Sensitive, high-impact, or out-of-scope request |  |  |  |
-| Other |  |  |  |
+#### Missing required information
+
+- **Edge case:** Missing required information
+- **Why the normal path does not apply:**
+- **Response: request, fallback, route, or decline:**
+- **Human owner or destination:**
+
+#### Conflicting or stale source
+
+- **Edge case:** Conflicting or stale source
+- **Why the normal path does not apply:**
+- **Response: request, fallback, route, or decline:**
+- **Human owner or destination:**
+
+#### Sensitive, high-impact, or out-of-scope request
+
+- **Edge case:** Sensitive, high-impact, or out-of-scope request
+- **Why the normal path does not apply:**
+- **Response: request, fallback, route, or decline:**
+- **Human owner or destination:**
+
+#### Additional edge case — Name the case
+
+- **Edge case:**
+- **Why the normal path does not apply:**
+- **Response: request, fallback, route, or decline:**
+- **Human owner or destination:**
+
 
 ## Quality rubric
 
 Define what a reviewer can observe in the finished output. Mark any non-negotiable criterion as a gate: failing it means the output cannot proceed even if other criteria are strong.
 
-| Criterion | What a pass looks like | What needs revision | Gate? | Evidence the reviewer checks |
-| --- | --- | --- | --- | --- |
-| Factual grounding |  |  | Yes / No |  |
-| Required elements and completeness |  |  | Yes / No |  |
-| Format and usability |  |  | Yes / No |  |
-| Supports the user’s next action |  |  | Yes / No |  |
-| Scope, privacy, and safety boundary |  |  | Yes / No |  |
-| Domain-specific criterion |  |  | Yes / No |  |
+### Factual grounding
+
+- **Criterion:** Factual grounding
+- **What a pass looks like:**
+- **What needs revision:**
+- **Gate?:** Yes / No
+- **Evidence the reviewer checks:**
+
+### Required elements and completeness
+
+- **Criterion:** Required elements and completeness
+- **What a pass looks like:**
+- **What needs revision:**
+- **Gate?:** Yes / No
+- **Evidence the reviewer checks:**
+
+### Format and usability
+
+- **Criterion:** Format and usability
+- **What a pass looks like:**
+- **What needs revision:**
+- **Gate?:** Yes / No
+- **Evidence the reviewer checks:**
+
+### Supports the user’s next action
+
+- **Criterion:** Supports the user’s next action
+- **What a pass looks like:**
+- **What needs revision:**
+- **Gate?:** Yes / No
+- **Evidence the reviewer checks:**
+
+### Scope, privacy, and safety boundary
+
+- **Criterion:** Scope, privacy, and safety boundary
+- **What a pass looks like:**
+- **What needs revision:**
+- **Gate?:** Yes / No
+- **Evidence the reviewer checks:**
+
+### Domain-specific criterion
+
+- **Criterion:** Domain-specific criterion
+- **What a pass looks like:**
+- **What needs revision:**
+- **Gate?:** Yes / No
+- **Evidence the reviewer checks:**
+
 
 - **Pass rule:**
 - **Revision rule:**

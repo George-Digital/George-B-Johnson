@@ -20,18 +20,96 @@ This review supports accountable operation. It does not certify a system as safe
 
 ## Evidence inventory
 
-| Artifact | Current version or date | Owner | Approved location or secure reference | Review status | Limitation or open item |
-| --- | --- | --- | --- | --- | --- |
-| Evaluation Scope Note |  |  |  |  |  |
-| Evaluation Set and expected behavior |  |  |  |  |  |
-| Output Scoring Rubric and acceptance gates |  |  |  |  |  |
-| Threshold Decision Rule |  |  |  |  |  |
-| Failure and Escalation Log |  |  |  |  |  |
-| Permissions and Data Boundary Map |  |  |  |  |  |
-| Fallback and Recovery Plan |  |  |  |  |  |
-| Review and Decision Ownership Map |  |  |  |  |  |
-| Incident and Change Records |  |  |  |  |  |
-| Evaluation Cadence Plan |  |  |  |  |  |
+### Evaluation Scope Note
+
+- **Artifact:** Evaluation Scope Note
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Evaluation Set and expected behavior
+
+- **Artifact:** Evaluation Set and expected behavior
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Output Scoring Rubric and acceptance gates
+
+- **Artifact:** Output Scoring Rubric and acceptance gates
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Threshold Decision Rule
+
+- **Artifact:** Threshold Decision Rule
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Failure and Escalation Log
+
+- **Artifact:** Failure and Escalation Log
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Permissions and Data Boundary Map
+
+- **Artifact:** Permissions and Data Boundary Map
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Fallback and Recovery Plan
+
+- **Artifact:** Fallback and Recovery Plan
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Review and Decision Ownership Map
+
+- **Artifact:** Review and Decision Ownership Map
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Incident and Change Records
+
+- **Artifact:** Incident and Change Records
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
+### Evaluation Cadence Plan
+
+- **Artifact:** Evaluation Cadence Plan
+- **Current version or date:**
+- **Owner:**
+- **Approved location or secure reference:**
+- **Review status:**
+- **Limitation or open item:**
+
 
 ## Current evaluation summary
 
@@ -47,13 +125,56 @@ This review supports accountable operation. It does not certify a system as safe
 
 ## Fallback and recovery plan
 
-| Critical dependency | Trigger for fallback or pause | Immediate containment | Manual fallback owner and steps | Communication or queue rule | Recovery verification | Retest and reauthorization owner |
-| --- | --- | --- | --- | --- | --- | --- |
-| Approved source or knowledge |  |  |  |  |  |  |
-| AI tool or configuration |  |  |  |  |  |  |
-| Integration or intake path |  |  |  |  |  |  |
-| Reviewer or decision owner availability |  |  |  |  |  |  |
-| Data access or permission concern |  |  |  |  |  |  |
+### Approved source or knowledge
+
+- **Critical dependency:** Approved source or knowledge
+- **Trigger for fallback or pause:**
+- **Immediate containment:**
+- **Manual fallback owner and steps:**
+- **Communication or queue rule:**
+- **Recovery verification:**
+- **Retest and reauthorization owner:**
+
+### AI tool or configuration
+
+- **Critical dependency:** AI tool or configuration
+- **Trigger for fallback or pause:**
+- **Immediate containment:**
+- **Manual fallback owner and steps:**
+- **Communication or queue rule:**
+- **Recovery verification:**
+- **Retest and reauthorization owner:**
+
+### Integration or intake path
+
+- **Critical dependency:** Integration or intake path
+- **Trigger for fallback or pause:**
+- **Immediate containment:**
+- **Manual fallback owner and steps:**
+- **Communication or queue rule:**
+- **Recovery verification:**
+- **Retest and reauthorization owner:**
+
+### Reviewer or decision owner availability
+
+- **Critical dependency:** Reviewer or decision owner availability
+- **Trigger for fallback or pause:**
+- **Immediate containment:**
+- **Manual fallback owner and steps:**
+- **Communication or queue rule:**
+- **Recovery verification:**
+- **Retest and reauthorization owner:**
+
+### Data access or permission concern
+
+- **Critical dependency:** Data access or permission concern
+- **Trigger for fallback or pause:**
+- **Immediate containment:**
+- **Manual fallback owner and steps:**
+- **Communication or queue rule:**
+- **Recovery verification:**
+- **Retest and reauthorization owner:**
+
 
 - **Safe fallback exercise date and result:**
 - **Condition that requires formal reporting or immediate suspension:**

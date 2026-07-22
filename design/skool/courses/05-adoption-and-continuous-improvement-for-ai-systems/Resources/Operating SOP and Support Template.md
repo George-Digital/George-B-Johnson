@@ -17,13 +17,56 @@ Copy this document for the current operating version. It describes the common pa
 - **Privacy and access boundary:**
 - **Manual fallback:**
 
-| Step | Operator action | Required input or source | AI-assisted action, if any | Human check or decision | Record to keep | If incomplete, conflicting, or out of scope |
-| --- | --- | --- | --- | --- | --- | --- |
-| 1 |  |  |  |  |  |  |
-| 2 |  |  |  |  |  |  |
-| 3 |  |  |  |  |  |  |
-| 4 |  |  |  |  |  |  |
-| 5 |  |  |  |  |  |  |
+### Step 1 — Confirm the trigger and inputs
+
+- **Step:** 1
+- **Operator action:**
+- **Required input or source:**
+- **AI-assisted action, if any:**
+- **Human check or decision:**
+- **Record to keep:**
+- **If incomplete, conflicting, or out of scope:**
+
+### Step 2 — Prepare the bounded work
+
+- **Step:** 2
+- **Operator action:**
+- **Required input or source:**
+- **AI-assisted action, if any:**
+- **Human check or decision:**
+- **Record to keep:**
+- **If incomplete, conflicting, or out of scope:**
+
+### Step 3 — Run the assisted action
+
+- **Step:** 3
+- **Operator action:**
+- **Required input or source:**
+- **AI-assisted action, if any:**
+- **Human check or decision:**
+- **Record to keep:**
+- **If incomplete, conflicting, or out of scope:**
+
+### Step 4 — Apply human review
+
+- **Step:** 4
+- **Operator action:**
+- **Required input or source:**
+- **AI-assisted action, if any:**
+- **Human check or decision:**
+- **Record to keep:**
+- **If incomplete, conflicting, or out of scope:**
+
+### Step 5 — Deliver, record, or escalate
+
+- **Step:** 5
+- **Operator action:**
+- **Required input or source:**
+- **AI-assisted action, if any:**
+- **Human check or decision:**
+- **Record to keep:**
+- **If incomplete, conflicting, or out of scope:**
+
 
 ## Review gate
 
@@ -40,13 +83,56 @@ Copy this document for the current operating version. It describes the common pa
 
 ## Support plan
 
-| Issue type | Examples | First contact and channel | Safe evidence to include | Expected review window or event | Manual fallback | Escalate immediately when |
-| --- | --- | --- | --- | --- | --- | --- |
-| Routine how-to or access question |  |  |  |  |  |  |
-| Output quality or missing information |  |  |  |  |  |  |
-| Source conflict or stale reference |  |  |  |  |  |  |
-| Change request |  |  |  |  |  |  |
-| Privacy, safety, authorization, or consequential concern |  |  |  |  |  |  |
+### Routine how-to or access question
+
+- **Issue type:** Routine how-to or access question
+- **Examples:**
+- **First contact and channel:**
+- **Safe evidence to include:**
+- **Expected review window or event:**
+- **Manual fallback:**
+- **Escalate immediately when:**
+
+### Output quality or missing information
+
+- **Issue type:** Output quality or missing information
+- **Examples:**
+- **First contact and channel:**
+- **Safe evidence to include:**
+- **Expected review window or event:**
+- **Manual fallback:**
+- **Escalate immediately when:**
+
+### Source conflict or stale reference
+
+- **Issue type:** Source conflict or stale reference
+- **Examples:**
+- **First contact and channel:**
+- **Safe evidence to include:**
+- **Expected review window or event:**
+- **Manual fallback:**
+- **Escalate immediately when:**
+
+### Change request
+
+- **Issue type:** Change request
+- **Examples:**
+- **First contact and channel:**
+- **Safe evidence to include:**
+- **Expected review window or event:**
+- **Manual fallback:**
+- **Escalate immediately when:**
+
+### Privacy, safety, authorization, or consequential concern
+
+- **Issue type:** Privacy, safety, authorization, or consequential concern
+- **Examples:**
+- **First contact and channel:**
+- **Safe evidence to include:**
+- **Expected review window or event:**
+- **Manual fallback:**
+- **Escalate immediately when:**
+
 
 ## Safe issue record
 

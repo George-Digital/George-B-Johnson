@@ -17,11 +17,51 @@ Follow established organizational reporting for privacy, security, legal, safety
 
 ## Failure, near-miss, and stop-condition entries
 
-| Entry ID | Date and time | Case ID or secure reference | System version | Type: failure, near miss, stop, uncertainty | Safe summary | Expected behavior | Observed behavior | Actual or potential impact | Immediate containment | Escalation owner | Status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |  |  |  |  |  | Open |
-|  |  |  |  |  |  |  |  |  |  |  | Open |
-|  |  |  |  |  |  |  |  |  |  |  | Open |
+### Failure record 1 — Entry ID
+
+- **Entry ID:**
+- **Date and time:**
+- **Case ID or secure reference:**
+- **System version:**
+- **Type: failure, near miss, stop, uncertainty:**
+- **Safe summary:**
+- **Expected behavior:**
+- **Observed behavior:**
+- **Actual or potential impact:**
+- **Immediate containment:**
+- **Escalation owner:**
+- **Status:** Open
+
+### Failure record 2 — Entry ID
+
+- **Entry ID:**
+- **Date and time:**
+- **Case ID or secure reference:**
+- **System version:**
+- **Type: failure, near miss, stop, uncertainty:**
+- **Safe summary:**
+- **Expected behavior:**
+- **Observed behavior:**
+- **Actual or potential impact:**
+- **Immediate containment:**
+- **Escalation owner:**
+- **Status:** Open
+
+### Failure record 3 — Entry ID
+
+- **Entry ID:**
+- **Date and time:**
+- **Case ID or secure reference:**
+- **System version:**
+- **Type: failure, near miss, stop, uncertainty:**
+- **Safe summary:**
+- **Expected behavior:**
+- **Observed behavior:**
+- **Actual or potential impact:**
+- **Immediate containment:**
+- **Escalation owner:**
+- **Status:** Open
+
 
 ## Investigation and disposition record
 
@@ -45,15 +85,76 @@ Complete this section for each entry that requires investigation.
 
 ## Escalation and stop-condition map
 
-| Recognizable signal | Immediate operator action | Destination or owner | Urgency | Safe evidence required | May the normal workflow continue? | Final decision authority |
-| --- | --- | --- | --- | --- | --- |
-| Missing critical input |  |  |  |  | No / conditional |
-| Conflicting authoritative source |  |  |  |  | No / conditional |
-| Restricted or unauthorized data concern |  |  |  |  | No |
-| Failed critical acceptance gate |  |  |  |  | No |
-| High-impact or out-of-scope request |  |  |  |  | No |
-| Unavailable tool, source, or reviewer |  |  |  |  | No / fallback |
-| Other |  |  |  |  |  |
+### Missing critical input
+
+- **Recognizable signal:** Missing critical input
+- **Immediate operator action:**
+- **Destination or owner:**
+- **Urgency:**
+- **Safe evidence required:**
+- **May the normal workflow continue?:** No / conditional
+- **Final decision authority:**
+
+### Conflicting authoritative source
+
+- **Recognizable signal:** Conflicting authoritative source
+- **Immediate operator action:**
+- **Destination or owner:**
+- **Urgency:**
+- **Safe evidence required:**
+- **May the normal workflow continue?:** No / conditional
+- **Final decision authority:**
+
+### Restricted or unauthorized data concern
+
+- **Recognizable signal:** Restricted or unauthorized data concern
+- **Immediate operator action:**
+- **Destination or owner:**
+- **Urgency:**
+- **Safe evidence required:**
+- **May the normal workflow continue?:** No
+- **Final decision authority:**
+
+### Failed critical acceptance gate
+
+- **Recognizable signal:** Failed critical acceptance gate
+- **Immediate operator action:**
+- **Destination or owner:**
+- **Urgency:**
+- **Safe evidence required:**
+- **May the normal workflow continue?:** No
+- **Final decision authority:**
+
+### High-impact or out-of-scope request
+
+- **Recognizable signal:** High-impact or out-of-scope request
+- **Immediate operator action:**
+- **Destination or owner:**
+- **Urgency:**
+- **Safe evidence required:**
+- **May the normal workflow continue?:** No
+- **Final decision authority:**
+
+### Unavailable tool, source, or reviewer
+
+- **Recognizable signal:** Unavailable tool, source, or reviewer
+- **Immediate operator action:**
+- **Destination or owner:**
+- **Urgency:**
+- **Safe evidence required:**
+- **May the normal workflow continue?:** No / fallback
+- **Final decision authority:**
+
+### Additional stop condition — Recognizable signal
+
+- **Recognizable signal:**
+- **Immediate operator action:**
+- **Destination or owner:**
+- **Urgency:**
+- **Safe evidence required:**
+- **May the normal workflow continue?:**
+- **Final decision authority:**
+
 
 ## Pattern review
 

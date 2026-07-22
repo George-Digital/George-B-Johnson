@@ -30,16 +30,17 @@ A recruiting coordinator sees hiring managers send vague interview feedback. A n
 
 ## Action checklist
 
-- List three repeated pains I see in my work.
-- Circle the one with accessible inputs and a reviewable output.
+- Review the three candidate problems in my System Pack.
+- Choose the one with accessible inputs and a reviewable output.
 - Name one user, not a whole market.
 - Write the input-to-output sentence.
 - Draft a four-week finish line with evidence I can collect.
+- Save the sentence and finish line in my System Pack for the build-log opening post.
 
 ## Required deliverable
 
-Post this completed statement in your build log: **“For [one user], this system turns [input/problem] into [output], so they can [next step]. In four weeks, I will show [specific evidence].”**
+Save this completed statement in your System Pack: **“For [one user], this system turns [input/problem] into [output], so they can [next step]. In four weeks, I will show [specific evidence].”** You will publish it when you create your build-log thread in the next lesson.
 
 ## Community prompt
 
-Share your sentence. What is the smallest output that would be useful before you add features, automations, or a broader audience?
+If you share your draft sentence in the lesson discussion, what is the smallest useful output you can name before adding features, automations, or a broader audience? Save the final version for your build-log opening post.

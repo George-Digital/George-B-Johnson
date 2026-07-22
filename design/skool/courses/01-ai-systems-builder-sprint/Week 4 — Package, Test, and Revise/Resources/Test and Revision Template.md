@@ -27,30 +27,23 @@ Keep real information only in approved locations. Use anonymized or authorized m
 - **Test date and planned operator:**
 - **Human-review step before any use or handoff:**
 
-## Safe test inputs
+## Test records
 
-| Test | Safe input summary and authorization | Case type | Expected route or behavior | Data excluded or anonymized | Secure source or output reference |
-| --- | --- | --- | --- | --- | --- |
-| 1 |  | Complete common path |  |  |  |
-| 2 |  | Missing, ambiguous, or incomplete input |  |  |  |
-| 3 |  | Conflict, edge case, or out-of-scope request |  |  |  |
+Use one record for each planned case so its input, observed outcome, and rubric evidence stay together.
 
-- **Why these cases are realistic enough to test the workflow:**
-- **Reason a test must be paused or replaced with a synthetic case:**
+- **Why these three cases are realistic enough to test the workflow:**
+- **Reason any test must be paused or replaced with a synthetic case:**
 
-## Observed outcomes
+### Test 1 — Complete common path
 
-### Test 1
+#### Safe input and expected behavior
 
-- **Run date and version tested:**
-- **What the operator did, including any undocumented intervention:**
-- **Observed draft or workflow behavior:**
-- **Human reviewer’s decision:** pass / revise / stop / escalate
-- **What worked:**
-- **What failed, was unclear, or required human correction:**
-- **Safe output excerpt or secure reference:**
+- **Safe input summary and authorization:**
+- **Expected route or behavior:**
+- **Data excluded or anonymized:**
+- **Secure source or output reference:**
 
-### Test 2
+#### Observed outcome
 
 - **Run date and version tested:**
 - **What the operator did, including any undocumented intervention:**
@@ -60,7 +53,31 @@ Keep real information only in approved locations. Use anonymized or authorized m
 - **What failed, was unclear, or required human correction:**
 - **Safe output excerpt or secure reference:**
 
-### Test 3
+#### Rubric evidence
+
+- **Factual grounding — evidence checked:**
+- **Factual grounding — result:** pass / revise / fail
+- **Factual grounding — gate passed?:**
+- **Factual grounding — reviewer note:**
+- **Required elements and usability — evidence checked:**
+- **Required elements and usability — result:** pass / revise / fail
+- **Required elements and usability — gate passed?:**
+- **Required elements and usability — reviewer note:**
+- **Scope, privacy, and human-review boundary — evidence checked:**
+- **Scope, privacy, and human-review boundary — result:** pass / revise / fail
+- **Scope, privacy, and human-review boundary — gate passed?:**
+- **Scope, privacy, and human-review boundary — reviewer note:**
+
+### Test 2 — Missing, ambiguous, or incomplete input
+
+#### Safe input and expected behavior
+
+- **Safe input summary and authorization:**
+- **Expected route or behavior:**
+- **Data excluded or anonymized:**
+- **Secure source or output reference:**
+
+#### Observed outcome
 
 - **Run date and version tested:**
 - **What the operator did, including any undocumented intervention:**
@@ -70,19 +87,54 @@ Keep real information only in approved locations. Use anonymized or authorized m
 - **What failed, was unclear, or required human correction:**
 - **Safe output excerpt or secure reference:**
 
-## Rubric results
+#### Rubric evidence
 
-| Test | Criterion | Evidence checked | Result: pass / revise / fail | Gate passed? | Reviewer note |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Factual grounding |  |  |  |  |
-| 1 | Required elements and usability |  |  |  |  |
-| 1 | Scope, privacy, and human-review boundary |  |  |  |  |
-| 2 | Factual grounding |  |  |  |  |
-| 2 | Required elements and usability |  |  |  |  |
-| 2 | Scope, privacy, and human-review boundary |  |  |  |  |
-| 3 | Factual grounding |  |  |  |  |
-| 3 | Required elements and usability |  |  |  |  |
-| 3 | Scope, privacy, and human-review boundary |  |  |  |  |
+- **Factual grounding — evidence checked:**
+- **Factual grounding — result:** pass / revise / fail
+- **Factual grounding — gate passed?:**
+- **Factual grounding — reviewer note:**
+- **Required elements and usability — evidence checked:**
+- **Required elements and usability — result:** pass / revise / fail
+- **Required elements and usability — gate passed?:**
+- **Required elements and usability — reviewer note:**
+- **Scope, privacy, and human-review boundary — evidence checked:**
+- **Scope, privacy, and human-review boundary — result:** pass / revise / fail
+- **Scope, privacy, and human-review boundary — gate passed?:**
+- **Scope, privacy, and human-review boundary — reviewer note:**
+
+### Test 3 — Conflict, edge case, or out-of-scope request
+
+#### Safe input and expected behavior
+
+- **Safe input summary and authorization:**
+- **Expected route or behavior:**
+- **Data excluded or anonymized:**
+- **Secure source or output reference:**
+
+#### Observed outcome
+
+- **Run date and version tested:**
+- **What the operator did, including any undocumented intervention:**
+- **Observed draft or workflow behavior:**
+- **Human reviewer’s decision:** pass / revise / stop / escalate
+- **What worked:**
+- **What failed, was unclear, or required human correction:**
+- **Safe output excerpt or secure reference:**
+
+#### Rubric evidence
+
+- **Factual grounding — evidence checked:**
+- **Factual grounding — result:** pass / revise / fail
+- **Factual grounding — gate passed?:**
+- **Factual grounding — reviewer note:**
+- **Required elements and usability — evidence checked:**
+- **Required elements and usability — result:** pass / revise / fail
+- **Required elements and usability — gate passed?:**
+- **Required elements and usability — reviewer note:**
+- **Scope, privacy, and human-review boundary — evidence checked:**
+- **Scope, privacy, and human-review boundary — result:** pass / revise / fail
+- **Scope, privacy, and human-review boundary — gate passed?:**
+- **Scope, privacy, and human-review boundary — reviewer note:**
 
 - **Overall result and why:**
 - **Gate failure, stop condition, or escalation record:**
@@ -101,11 +153,36 @@ Keep real information only in approved locations. Use anonymized or authorized m
 
 ## Revision decisions
 
-| Finding or evidence | Decision: revise / defer / narrow / stop | Component changed or retained | Exact change and reason | Version after change | Retest case and date | Result after retest |
-| --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |
+### Revision decision 1 — Short finding or change
+
+- **Finding or evidence:**
+- **Decision: revise / defer / narrow / stop:**
+- **Component changed or retained:**
+- **Exact change and reason:**
+- **Version after change:**
+- **Retest case and date:**
+- **Result after retest:**
+
+### Revision decision 2 — Short finding or change
+
+- **Finding or evidence:**
+- **Decision: revise / defer / narrow / stop:**
+- **Component changed or retained:**
+- **Exact change and reason:**
+- **Version after change:**
+- **Retest case and date:**
+- **Result after retest:**
+
+### Revision decision 3 — Short finding or change
+
+- **Finding or evidence:**
+- **Decision: revise / defer / narrow / stop:**
+- **Component changed or retained:**
+- **Exact change and reason:**
+- **Version after change:**
+- **Retest case and date:**
+- **Result after retest:**
+
 
 - **Prior version or secure evidence reference preserved at:**
 - **Change not made and why:**

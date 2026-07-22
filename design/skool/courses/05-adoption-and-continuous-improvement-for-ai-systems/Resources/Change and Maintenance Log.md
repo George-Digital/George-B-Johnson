@@ -14,24 +14,134 @@ Use this log to connect the current system with the evidence, approvals, tests, 
 
 ## Change log
 
-| Date | Change category | What changed | Why it changed | Safe evidence reference | Affected users or workflow step | Approval required and received | Test or review required | Rollback, fallback, or pause action | User communication | Owner | Status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  | routine / material / stop-level |  |  |  |  |  |  |  |  |  | proposed / tested / current / reverted |
-|  |  |  |  |  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |  |  |  |  |
+### Change record 1 — Short change name
+
+- **Date:**
+- **Change category:** routine / material / stop-level
+- **What changed:**
+- **Why it changed:**
+- **Safe evidence reference:**
+- **Affected users or workflow step:**
+- **Approval required and received:**
+- **Test or review required:**
+- **Rollback, fallback, or pause action:**
+- **User communication:**
+- **Owner:**
+- **Status:** proposed / tested / current / reverted
+
+### Change record 2 — Short change name
+
+- **Date:**
+- **Change category:**
+- **What changed:**
+- **Why it changed:**
+- **Safe evidence reference:**
+- **Affected users or workflow step:**
+- **Approval required and received:**
+- **Test or review required:**
+- **Rollback, fallback, or pause action:**
+- **User communication:**
+- **Owner:**
+- **Status:**
+
+### Change record 3 — Short change name
+
+- **Date:**
+- **Change category:**
+- **What changed:**
+- **Why it changed:**
+- **Safe evidence reference:**
+- **Affected users or workflow step:**
+- **Approval required and received:**
+- **Test or review required:**
+- **Rollback, fallback, or pause action:**
+- **User communication:**
+- **Owner:**
+- **Status:**
+
 
 ## Maintenance register
 
-| Maintenance area | What to check | Accountable owner | Cadence or event trigger | Current source or evidence location | Result | Next action or escalation |
-| --- | --- | --- | --- | --- | --- | --- |
-| Current instructions and system home |  |  |  |  |  |  |
-| Source or policy currency |  |  |  |  |  |  |
-| Input form or data changes |  |  |  |  |  |  |
-| Output quality and reviewer patterns |  |  |  |  |  |  |
-| Privacy and access boundary |  |  |  |  |  |  |
-| Tool, model, or connector dependency |  |  |  |  |  |  |
-| Support and fallback patterns |  |  |  |  |  |  |
-| Ownership and backup coverage |  |  |  |  |  |  |
+### Current instructions and system home
+
+- **Maintenance area:** Current instructions and system home
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
+### Source or policy currency
+
+- **Maintenance area:** Source or policy currency
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
+### Input form or data changes
+
+- **Maintenance area:** Input form or data changes
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
+### Output quality and reviewer patterns
+
+- **Maintenance area:** Output quality and reviewer patterns
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
+### Privacy and access boundary
+
+- **Maintenance area:** Privacy and access boundary
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
+### Tool, model, or connector dependency
+
+- **Maintenance area:** Tool, model, or connector dependency
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
+### Support and fallback patterns
+
+- **Maintenance area:** Support and fallback patterns
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
+### Ownership and backup coverage
+
+- **Maintenance area:** Ownership and backup coverage
+- **What to check:**
+- **Accountable owner:**
+- **Cadence or event trigger:**
+- **Current source or evidence location:**
+- **Result:**
+- **Next action or escalation:**
+
 
 ## Material-change release record
 

@@ -8,18 +8,76 @@ Use safe, authorized descriptions and secure references. A high score does not o
 
 Use this before connecting a recurring workflow. Gather three recent safe or sanitized cases, the manual baseline map, the current input and output definition, the named business and review owners, and the approved data boundary.
 
-| Readiness area | Evidence to inspect | Score: 0 absent, 1 partial, 2 established | Notes or secure reference |
-| --- | --- | --- | --- |
-| Repetition | The task occurs often enough to observe a common path. |  |  |
-| Stable step | The proposed step has a clear start, end, input, and output. |  |  |
-| Input quality | Required inputs and source authority are known. |  |  |
-| Output quality | A reviewer can inspect the required output against clear criteria. |  |  |
-| Variation boundary | Common-path, exception, and out-of-scope cases are named. |  |  |
-| Human authority | Reviewer and consequential-decision owner are named. |  |  |
-| Data and access | Approved data, minimum access, and credential owner are known. |  |  |
-| Recovery | Manual fallback, stop conditions, and escalation route are documented. |  |  |
-| Ownership | Operator, business, source, maintenance, and change owners are named. |  |  |
-| Pilot measurement | Baseline measures and a limited pilot scope are defined. |  |  |
+### Repetition
+
+- **Readiness area:** Repetition
+- **Evidence to inspect:** The task occurs often enough to observe a common path.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Stable step
+
+- **Readiness area:** Stable step
+- **Evidence to inspect:** The proposed step has a clear start, end, input, and output.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Input quality
+
+- **Readiness area:** Input quality
+- **Evidence to inspect:** Required inputs and source authority are known.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Output quality
+
+- **Readiness area:** Output quality
+- **Evidence to inspect:** A reviewer can inspect the required output against clear criteria.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Variation boundary
+
+- **Readiness area:** Variation boundary
+- **Evidence to inspect:** Common-path, exception, and out-of-scope cases are named.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Human authority
+
+- **Readiness area:** Human authority
+- **Evidence to inspect:** Reviewer and consequential-decision owner are named.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Data and access
+
+- **Readiness area:** Data and access
+- **Evidence to inspect:** Approved data, minimum access, and credential owner are known.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Recovery
+
+- **Readiness area:** Recovery
+- **Evidence to inspect:** Manual fallback, stop conditions, and escalation route are documented.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Ownership
+
+- **Readiness area:** Ownership
+- **Evidence to inspect:** Operator, business, source, maintenance, and change owners are named.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
+### Pilot measurement
+
+- **Readiness area:** Pilot measurement
+- **Evidence to inspect:** Baseline measures and a limited pilot scope are defined.
+- **Score: 0 absent, 1 partial, 2 established:**
+- **Notes or secure reference:**
+
 
 - **Total score:**
 - **Non-negotiable blocker present:** yes / no

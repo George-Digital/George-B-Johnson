@@ -18,17 +18,60 @@ Copy it for one bounded step. Keep real records in approved locations and use on
 
 ## Contract fields and output
 
-| Contract element | Definition for this workflow | Behavior when absent, invalid, conflicting, or unauthorized |
-| --- | --- | --- |
-| Required input |  |  |
-| Optional context |  |  |
-| Authoritative source |  |  |
-| Transformation allowed |  |  |
-| Required output fields |  |  |
-| Output format and destination |  |  |
-| Unknown or unsupported information label |  |  |
-| Prohibited claim, recommendation, decision, or action |  |  |
-| Case reference and state update |  |  |
+### Required input
+
+- **Contract element:** Required input
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Optional context
+
+- **Contract element:** Optional context
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Authoritative source
+
+- **Contract element:** Authoritative source
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Transformation allowed
+
+- **Contract element:** Transformation allowed
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Required output fields
+
+- **Contract element:** Required output fields
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Output format and destination
+
+- **Contract element:** Output format and destination
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Unknown or unsupported information label
+
+- **Contract element:** Unknown or unsupported information label
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Prohibited claim, recommendation, decision, or action
+
+- **Contract element:** Prohibited claim, recommendation, decision, or action
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
+### Case reference and state update
+
+- **Contract element:** Case reference and state update
+- **Definition for this workflow:**
+- **Behavior when absent, invalid, conflicting, or unauthorized:**
+
 
 - **Output name:**
 - **Pass criteria before review:**

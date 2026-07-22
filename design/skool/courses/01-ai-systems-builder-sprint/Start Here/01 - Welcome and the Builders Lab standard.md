@@ -22,7 +22,20 @@ I will share examples from my own work when they help explain a decision, includ
 
 One way I judge the work here is simple: can I see the receipt? The receipt may be an annotated output, a checklist with a failed item, a note from a test, or a revision in your build log. It does not need to be flattering. It needs to let another person understand what you tried and why you changed your mind. That is how a group becomes useful instead of merely encouraging.
 
-Your first win is participation. Before you watch more lessons, choose one build, open a build-log thread, and state a finish line. Narrow and usable beats impressive and unfinished. Let’s start there.
+Complete the next two Start Here lessons before you publish your build target. **Choose your first build** will help you narrow the user, problem, output, and finish line. **Create your build-log thread** will give that work one visible home. Your first win is not committing quickly; it is leaving Start Here with a scope you can explain and a record you can keep using.
+
+## What you will have after Start Here
+
+By the end of Start Here, you will be able to turn a broad AI idea into a provisional sprint plan. You will have:
+
+- one defined user, repeated problem, input, useful output, and next action;
+- a narrow four-week finish line;
+- a System Pack workspace ready to hold the later artifacts;
+- one build-log thread containing your opening post;
+- one safe first artifact or a date for sharing it; and
+- one named next test and one specific critique question.
+
+This is the starting package, not a completed AI system. Weeks 1–4 will help you validate the problem, extract decision rules, create the workflow, test outputs, and revise the System Pack from evidence.
 
 ## Concrete example
 
@@ -31,15 +44,15 @@ A property manager repeatedly receives incomplete maintenance requests. A first 
 ## Action checklist
 
 - Name one domain where I have firsthand judgment.
-- Create a copy of the System Pack template.
-- Commit to one small system rather than a broad transformation.
-- Decide what artifact I can show this week.
-- Read the feedback standard before asking for critique.
+- List three repeated situations in that domain that create delay, rework, errors, or uncertainty.
+- Create a blank copy of the System Pack template without trying to complete its later sections yet.
+- Read the artifact-based feedback standard in this lesson.
+- Continue to **Choose your first build** before publishing a build target.
 
 ## Required deliverable
 
-Create a System Pack workspace and post a one-sentence build target: **“For [user], I am improving [repeated problem] by producing [useful output].”**
+Create your System Pack workspace and add three candidate repeated problems from one domain. You will choose and scope one of them in the next lesson.
 
 ## Community prompt
 
-What domain do you know unusually well, and what repeated problem do people ask you to help solve? Reply with your one-sentence build target and one artifact you can show this week.
+What domain do you know unusually well, and which repeated situation are you considering improving? Share the situation without committing to a final build yet.

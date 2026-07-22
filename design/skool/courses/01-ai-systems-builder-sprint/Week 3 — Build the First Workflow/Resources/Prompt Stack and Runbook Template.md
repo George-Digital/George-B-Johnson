@@ -94,12 +94,34 @@ Copy this template for one bounded AI-assisted workflow. Use safe, authorized in
 
 ## Edge cases
 
-| Edge case or signal | Response: request, fallback, route, or decline | Evidence to preserve | Human owner or destination |
-| --- | --- | --- | --- |
-| Missing required information |  |  |  |
-| Conflicting or stale source |  |  |  |
-| Sensitive or out-of-scope request |  |  |  |
-| Other |  |  |  |
+### Missing required information
+
+- **Edge case or signal:** Missing required information
+- **Response: request, fallback, route, or decline:**
+- **Evidence to preserve:**
+- **Human owner or destination:**
+
+### Conflicting or stale source
+
+- **Edge case or signal:** Conflicting or stale source
+- **Response: request, fallback, route, or decline:**
+- **Evidence to preserve:**
+- **Human owner or destination:**
+
+### Sensitive or out-of-scope request
+
+- **Edge case or signal:** Sensitive or out-of-scope request
+- **Response: request, fallback, route, or decline:**
+- **Evidence to preserve:**
+- **Human owner or destination:**
+
+### Additional edge case — Name the case
+
+- **Edge case or signal:**
+- **Response: request, fallback, route, or decline:**
+- **Evidence to preserve:**
+- **Human owner or destination:**
+
 
 ## Human review
 
@@ -126,16 +148,65 @@ Copy this template for one bounded AI-assisted workflow. Use safe, authorized in
 
 ## Test log
 
-| Test date | Prompt-stack and runbook version | Safe input summary or reference | Output reference | Rubric result | Reviewer | What failed or was unclear | Next revision or test |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
+### Test run 1 — Case or scenario
+
+- **Test date:**
+- **Prompt-stack and runbook version:**
+- **Safe input summary or reference:**
+- **Output reference:**
+- **Rubric result:**
+- **Reviewer:**
+- **What failed or was unclear:**
+- **Next revision or test:**
+
+### Test run 2 — Case or scenario
+
+- **Test date:**
+- **Prompt-stack and runbook version:**
+- **Safe input summary or reference:**
+- **Output reference:**
+- **Rubric result:**
+- **Reviewer:**
+- **What failed or was unclear:**
+- **Next revision or test:**
+
+### Test run 3 — Case or scenario
+
+- **Test date:**
+- **Prompt-stack and runbook version:**
+- **Safe input summary or reference:**
+- **Output reference:**
+- **Rubric result:**
+- **Reviewer:**
+- **What failed or was unclear:**
+- **Next revision or test:**
+
 
 ## Revision history
 
-| Date | Version | What changed | Why it changed | Evidence or test that prompted it | Owner |
-| --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
-|  |  |  |  |  |  |
+### Revision 1 — Version or short change
+
+- **Date:**
+- **Version:**
+- **What changed:**
+- **Why it changed:**
+- **Evidence or test that prompted it:**
+- **Owner:**
+
+### Revision 2 — Version or short change
+
+- **Date:**
+- **Version:**
+- **What changed:**
+- **Why it changed:**
+- **Evidence or test that prompted it:**
+- **Owner:**
+
+### Revision 3 — Version or short change
+
+- **Date:**
+- **Version:**
+- **What changed:**
+- **Why it changed:**
+- **Evidence or test that prompted it:**
+- **Owner:**

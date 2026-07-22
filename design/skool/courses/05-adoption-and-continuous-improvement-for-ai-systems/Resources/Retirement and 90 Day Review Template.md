@@ -15,23 +15,89 @@ Use this template at the end of a pilot or a defined operating period. The goal 
 
 ## 30-day stabilization review
 
-| Question | Evidence or approved reference | Finding | Owner | Decision or next action |
-| --- | --- | --- | --- | --- |
-| Can users find and follow the current onboarding and SOP? |  |  |  |  |
-| Are early quality checks and human review working? |  |  |  |  |
-| Are support, fallback, and escalation routes understood? |  |  |  |  |
-| Did a source, permission, or dependency change affect use? |  |  |  |  |
-| What bounded correction needs a safe retest? |  |  |  |  |
+### Can users find and follow the current onboarding and SOP?
+
+- **Question:** Can users find and follow the current onboarding and SOP?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### Are early quality checks and human review working?
+
+- **Question:** Are early quality checks and human review working?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### Are support, fallback, and escalation routes understood?
+
+- **Question:** Are support, fallback, and escalation routes understood?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### Did a source, permission, or dependency change affect use?
+
+- **Question:** Did a source, permission, or dependency change affect use?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### What bounded correction needs a safe retest?
+
+- **Question:** What bounded correction needs a safe retest?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
 
 ## 60-day adoption and maintenance review
 
-| Question | Evidence or approved reference | Finding | Owner | Decision or next action |
-| --- | --- | --- | --- | --- |
-| Is use occurring in the intended cases? |  |  |  |  |
-| What do quality reviews and manual fallbacks show? |  |  |  |  |
-| Is reviewer or user burden acceptable for the stated purpose? |  |  |  |  |
-| Are source, support, and maintenance owners meeting their responsibilities? |  |  |  |  |
-| Does scope need to remain, narrow, or change through another bounded pilot? |  |  |  |  |
+### Is use occurring in the intended cases?
+
+- **Question:** Is use occurring in the intended cases?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### What do quality reviews and manual fallbacks show?
+
+- **Question:** What do quality reviews and manual fallbacks show?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### Is reviewer or user burden acceptable for the stated purpose?
+
+- **Question:** Is reviewer or user burden acceptable for the stated purpose?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### Are source, support, and maintenance owners meeting their responsibilities?
+
+- **Question:** Are source, support, and maintenance owners meeting their responsibilities?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
+### Does scope need to remain, narrow, or change through another bounded pilot?
+
+- **Question:** Does scope need to remain, narrow, or change through another bounded pilot?
+- **Evidence or approved reference:**
+- **Finding:**
+- **Owner:**
+- **Decision or next action:**
+
 
 ## 90-day operating decision
 
@@ -47,13 +113,61 @@ Use this template at the end of a pilot or a defined operating period. The goal 
 
 ## Pause and retirement record
 
-| Trigger | Immediate action | Affected scope | Manual fallback | Investigation owner | Resumption evidence and authority | Communication | Access, record, or retirement action |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Source or dependency change |  |  |  |  |  |  |  |
-| Critical quality failure |  |  |  |  |  |  |  |
-| Privacy, access, authorization, or consequential-boundary concern |  |  |  |  |  |  |  |
-| Missing ownership or review capacity |  |  |  |  |  |  |  |
-| Sustained poor fit or replacement process |  |  |  |  |  |  |  |
+### Source or dependency change
+
+- **Trigger:** Source or dependency change
+- **Immediate action:**
+- **Affected scope:**
+- **Manual fallback:**
+- **Investigation owner:**
+- **Resumption evidence and authority:**
+- **Communication:**
+- **Access, record, or retirement action:**
+
+### Critical quality failure
+
+- **Trigger:** Critical quality failure
+- **Immediate action:**
+- **Affected scope:**
+- **Manual fallback:**
+- **Investigation owner:**
+- **Resumption evidence and authority:**
+- **Communication:**
+- **Access, record, or retirement action:**
+
+### Privacy, access, authorization, or consequential-boundary concern
+
+- **Trigger:** Privacy, access, authorization, or consequential-boundary concern
+- **Immediate action:**
+- **Affected scope:**
+- **Manual fallback:**
+- **Investigation owner:**
+- **Resumption evidence and authority:**
+- **Communication:**
+- **Access, record, or retirement action:**
+
+### Missing ownership or review capacity
+
+- **Trigger:** Missing ownership or review capacity
+- **Immediate action:**
+- **Affected scope:**
+- **Manual fallback:**
+- **Investigation owner:**
+- **Resumption evidence and authority:**
+- **Communication:**
+- **Access, record, or retirement action:**
+
+### Sustained poor fit or replacement process
+
+- **Trigger:** Sustained poor fit or replacement process
+- **Immediate action:**
+- **Affected scope:**
+- **Manual fallback:**
+- **Investigation owner:**
+- **Resumption evidence and authority:**
+- **Communication:**
+- **Access, record, or retirement action:**
+
 
 ## Retirement closeout
 

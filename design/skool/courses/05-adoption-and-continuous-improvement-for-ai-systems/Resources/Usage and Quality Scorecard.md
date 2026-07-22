@@ -16,33 +16,156 @@ Use a small scorecard that helps an owner decide whether the current operating p
 
 ## Usage signals
 
-| Signal | Definition | Source | Sample or denominator | Collection owner | Review frequency | What a concerning pattern may mean |
-| --- | --- | --- | --- | --- | --- | --- |
-| Eligible cases |  |  |  |  |  |  |
-| Started uses |  |  |  |  |  |  |
-| Completed and human-reviewed outputs |  |  |  |  |  |  |
-| Manual fallbacks |  |  |  |  |  |  |
-| Time to usable handoff, if appropriate |  |  |  |  |  |  |
+### Eligible cases
+
+- **Signal:** Eligible cases
+- **Definition:**
+- **Source:**
+- **Sample or denominator:**
+- **Collection owner:**
+- **Review frequency:**
+- **What a concerning pattern may mean:**
+
+### Started uses
+
+- **Signal:** Started uses
+- **Definition:**
+- **Source:**
+- **Sample or denominator:**
+- **Collection owner:**
+- **Review frequency:**
+- **What a concerning pattern may mean:**
+
+### Completed and human-reviewed outputs
+
+- **Signal:** Completed and human-reviewed outputs
+- **Definition:**
+- **Source:**
+- **Sample or denominator:**
+- **Collection owner:**
+- **Review frequency:**
+- **What a concerning pattern may mean:**
+
+### Manual fallbacks
+
+- **Signal:** Manual fallbacks
+- **Definition:**
+- **Source:**
+- **Sample or denominator:**
+- **Collection owner:**
+- **Review frequency:**
+- **What a concerning pattern may mean:**
+
+### Time to usable handoff, if appropriate
+
+- **Signal:** Time to usable handoff, if appropriate
+- **Definition:**
+- **Source:**
+- **Sample or denominator:**
+- **Collection owner:**
+- **Review frequency:**
+- **What a concerning pattern may mean:**
+
 
 ## Quality and boundary checks
 
-| Check | What a qualified reviewer inspects | Sample | Result: pass, revise, stop, or escalate | Owner | Action when recurring |
-| --- | --- | --- | --- | --- | --- |
-| Required information is present |  |  |  |  |  |
-| Claims are supported by approved source |  |  |  |  |  |
-| Missing or conflicting information is labeled |  |  |  |  |  |
-| Output supports the user’s next action |  |  |  |  |  |
-| Privacy, authorization, and scope boundary is respected |  |  |  |  |  |
-| Additional domain-specific check |  |  |  |  |  |
+### Required information is present
+
+- **Check:** Required information is present
+- **What a qualified reviewer inspects:**
+- **Sample:**
+- **Result: pass, revise, stop, or escalate:**
+- **Owner:**
+- **Action when recurring:**
+
+### Claims are supported by approved source
+
+- **Check:** Claims are supported by approved source
+- **What a qualified reviewer inspects:**
+- **Sample:**
+- **Result: pass, revise, stop, or escalate:**
+- **Owner:**
+- **Action when recurring:**
+
+### Missing or conflicting information is labeled
+
+- **Check:** Missing or conflicting information is labeled
+- **What a qualified reviewer inspects:**
+- **Sample:**
+- **Result: pass, revise, stop, or escalate:**
+- **Owner:**
+- **Action when recurring:**
+
+### Output supports the user’s next action
+
+- **Check:** Output supports the user’s next action
+- **What a qualified reviewer inspects:**
+- **Sample:**
+- **Result: pass, revise, stop, or escalate:**
+- **Owner:**
+- **Action when recurring:**
+
+### Privacy, authorization, and scope boundary is respected
+
+- **Check:** Privacy, authorization, and scope boundary is respected
+- **What a qualified reviewer inspects:**
+- **Sample:**
+- **Result: pass, revise, stop, or escalate:**
+- **Owner:**
+- **Action when recurring:**
+
+### Additional domain-specific check
+
+- **Check:** Additional domain-specific check
+- **What a qualified reviewer inspects:**
+- **Sample:**
+- **Result: pass, revise, stop, or escalate:**
+- **Owner:**
+- **Action when recurring:**
+
 
 ## Burden and adoption signals
 
-| Signal | Question or collection method | Role | Frequency | Safe interpretation limit | Owner | Follow-up route |
-| --- | --- | --- | --- | --- | --- | --- |
-| User friction |  |  |  |  |  |  |
-| Reviewer burden |  |  |  |  |  |  |
-| Support demand |  |  |  |  |  |  |
-| Recipient handoff quality |  |  |  |  |  |  |
+### User friction
+
+- **Signal:** User friction
+- **Question or collection method:**
+- **Role:**
+- **Frequency:**
+- **Safe interpretation limit:**
+- **Owner:**
+- **Follow-up route:**
+
+### Reviewer burden
+
+- **Signal:** Reviewer burden
+- **Question or collection method:**
+- **Role:**
+- **Frequency:**
+- **Safe interpretation limit:**
+- **Owner:**
+- **Follow-up route:**
+
+### Support demand
+
+- **Signal:** Support demand
+- **Question or collection method:**
+- **Role:**
+- **Frequency:**
+- **Safe interpretation limit:**
+- **Owner:**
+- **Follow-up route:**
+
+### Recipient handoff quality
+
+- **Signal:** Recipient handoff quality
+- **Question or collection method:**
+- **Role:**
+- **Frequency:**
+- **Safe interpretation limit:**
+- **Owner:**
+- **Follow-up route:**
+
 
 ## Review record
 

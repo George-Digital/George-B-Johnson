@@ -18,25 +18,125 @@ Copy this document for an active AI-assisted system. Keep it in an approved shar
 
 ## Ownership record
 
-| Responsibility | Accountable owner | Routine authority | Consult or escalate when | Backup | Current evidence or document location |
-| --- | --- | --- | --- | --- | --- |
-| Daily operation |  |  |  |  |  |
-| Source or policy currency |  |  |  |  |  |
-| Output review |  |  |  |  |  |
-| Privacy or access boundary |  |  |  |  |  |
-| Tool or integration care |  |  |  |  |  |
-| User support |  |  |  |  |  |
-| Change approval |  |  |  |  |  |
-| Pause or retirement decision |  |  |  |  |  |
+### Daily operation
+
+- **Responsibility:** Daily operation
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
+### Source or policy currency
+
+- **Responsibility:** Source or policy currency
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
+### Output review
+
+- **Responsibility:** Output review
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
+### Privacy or access boundary
+
+- **Responsibility:** Privacy or access boundary
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
+### Tool or integration care
+
+- **Responsibility:** Tool or integration care
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
+### User support
+
+- **Responsibility:** User support
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
+### Change approval
+
+- **Responsibility:** Change approval
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
+### Pause or retirement decision
+
+- **Responsibility:** Pause or retirement decision
+- **Accountable owner:**
+- **Routine authority:**
+- **Consult or escalate when:**
+- **Backup:**
+- **Current evidence or document location:**
+
 
 ## User and adoption map
 
-| Role | Work moment | What they do now | What this system changes | Conditions for safe use | What they must review or decide | Likely friction or concern | Fallback |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Starter or operator |  |  |  |  |  |  |  |
-| Reviewer |  |  |  |  |  |  |  |
-| Recipient |  |  |  |  |  |  |  |
-| Affected person or team |  |  |  |  |  |  |  |
+### Starter or operator
+
+- **Role:** Starter or operator
+- **Work moment:**
+- **What they do now:**
+- **What this system changes:**
+- **Conditions for safe use:**
+- **What they must review or decide:**
+- **Likely friction or concern:**
+- **Fallback:**
+
+### Reviewer
+
+- **Role:** Reviewer
+- **Work moment:**
+- **What they do now:**
+- **What this system changes:**
+- **Conditions for safe use:**
+- **What they must review or decide:**
+- **Likely friction or concern:**
+- **Fallback:**
+
+### Recipient
+
+- **Role:** Recipient
+- **Work moment:**
+- **What they do now:**
+- **What this system changes:**
+- **Conditions for safe use:**
+- **What they must review or decide:**
+- **Likely friction or concern:**
+- **Fallback:**
+
+### Affected person or team
+
+- **Role:** Affected person or team
+- **Work moment:**
+- **What they do now:**
+- **What this system changes:**
+- **Conditions for safe use:**
+- **What they must review or decide:**
+- **Likely friction or concern:**
+- **Fallback:**
+
 
 ## Answer-first onboarding guide
 

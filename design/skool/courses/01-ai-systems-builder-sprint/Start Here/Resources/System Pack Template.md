@@ -60,12 +60,42 @@
 
 Write the common path in plain language before adding automation.
 
-| Step | Trigger/input | What happens | Decision or rule | Owner | Artifact produced |
-| --- | --- | --- | --- | --- | --- |
-| 1 |  |  |  |  |  |
-| 2 |  |  |  |  |  |
-| 3 |  |  |  |  |  |
-| 4 |  |  |  |  |  |
+### Step 1 — Trigger and approved input
+
+- **Step:** 1
+- **Trigger/input:**
+- **What happens:**
+- **Decision or rule:**
+- **Owner:**
+- **Artifact produced:**
+
+### Step 2 — Prepare the bounded work
+
+- **Step:** 2
+- **Trigger/input:**
+- **What happens:**
+- **Decision or rule:**
+- **Owner:**
+- **Artifact produced:**
+
+### Step 3 — Apply human review
+
+- **Step:** 3
+- **Trigger/input:**
+- **What happens:**
+- **Decision or rule:**
+- **Owner:**
+- **Artifact produced:**
+
+### Step 4 — Deliver, hand off, or stop
+
+- **Step:** 4
+- **Trigger/input:**
+- **What happens:**
+- **Decision or rule:**
+- **Owner:**
+- **Artifact produced:**
+
 
 - **Where AI assists:**
 - **Where a human must review, decide, or approve:**

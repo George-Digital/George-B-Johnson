@@ -17,12 +17,50 @@ Use field categories and secure references instead of credentials or unnecessary
 
 ## Flow map and output
 
-| Step or handoff | Source or sender | Data category or secure reference | Action: read / transform / write / review / deliver | Destination or receiver | Authoritative owner | State after step | Required condition |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
-|  |  |  |  |  |  |  |  |
+### Flow step 1 — Handoff name
+
+- **Step or handoff:**
+- **Source or sender:**
+- **Data category or secure reference:**
+- **Action: read / transform / write / review / deliver:**
+- **Destination or receiver:**
+- **Authoritative owner:**
+- **State after step:**
+- **Required condition:**
+
+### Flow step 2 — Handoff name
+
+- **Step or handoff:**
+- **Source or sender:**
+- **Data category or secure reference:**
+- **Action: read / transform / write / review / deliver:**
+- **Destination or receiver:**
+- **Authoritative owner:**
+- **State after step:**
+- **Required condition:**
+
+### Flow step 3 — Handoff name
+
+- **Step or handoff:**
+- **Source or sender:**
+- **Data category or secure reference:**
+- **Action: read / transform / write / review / deliver:**
+- **Destination or receiver:**
+- **Authoritative owner:**
+- **State after step:**
+- **Required condition:**
+
+### Flow step 4 — Handoff name
+
+- **Step or handoff:**
+- **Source or sender:**
+- **Data category or secure reference:**
+- **Action: read / transform / write / review / deliver:**
+- **Destination or receiver:**
+- **Authoritative owner:**
+- **State after step:**
+- **Required condition:**
+
 
 - **Authoritative record when copies conflict:**
 - **Draft location and final destination:**

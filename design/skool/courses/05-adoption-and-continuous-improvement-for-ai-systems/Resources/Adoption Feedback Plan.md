@@ -14,13 +14,56 @@ Use this plan to collect feedback close to the work and turn it into an owned de
 
 ## Feedback moments and channels
 
-| Moment | Role asked | Question or observation requested | Channel | Owner who reads it | Privacy boundary | Response or review timing |
-| --- | --- | --- | --- | --- | --- | --- |
-| After first use |  |  |  |  |  |  |
-| After reviewer correction |  |  |  |  |  |  |
-| When manual fallback is used |  |  |  |  |  |  |
-| Periodic adoption check |  |  |  |  |  |  |
-| Recipient handoff review |  |  |  |  |  |  |
+### After first use
+
+- **Moment:** After first use
+- **Role asked:**
+- **Question or observation requested:**
+- **Channel:**
+- **Owner who reads it:**
+- **Privacy boundary:**
+- **Response or review timing:**
+
+### After reviewer correction
+
+- **Moment:** After reviewer correction
+- **Role asked:**
+- **Question or observation requested:**
+- **Channel:**
+- **Owner who reads it:**
+- **Privacy boundary:**
+- **Response or review timing:**
+
+### When manual fallback is used
+
+- **Moment:** When manual fallback is used
+- **Role asked:**
+- **Question or observation requested:**
+- **Channel:**
+- **Owner who reads it:**
+- **Privacy boundary:**
+- **Response or review timing:**
+
+### Periodic adoption check
+
+- **Moment:** Periodic adoption check
+- **Role asked:**
+- **Question or observation requested:**
+- **Channel:**
+- **Owner who reads it:**
+- **Privacy boundary:**
+- **Response or review timing:**
+
+### Recipient handoff review
+
+- **Moment:** Recipient handoff review
+- **Role asked:**
+- **Question or observation requested:**
+- **Channel:**
+- **Owner who reads it:**
+- **Privacy boundary:**
+- **Response or review timing:**
+
 
 ## Post-use questions
 
@@ -33,13 +76,51 @@ Use this plan to collect feedback close to the work and turn it into an owned de
 
 ## Feedback classification and response
 
-| Category | Evidence to capture safely | Owner | Decision options | User response | Change-log or escalation reference |
-| --- | --- | --- | --- | --- | --- |
-| Onboarding or access friction |  |  |  |  |  |
-| Common-path quality issue |  |  |  |  |  |
-| Missing or conflicting source |  |  |  |  |  |
-| Scope or user-fit issue |  |  |  |  |  |
-| Privacy, safety, authorization, or consequential concern |  |  |  |  |  |
+### Onboarding or access friction
+
+- **Category:** Onboarding or access friction
+- **Evidence to capture safely:**
+- **Owner:**
+- **Decision options:**
+- **User response:**
+- **Change-log or escalation reference:**
+
+### Common-path quality issue
+
+- **Category:** Common-path quality issue
+- **Evidence to capture safely:**
+- **Owner:**
+- **Decision options:**
+- **User response:**
+- **Change-log or escalation reference:**
+
+### Missing or conflicting source
+
+- **Category:** Missing or conflicting source
+- **Evidence to capture safely:**
+- **Owner:**
+- **Decision options:**
+- **User response:**
+- **Change-log or escalation reference:**
+
+### Scope or user-fit issue
+
+- **Category:** Scope or user-fit issue
+- **Evidence to capture safely:**
+- **Owner:**
+- **Decision options:**
+- **User response:**
+- **Change-log or escalation reference:**
+
+### Privacy, safety, authorization, or consequential concern
+
+- **Category:** Privacy, safety, authorization, or consequential concern
+- **Evidence to capture safely:**
+- **Owner:**
+- **Decision options:**
+- **User response:**
+- **Change-log or escalation reference:**
+
 
 ## Close-the-loop note
 

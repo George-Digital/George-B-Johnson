@@ -79,7 +79,11 @@ In Skool, create the five top-level course folders shown above. The local `Resou
 
 The screenshot’s existing `(Draft) Start Here` item is a **page**, not the intended folder. Preserve its copy until the new folder exists. If Skool offers a move action, repurpose it as the first page; otherwise copy its contents into the correct page before removing anything.
 
-Use the resources stored inside each physical course folder: Start Here contains the System Pack and Build Log templates; Week 2 contains the Decision Rules and Quality Rubric template; Week 3 contains the Prompt Stack and Runbook template; Week 4 contains the Test and Revision template. Set the Week 1 submission so members post a problem statement, output specification, and four-week finish line in their build-log thread.
+Use the resources stored inside each physical course folder. In Start Here, make **System Pack Template** available from `01 - Welcome and the Builders Lab standard`, and make **Build Log Thread Template** available from `03 - Create your build-log thread`. Week 2 contains the Decision Rules and Quality Rubric template; Week 3 contains the Prompt Stack and Runbook template; Week 4 contains the Test and Revision template. Set the Week 1 submission so members post a problem statement, output specification, and four-week finish line in their build-log thread.
+
+## Course art (local upload asset)
+
+Use `Course Art/ai-systems-builder-sprint-cover-1280x720.png` as the course-level Skool Classroom cover/thumbnail. It is a 1280 × 720 PNG at the required 16:9 ratio. Upload the image through the live course image field; do not create a `Course Art` folder or page in the member curriculum.
 
 ## Video Scripts (local production only)
 
