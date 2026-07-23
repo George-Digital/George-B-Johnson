@@ -28,18 +28,20 @@ Cloudflare Pages preserves query parameters, so the tracked link resolves to:
 https://www.skool.com/local-seo-engineering-7047/?utm_source=yt&utm_campaign=intro
 ```
 
-The mistakenly added general `/go` and `/go/` aliases are removed from the corrected source and build. They will stop resolving after the corrected deployment replaces the current production version.
+The mistakenly added general `/go` and `/go/` aliases were removed from the corrected source, build, and production deployment.
 
 ## Implementation and verification
 
 - Source file: `public/_redirects`
 - Cloudflare Pages project: `george-b-johnson`
+- Corrected source commit: `f64e1b6`
+- Corrected deployment: `e03d7c15` (`https://e03d7c15.george-b-johnson.pages.dev`)
 - Redirect status: `302`, allowing the destination to change later
 - No HTML page or sitemap entry was created
 - Astro production build passed
 - `dist/_redirects` matched `public/_redirects`
 - Local Cloudflare Pages runtime preserved the redirect destination and query string
-- Local `/go` and `/go/` requests returned `404`, confirming the generic aliases are absent from the corrected build
-- Corrected production deployment and post-deployment GET/HEAD verification are pending
+- Local and production `/go` and `/go/` requests returned `404`, confirming the generic aliases are absent
+- Production `/go/skool` GET checks returned `302` to the Skool root and preserved both the supplied and standard tracking parameters
 
-Automated requests to the final Skool destination may receive bot-protection responses. The redirect is locally verified; production behavior and the final Skool page should be checked after deployment before the YouTube description is published.
+Automated requests to the final Skool destination may receive bot-protection responses. The production redirect is verified; the final Skool page should also be opened manually before the YouTube description is published.
