@@ -72,14 +72,11 @@ Before edits, `main` was at `657a1613a9fe30b3bbee8977da2209ab9b242383` with exac
 
 ## Cloudflare Web Analytics and CSP decision
 
-A browser-user-agent response contained Cloudflare's injected module at `https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496`. Chromium reported that the script violated `script-src` and blocked it. The loaded beacon source identifies `https://cloudflareinsights.com/cdn-cgi/rum` as its measurement endpoint.
+A browser-user-agent response contained Cloudflare's injected module at `https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496`. Chromium reported that the script violated `script-src` and blocked it. Runtime capture confirmed that this auto-injected configuration posts to the same-origin `https://georgebjohnson.com/cdn-cgi/rum` endpoint, which the existing `connect-src 'self'` already permits.
 
-The Cloudflare API confirmed that the `georgebjohnson.com` Web Analytics site has automatic installation and its ruleset enabled. An API attempt to disable it returned Cloudflare error `10000` (`403 Authentication error`), so the available token could read but not edit that account-level setting. The implementation therefore intentionally retains Cloudflare Web Analytics and adds only its two exact required origins:
+The Cloudflare API confirmed that the `georgebjohnson.com` Web Analytics site has automatic installation and its ruleset enabled. An API attempt to disable it returned Cloudflare error `10000` (`403 Authentication error`), so the available token could read but not edit that account-level setting. The implementation therefore intentionally retains Cloudflare Web Analytics and adds only `https://static.cloudflareinsights.com` to `script-src`. No Cloudflare connect-source host or wildcard was added.
 
-- `script-src`: `https://static.cloudflareinsights.com`
-- `connect-src`: `https://cloudflareinsights.com`
-
-No Cloudflare wildcard was added. The privacy page now accurately identifies Cloudflare Web Analytics, its aggregate measurement purpose, automatic script injection, and Cloudflare's stated no-cookie/no-local-storage/no-fingerprinting design.
+The first production browser probe also exposed Google Analytics' exact fallback request to `https://www.google.com/g/collect`; `https://www.google.com` was added to `connect-src`. The privacy page accurately identifies both analytics services, including Cloudflare's aggregate measurement purpose, automatic script injection, and stated no-cookie/no-local-storage/no-fingerprinting design.
 
 ## DNS policy correction
 

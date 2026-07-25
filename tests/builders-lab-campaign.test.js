@@ -144,9 +144,10 @@ test("CTA clicks emit skool_cta_click and never a membership event", () => {
   assert.equal(attributes.get("href"), `/go/skool?${metaQuery}`);
 });
 
-test("Cloudflare analytics CSP uses exact hosts without a Cloudflare wildcard", async () => {
+test("analytics CSP uses only the exact additional runtime hosts", async () => {
   const headers = await readFile(new URL("../public/_headers", import.meta.url), "utf8");
   assert.match(headers, /script-src[^\n]*https:\/\/static\.cloudflareinsights\.com/);
-  assert.match(headers, /connect-src[^\n]*https:\/\/cloudflareinsights\.com/);
+  assert.match(headers, /connect-src[^\n]*https:\/\/www\.google\.com/);
+  assert.doesNotMatch(headers, /connect-src[^\n]*https:\/\/cloudflareinsights\.com/);
   assert.doesNotMatch(headers, /\*\.cloudflareinsights\.com/);
 });
