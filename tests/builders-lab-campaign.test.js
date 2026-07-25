@@ -151,3 +151,25 @@ test("analytics CSP uses only the exact additional runtime hosts", async () => {
   assert.doesNotMatch(headers, /connect-src[^\n]*https:\/\/cloudflareinsights\.com/);
   assert.doesNotMatch(headers, /\*\.cloudflareinsights\.com/);
 });
+
+test("the landing page states the approved offer and keeps both CTAs on the Skool route", async () => {
+  const page = await readFile(
+    new URL("../src/pages/builders-lab/index.astro", import.meta.url),
+    "utf8",
+  );
+  const monthlyPrices = [...page.matchAll(/\$\d+(?:\.\d+)?\/month/g)].map(
+    ([price]) => price,
+  );
+  const skoolCtas = page.match(/href=\{site\.skoolUrl\}/g) ?? [];
+
+  assert.ok(monthlyPrices.length >= 2, "price should be repeated near the offer and CTAs");
+  assert.deepEqual([...new Set(monthlyPrices)], ["$7/month"]);
+  assert.match(
+    page,
+    /George Johnson will be active in (?:the )?(?:Builders Lab )?Skool group daily and will share his current projects/,
+  );
+  assert.equal(skoolCtas.length, 2);
+  assert.match(page, /Join Builders Lab on Skool — \$7\/month/);
+  assert.match(page, /price: "7"/);
+  assert.match(page, /billingDuration: "P1M"/);
+});

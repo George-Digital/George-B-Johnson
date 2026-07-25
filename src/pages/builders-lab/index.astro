@@ -4,43 +4,64 @@ import CtaBand from "../../components/CtaBand.astro";
 import { site } from "../../data/site";
 import "../../styles/builders-lab.css";
 
+const membershipDescription = "Builders Lab is a $7/month Skool membership for builders and operators developing inspectable, practical AI systems. George Johnson will be active in the group daily and will share his current projects.";
+const george = {
+  "@type": "Person",
+  name: "George B. Johnson",
+  url: `${site.url}/`,
+};
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Builders Lab by George Johnson",
-  description: "A working membership for builders and operators developing inspectable, practical AI systems.",
+  description: membershipDescription,
   url: `${site.url}/builders-lab/`,
   about: {
     "@type": "Thing",
     name: "Inspectable practical AI systems",
   },
-  author: {
-    "@type": "Person",
-    name: "George B. Johnson",
-    url: `${site.url}/`,
+  author: george,
+  mainEntity: {
+    "@type": "Service",
+    name: "Builders Lab membership",
+    description: membershipDescription,
+    provider: george,
+    offers: {
+      "@type": "Offer",
+      price: "7",
+      priceCurrency: "USD",
+      url: new URL(site.skoolUrl, site.url).href,
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        price: "7",
+        priceCurrency: "USD",
+        billingDuration: "P1M",
+      },
+    },
   },
 };
 ---
 
 <InnerPageLayout
   title="Builders Lab by George Johnson | Practical AI Systems"
-  description="Builders Lab is a working membership for builders and operators developing inspectable, practical AI systems with clear records, review, handoffs, and tests."
+  description={membershipDescription}
   canonicalPath="/builders-lab/"
-  eyebrow="Working membership"
+  eyebrow="Skool membership"
   heading="Builders Lab by George Johnson"
-  lead="Builders Lab by George Johnson is a working membership for builders and operators developing inspectable, practical AI systems."
+  lead="Builders Lab is a $7/month membership on Skool for builders and operators developing inspectable, practical AI systems. George Johnson will be active in the group daily and will share his current projects."
   currentPage="Builders Lab"
   {schema}
 >
   <section class="page-section section-pad lab-intro" aria-labelledby="working-title">
-    <div class="section-label"><span>01</span><span>The working standard</span></div>
+    <div class="section-label"><span>01</span><span>The membership</span></div>
     <div class="editorial-split">
-      <h2 id="working-title">Build something another person can inspect.</h2>
+      <h2 id="working-title">Build alongside George.</h2>
       <div class="prose">
+        <p>Membership is $7/month on Skool. George Johnson will be active in the group daily and will share his current projects there.</p>
         <p>Start with one repeated piece of work you understand. Define its source, record what happens, keep human judgment visible, and test the output.</p>
         <p>The point is not to make an AI system look autonomous. The point is to make the work clear enough that another capable person can review the path, the decisions, and the evidence.</p>
-        <a class="button button-dark" href={site.skoolUrl} data-skool-cta="working-standard">Review Builders Lab membership <span aria-hidden="true">↗</span></a>
-        <p class="destination-note">Opens the current Builders Lab membership page on Skool. The Skool page is the source for current membership details.</p>
+        <a class="button button-dark" href={site.skoolUrl} data-skool-cta="working-standard">Join Builders Lab on Skool — $7/month <span aria-hidden="true">↗</span></a>
+        <p class="destination-note">Opens the Builders Lab membership page on Skool, where you can review the offer and join.</p>
       </div>
     </div>
   </section>
@@ -64,7 +85,7 @@ const schema = {
     <div class="section-label"><span>03</span><span>Decision guide</span></div>
     <div class="lab-decision-heading">
       <h2 id="fit-title">Bring a real workflow, not a claim you cannot test.</h2>
-      <p>Builders Lab is designed around inspectable work. Use the current Skool description to decide whether that standard matches how you want to build.</p>
+      <p>Membership signup takes place on Skool. Use the current Skool description to decide whether the working standard matches how you want to build.</p>
     </div>
     <div class="decision-table" role="table" aria-label="Builders Lab decision guide">
       <div class="decision-row decision-head" role="row">
@@ -87,25 +108,26 @@ const schema = {
   </section>
 
   <section class="page-section section-pad" aria-labelledby="example-title">
-    <div class="section-label"><span>04</span><span>Supporting example</span></div>
+    <div class="section-label"><span>04</span><span>George’s current projects</span></div>
     <div class="example-split">
       <div>
-        <p class="mono-kicker">AtsKaleSEO</p>
-        <h2 id="example-title">One example of the standard, not the center of the membership.</h2>
+        <p class="mono-kicker">Active in the group daily</p>
+        <h2 id="example-title">George shares the projects he is currently building.</h2>
       </div>
       <div class="prose">
-        <p>AtsKaleSEO is one supporting example of this approach: source material and records stay separate from review, approval, and publishing handoffs.</p>
-        <p>Builders Lab is broader than that project. The shared question is whether a practical AI system can be inspected, tested, and improved by the people responsible for it.</p>
+        <p>George Johnson will be active in the Builders Lab Skool group daily and will share his current projects there.</p>
+        <p>AtsKaleSEO is one supporting example of the working standard: source material and records stay separate from review, approval, and publishing handoffs.</p>
+        <p>Builders Lab is broader than any one project. The shared question is whether a practical AI system can be inspected, tested, and improved by the people responsible for it.</p>
       </div>
     </div>
   </section>
 
   <CtaBand
     eyebrow="Builders Lab"
-    title="Review the membership where it lives."
-    text="Continue to Skool for the current Builders Lab description and membership details. No email signup is required."
+    title="Join Builders Lab on Skool for $7/month."
+    text="George Johnson will be active in the Skool group daily and will share his current projects. Continue to Skool to review the membership and join."
     href={site.skoolUrl}
-    label="Review Builders Lab on Skool"
+    label="Join Builders Lab on Skool — $7/month"
     external
     trackingName="final-review"
   />
