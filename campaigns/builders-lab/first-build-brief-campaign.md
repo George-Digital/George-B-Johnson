@@ -235,6 +235,8 @@ No Meta Pixel is installed. Do not install one without an approved Pixel ID plus
 
 API checks on 2026-07-24 found an empty active workspace named `Peptide Hacker Lab`: zero people, zero native forms, zero saved emails, and zero broadcasts. The documented API exposes account read, people/tags, email-domain, email, and broadcast capabilities, but no safe account-rename, sender-approval, Meta-connection, native DOI configuration, or Flow-configuration endpoint was found.
 
+The documented domain API was used to add `georgebjohnson.com` and the required DNS records. Public DNS resolves all expected records, but Encharge still reports the domain as `pending`; sender/domain approval is not complete. The old PHL domain was removed from the workspace through the documented API.
+
 Complete these actions in authenticated dashboards before enabling collection or sending:
 
 1. Encharge account settings: rename the workspace from `Peptide Hacker Lab` to `Builders Lab` and confirm the correct owner/timezone/site fields.
