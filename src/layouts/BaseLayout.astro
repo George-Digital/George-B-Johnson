@@ -10,6 +10,7 @@ interface Props {
   canonicalPath?: string | false;
   noindex?: boolean;
   schema?: Record<string, unknown> | Record<string, unknown>[];
+  stripMetaClickId?: boolean;
 }
 
 const {
@@ -18,6 +19,7 @@ const {
   canonicalPath = Astro.url.pathname,
   noindex = false,
   schema,
+  stripMetaClickId = false,
 } = Astro.props;
 
 const canonical = canonicalPath === false ? null : new URL(canonicalPath, Astro.site).href;
@@ -42,6 +44,21 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="/fonts/manrope-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/instrument-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    {stripMetaClickId && (
+      <script is:inline>
+        (() => {
+          const url = new URL(window.location.href);
+          const clickId = url.searchParams.get("fbclid");
+          if (!clickId) return;
+          if (/^[A-Za-z0-9._-]{1,300}$/.test(clickId)) {
+            try { sessionStorage.setItem("builders_lab_fbclid", clickId); } catch {}
+          }
+          url.searchParams.delete("fbclid");
+          history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+        })();
+      </script>
+    )}
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EK4D73E6DT" is:inline></script>
     <script is:inline>

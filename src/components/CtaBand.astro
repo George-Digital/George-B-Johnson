@@ -6,9 +6,10 @@ interface Props {
   href: string;
   label: string;
   external?: boolean;
+  trackingName?: string;
 }
 
-const { eyebrow, title, text, href, label, external = false } = Astro.props;
+const { eyebrow, title, text, href, label, external = false, trackingName } = Astro.props;
 ---
 
 <section class="cta-band section-pad" aria-labelledby={`cta-${eyebrow.toLowerCase().replaceAll(" ", "-")}`}>
@@ -18,6 +19,6 @@ const { eyebrow, title, text, href, label, external = false } = Astro.props;
   </div>
   <div class="cta-band-action">
     <p>{text}</p>
-    <a class="button button-primary" href={href}>{label} <span aria-hidden="true">{external ? "↗" : "→"}</span></a>
+    <a class="button button-primary" href={href} data-skool-cta={trackingName}>{label} <span aria-hidden="true">{external ? "↗" : "→"}</span></a>
   </div>
 </section>

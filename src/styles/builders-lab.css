@@ -1,0 +1,198 @@
+.lab-intro .destination-note {
+  margin-top: var(--space-4);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.lab-system {
+  color: var(--text-inverse);
+  background: var(--ink-950);
+}
+
+.lab-system-heading,
+.lab-decision-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr);
+  gap: clamp(2rem, 8vw, 8rem);
+  align-items: end;
+  margin-bottom: var(--space-8);
+}
+
+.lab-system-heading h2,
+.lab-decision-heading h2,
+.example-split h2 {
+  max-width: 13ch;
+  margin: 0;
+  font-family: var(--h2-family);
+  font-size: var(--h2-size);
+  font-weight: var(--weight-regular);
+  letter-spacing: -0.025em;
+  line-height: var(--h2-leading);
+}
+
+.lab-system-heading p,
+.lab-decision-heading p {
+  max-width: 52ch;
+  margin: 0;
+  font-size: var(--type-lead);
+}
+
+.lab-system-heading p {
+  color: color-mix(in oklch, var(--paper-50) 72%, transparent);
+}
+
+.lab-decision-heading p {
+  color: var(--text-secondary);
+}
+
+.system-path {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid color-mix(in oklch, var(--paper-50) 28%, transparent);
+  list-style: none;
+}
+
+.system-path li {
+  position: relative;
+  min-height: 250px;
+  padding: var(--space-5);
+  border-right: 1px solid color-mix(in oklch, var(--paper-50) 18%, transparent);
+}
+
+.system-path li:first-child {
+  border-left: 1px solid color-mix(in oklch, var(--paper-50) 18%, transparent);
+}
+
+.system-path li::before {
+  position: absolute;
+  top: -4px;
+  left: var(--space-5);
+  width: 7px;
+  height: 7px;
+  background: var(--bronze-500);
+  border-radius: 50%;
+  content: "";
+}
+
+.system-path li > span {
+  color: var(--bronze-500);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+}
+
+.system-path h3 {
+  margin: var(--space-7) 0 var(--space-3);
+  font-size: clamp(1.2rem, 1.8vw, 1.65rem);
+}
+
+.system-path p {
+  margin: 0;
+  color: color-mix(in oklch, var(--paper-50) 68%, transparent);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.decision-table {
+  border-top: 1px solid var(--border-strong);
+}
+
+.decision-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.decision-row > span {
+  padding: var(--space-5) var(--space-6);
+}
+
+.decision-row > span + span {
+  border-left: 1px solid var(--border-strong);
+}
+
+.decision-head {
+  color: var(--bronze-700);
+  font-family: var(--font-mono);
+  font-size: var(--type-label);
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+}
+
+.example-split {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(320px, 5fr);
+  gap: clamp(3rem, 9vw, 10rem);
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .system-path {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .system-path li {
+    min-height: 220px;
+    border-bottom: 1px solid color-mix(in oklch, var(--paper-50) 18%, transparent);
+  }
+
+  .system-path li:last-child {
+    grid-column: 1 / -1;
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 820px) {
+  .lab-system-heading,
+  .lab-decision-heading,
+  .example-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .lab-intro .button {
+    width: 100%;
+  }
+
+  .system-path {
+    grid-template-columns: 1fr;
+  }
+
+  .system-path li,
+  .system-path li:last-child {
+    grid-column: auto;
+    min-height: 0;
+    padding: var(--space-6) var(--space-4);
+    border-left: 1px solid color-mix(in oklch, var(--paper-50) 18%, transparent);
+  }
+
+  .system-path li::before {
+    left: var(--space-4);
+  }
+
+  .system-path h3 {
+    margin-top: var(--space-5);
+  }
+
+  .decision-row {
+    grid-template-columns: 1fr;
+  }
+
+  .decision-row > span {
+    padding: var(--space-4);
+  }
+
+  .decision-row > span + span {
+    border-top: 1px dashed var(--border-subtle);
+    border-left: 0;
+  }
+
+  .decision-head > span + span {
+    border-top: 0;
+  }
+}

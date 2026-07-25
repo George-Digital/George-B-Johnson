@@ -2,9 +2,9 @@
 /contact-me/ /builders-lab/ 301
 /contact-me /builders-lab/ 301
 
-/go/skool/index.html https://www.skool.com/local-seo-engineering-7047/ 302
-/go/skool/ https://www.skool.com/local-seo-engineering-7047/ 302
-/go/skool https://www.skool.com/local-seo-engineering-7047/ 302
+/go/skool/index.html https://www.skool.com/local-seo-engineering-7047/about 302
+/go/skool/ https://www.skool.com/local-seo-engineering-7047/about 302
+/go/skool https://www.skool.com/local-seo-engineering-7047/about 302
 
 /index.html / 301
 /about/index.html /about/ 301

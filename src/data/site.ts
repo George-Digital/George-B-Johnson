@@ -4,7 +4,7 @@ export const site = {
   role: "Technical Consultant",
   specialty: "AI-driven automation",
   positioning: "Technical Consultant — specializing in AI-driven automation",
-  skoolUrl: "https://www.skool.com/local-seo-engineering-7047/about",
+  skoolUrl: "/go/skool",
   georgeDigitalUrl: "https://georgedigital.net/",
   bookUrl: "https://amzn.to/47OEmEY",
   social: {

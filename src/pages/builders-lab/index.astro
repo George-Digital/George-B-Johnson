@@ -2,47 +2,116 @@
 import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
 import CtaBand from "../../components/CtaBand.astro";
 import { site } from "../../data/site";
+import "../../styles/builders-lab.css";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Builders Lab by George Johnson",
+  description: "A working membership for builders and operators developing inspectable, practical AI systems.",
+  url: `${site.url}/builders-lab/`,
+  about: {
+    "@type": "Thing",
+    name: "Inspectable practical AI systems",
+  },
+  author: {
+    "@type": "Person",
+    name: "George B. Johnson",
+    url: `${site.url}/`,
+  },
+};
 ---
 
 <InnerPageLayout
-  title="Builders Lab | George B. Johnson’s Skool Community"
-  description="Builders Lab is George B. Johnson’s Skool community for deeper discussions about AI systems, SEO operations, AtsKaleSEO, and useful tools."
+  title="Builders Lab by George Johnson | Practical AI Systems"
+  description="Builders Lab is a working membership for builders and operators developing inspectable, practical AI systems with clear records, review, handoffs, and tests."
   canonicalPath="/builders-lab/"
-  eyebrow="Builders Lab"
-  heading="Builders Lab on Skool"
-  lead="Builders Lab is George B. Johnson’s community for deeper discussions about AI systems, SEO operations, AtsKaleSEO, and turning domain expertise into useful tools."
+  eyebrow="Working membership"
+  heading="Builders Lab by George Johnson"
+  lead="Builders Lab by George Johnson is a working membership for builders and operators developing inspectable, practical AI systems."
   currentPage="Builders Lab"
+  {schema}
+  stripMetaClickId
 >
-  <section class="page-section section-pad" aria-labelledby="inside-title">
-    <div class="section-label"><span>01</span><span>Inside the lab</span></div>
+  <section class="page-section section-pad lab-intro" aria-labelledby="working-title">
+    <div class="section-label"><span>01</span><span>The working standard</span></div>
     <div class="editorial-split">
-      <h2 id="inside-title">Go deeper on the systems behind the work.</h2>
-      <div class="entity-list">
-        <article><h3>AI systems</h3><p>Deeper discussions from the process of structuring practical AI-assisted systems.</p></article>
-        <article><h3>SEO operations</h3><p>How search work can be organized, tested, and improved as an operating system.</p></article>
-        <article><h3>AtsKaleSEO</h3><p>Discussion from the build-in-public process around the active system.</p></article>
-        <article><h3>Useful tools</h3><p>Turning domain expertise into tools and documentation other technical builders can use.</p></article>
+      <h2 id="working-title">Build something another person can inspect.</h2>
+      <div class="prose">
+        <p>Start with one repeated piece of work you understand. Define its source, record what happens, keep human judgment visible, and test the output.</p>
+        <p>The point is not to make an AI system look autonomous. The point is to make the work clear enough that another capable person can review the path, the decisions, and the evidence.</p>
+        <a class="button button-dark" href={site.skoolUrl} data-skool-cta="working-standard">Review Builders Lab membership <span aria-hidden="true">↗</span></a>
+        <p class="destination-note">Opens the current Builders Lab membership page on Skool. The Skool page is the source for current membership details.</p>
       </div>
     </div>
   </section>
 
-  <section class="page-section page-section-alt section-pad" aria-labelledby="membership-title">
-    <div class="section-label"><span>02</span><span>Membership</span></div>
-    <div class="editorial-split">
-      <h2 id="membership-title">Review the current details on Skool.</h2>
+  <section class="lab-system section-pad" aria-labelledby="system-title">
+    <div class="section-label section-label-light"><span>02</span><span>An inspectable system</span></div>
+    <div class="lab-system-heading">
+      <h2 id="system-title">A practical AI system leaves a reviewable trail.</h2>
+      <p>Tools can change. This path keeps the operating logic visible.</p>
+    </div>
+    <ol class="system-path" aria-label="Source to test system path">
+      <li><span>01</span><h3>Source</h3><p>Name the material, request, or event that begins the work.</p></li>
+      <li><span>02</span><h3>Record</h3><p>Save the input, status, and output in a form another person can inspect.</p></li>
+      <li><span>03</span><h3>Review</h3><p>Check the result against explicit rules, constraints, and examples.</p></li>
+      <li><span>04</span><h3>Approved handoff</h3><p>Make the responsible person and the next authorized action clear.</p></li>
+      <li><span>05</span><h3>Test</h3><p>Run a bounded case, keep the evidence, and decide what changes next.</p></li>
+    </ol>
+  </section>
+
+  <section class="page-section page-section-alt section-pad" aria-labelledby="fit-title">
+    <div class="section-label"><span>03</span><span>Decision guide</span></div>
+    <div class="lab-decision-heading">
+      <h2 id="fit-title">Bring a real workflow, not a claim you cannot test.</h2>
+      <p>Builders Lab is designed around inspectable work. Use the current Skool description to decide whether that standard matches how you want to build.</p>
+    </div>
+    <div class="decision-table" role="table" aria-label="Builders Lab decision guide">
+      <div class="decision-row decision-head" role="row">
+        <span role="columnheader">A useful starting point</span>
+        <span role="columnheader">Reconsider the fit if</span>
+      </div>
+      <div class="decision-row" role="row">
+        <span role="cell">One repeated workflow with a clear user and inspectable output.</span>
+        <span role="cell">You want an AI system to make every decision without review.</span>
+      </div>
+      <div class="decision-row" role="row">
+        <span role="cell">A sanitized artifact, example, or test result you can discuss.</span>
+        <span role="cell">The work cannot be described without exposing private or restricted material.</span>
+      </div>
+      <div class="decision-row" role="row">
+        <span role="cell">A willingness to narrow the scope and document what fails.</span>
+        <span role="cell">You need a promise about income, rankings, or system reliability.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section section-pad" aria-labelledby="example-title">
+    <div class="section-label"><span>04</span><span>Supporting example</span></div>
+    <div class="example-split">
+      <div>
+        <p class="mono-kicker">AtsKaleSEO</p>
+        <h2 id="example-title">One example of the standard, not the center of the membership.</h2>
+      </div>
       <div class="prose">
-        <p>Builders Lab is hosted on Skool. Visit the community page to review its current description and membership details before joining.</p>
-        <a class="button button-dark" href={site.skoolUrl}>View Builders Lab on Skool <span aria-hidden="true">↗</span></a>
+        <p>AtsKaleSEO is one supporting example of this approach: source material and records stay separate from review, approval, and publishing handoffs.</p>
+        <p>Builders Lab is broader than that project. The shared question is whether a practical AI system can be inspected, tested, and improved by the people responsible for it.</p>
       </div>
     </div>
   </section>
 
   <CtaBand
     eyebrow="Builders Lab"
-    title="Join the community."
-    text="Continue to Skool to review the current Builders Lab details and choose whether it fits what you want to explore."
+    title="Review the membership where it lives."
+    text="Continue to Skool for the current Builders Lab description and membership details. No email signup is required."
     href={site.skoolUrl}
-    label="Join Builders Lab"
+    label="Review Builders Lab on Skool"
     external
+    trackingName="final-review"
   />
+
+  <script>
+    import "../../scripts/builders-lab.js";
+  </script>
 </InnerPageLayout>
