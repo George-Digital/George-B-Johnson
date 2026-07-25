@@ -8,14 +8,14 @@ import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
   canonicalPath="/privacy/"
   eyebrow="Site policy"
   heading="Privacy"
-  lead="This site does not currently collect email addresses through a form. It uses Google Analytics to understand site usage and links to external services."
+  lead="This site does not currently collect email addresses through a form. It uses Google Analytics and Cloudflare Web Analytics to understand site usage and links to external services."
   currentPage="Privacy"
 >
   <section class="policy-content section-pad" aria-labelledby="policy-title">
     <div class="section-label"><span>01</span><span>Privacy policy</span></div>
     <div class="prose prose-wide">
       <h2 id="policy-title">How this site handles data</h2>
-      <p><strong>Last updated: July 24, 2026.</strong></p>
+      <p><strong>Last updated: July 25, 2026.</strong></p>
       <p>This policy applies to <a href="/">georgebjohnson.com</a>.</p>
 
       <h3>Information submitted to this site</h3>
@@ -25,12 +25,13 @@ import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
       <p>Like other websites, the hosting and content-delivery providers used to serve this site may process technical request data, such as an IP address, browser information, requested URL, and timestamp, for delivery, reliability, and security.</p>
 
       <h3>Analytics</h3>
-      <p>This site uses Google Analytics to understand how visitors find and use the site. It may collect information such as pages viewed, visit timing, referring pages, approximate location, and browser or device details. Google Analytics may also use first-party cookies or similar technologies to distinguish visits. This information helps evaluate site performance and improve the content.</p>
+      <p>This site uses Google Analytics to understand how visitors find and use the site. It may collect information such as pages viewed, visit timing, referring pages, approximate location, and browser or device details. Google Analytics may also use first-party cookies or similar technologies to distinguish visits. This information helps evaluate site performance and improve the content. Analytics page locations and referrers are configured without URL query strings.</p>
       <p>Google processes this information under its own privacy terms. For more details, read <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>. Google also provides a <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics opt-out browser add-on</a>.</p>
+      <p>This site also uses Cloudflare Web Analytics for aggregate page-view and performance information. Cloudflare automatically adds its analytics script when it serves the site and receives the resulting measurement request. Cloudflare states that Web Analytics does not use cookies, local storage, or fingerprinting to track visitors across sites. Read <a href="https://www.cloudflare.com/web-analytics/">Cloudflare’s Web Analytics information</a> and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s Privacy Policy</a>.</p>
 
       <h3>Builders Lab links and campaign attribution</h3>
-      <p>Builders Lab buttons use a local redirect to the current Builders Lab page on Skool. Approved campaign parameters may be preserved in the destination URL. When a Meta click identifier is present, it is removed from the Builders Lab page URL before Google Analytics initializes, held in browser session storage, and passed only with the Skool destination link. This site does not currently install the Meta Pixel.</p>
-      <p>Skool and the platform that supplied a campaign identifier may process the destination visit under their own privacy terms. This site does not send a Meta click identifier to an email provider.</p>
+      <p>Builders Lab buttons use a local server-side redirect to the fixed Builders Lab page on Skool. For the approved Meta campaign only, the redirect may carry the exact lowercase values <code>utm_source=meta</code>, <code>utm_medium=paid_social</code>, and <code>utm_campaign=builders_lab_direct_membership</code>, plus strictly validated lowercase <code>utm_content</code> and <code>utm_term</code> slugs.</p>
+      <p>The redirect discards all other parameters, including platform click identifiers, duplicate or malformed values, and any parameter that attempts to change the destination. The site does not collect, store, or forward Meta click identifiers. This site does not currently install the Meta Pixel. Skool applies its own privacy practices after the redirect.</p>
 
       <h3>Fonts</h3>
       <p>This site serves its typeface files from the same domain. Loading the site’s fonts does not require your browser to connect to Google Fonts or another font-delivery service.</p>

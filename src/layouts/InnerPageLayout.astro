@@ -12,7 +12,6 @@ interface Props {
   currentPage: string;
   noindex?: boolean;
   schema?: Record<string, unknown> | Record<string, unknown>[];
-  stripMetaClickId?: boolean;
 }
 
 const {
@@ -25,7 +24,6 @@ const {
   currentPage,
   noindex = false,
   schema,
-  stripMetaClickId = false,
 } = Astro.props;
 
 const canonical = new URL(canonicalPath, Astro.site).href;
@@ -51,7 +49,7 @@ const extraSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 const schemas = [breadcrumbSchema, ...extraSchemas];
 ---
 
-<BaseLayout {title} {description} {canonicalPath} {noindex} schema={schemas} {stripMetaClickId}>
+<BaseLayout {title} {description} {canonicalPath} {noindex} schema={schemas}>
   <PageHero {eyebrow} title={heading} {lead} {currentPage} />
   <slot />
 </BaseLayout>

@@ -10,7 +10,6 @@ interface Props {
   canonicalPath?: string | false;
   noindex?: boolean;
   schema?: Record<string, unknown> | Record<string, unknown>[];
-  stripMetaClickId?: boolean;
 }
 
 const {
@@ -19,7 +18,6 @@ const {
   canonicalPath = Astro.url.pathname,
   noindex = false,
   schema,
-  stripMetaClickId = false,
 } = Astro.props;
 
 const canonical = canonicalPath === false ? null : new URL(canonicalPath, Astro.site).href;
@@ -45,27 +43,23 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     <link rel="preload" href="/fonts/manrope-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/instrument-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    {stripMetaClickId && (
-      <script is:inline>
-        (() => {
-          const url = new URL(window.location.href);
-          const clickId = url.searchParams.get("fbclid");
-          if (!clickId) return;
-          if (/^[A-Za-z0-9._-]{1,300}$/.test(clickId)) {
-            try { sessionStorage.setItem("builders_lab_fbclid", clickId); } catch {}
-          }
-          url.searchParams.delete("fbclid");
-          history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
-        })();
-      </script>
-    )}
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EK4D73E6DT" is:inline></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
-      gtag("config", "G-EK4D73E6DT");
+      const analyticsPageLocation = `${window.location.origin}${window.location.pathname}`;
+      let analyticsPageReferrer = "";
+      if (document.referrer) {
+        try {
+          const referrer = new URL(document.referrer);
+          analyticsPageReferrer = `${referrer.origin}${referrer.pathname}`;
+        } catch {}
+      }
+      gtag("config", "G-EK4D73E6DT", {
+        page_location: analyticsPageLocation,
+        page_referrer: analyticsPageReferrer,
+      });
     </script>
 
     <meta property="og:type" content="website" />

@@ -1,7 +1,7 @@
 # Builders Lab: First Build Brief and paid campaign handoff
 
 Status: **planned, not active**
-Last updated: 2026-07-24
+Last updated: 2026-07-25
 
 This is the tracked, paste-ready campaign source for Builders Lab by George Johnson. It does not authorize sending, ad launch, or spend. The public Skool path is always available without email signup.
 
@@ -16,7 +16,7 @@ The optional **Get the First Build Brief** form remains hidden and inactive. Do 
 5. Unsubscribe, privacy, physical mailing address, suppression, and test-send checks pass.
 6. A George-specific server-side endpoint with a streaming body limit, strict allowlists, honeypot and timing checks, rate limiting, neutral responses, and a server-only secret is deployed and tested.
 
-The current Cloudflare Pages project is a static direct-upload deployment with no established server-side endpoint or rate-limit binding. No signup endpoint or secret is deployed on georgebjohnson.com.
+The current Cloudflare Pages project serves a static Astro site plus one narrow server-side redirect Function. There is no signup endpoint, rate-limit binding, form capture, or server-only Encharge secret on georgebjohnson.com.
 
 Before double opt-in is live, there is no form success state because the form must not be active. After double opt-in is genuinely configured and tested, the approved success copy is: **“Check your inbox to confirm your email address. The brief starts only after you confirm.”**
 
@@ -62,7 +62,7 @@ Store the email plus this server-authored evidence after strict validation:
 }
 ```
 
-Server-fixed tags when activation is approved: `Builders Lab`, `First Build Brief`, `DOI Pending`, and `builders-lab-first-build-brief`. The DOI Flow, not the browser or initial API request, must move a confirmed person into the confirmed-recipients segment. Never send the sequence to `DOI Pending`. Do not send raw URLs, query strings, `fbclid`, IP addresses, or other click IDs to Encharge.
+Server-fixed tags when activation is approved: `Builders Lab`, `First Build Brief`, `DOI Pending`, and `builders-lab-first-build-brief`. The DOI Flow, not the browser or initial API request, must move a confirmed person into the confirmed-recipients segment. Never send the sequence to `DOI Pending`. Do not send raw URLs, query strings, IP addresses, or platform click IDs to Encharge.
 
 ## Sequence timing
 
@@ -73,7 +73,7 @@ Day 0 begins after double-opt-in confirmation, not after the initial form submis
 - Subject: `Choose one system another person can inspect` (44 characters)
 - Preheader: `Start with a real workflow, a clear output, and one narrow finish line.` (71 characters)
 - CTA: `Review Builders Lab membership`
-- CTA URL: `https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campaign=builders_lab_first_build_brief&utm_content=day_0_choose_one_system`
+- CTA URL: `https://georgebjohnson.com/go/skool`
 
 ### Paste-ready body
 
@@ -97,7 +97,7 @@ Keep the scope narrow. The goal is evidence you can inspect, not a claim that th
 If you want to develop this kind of work alongside other builders and operators, review Builders Lab on Skool.
 
 Review Builders Lab membership
-https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campaign=builders_lab_first_build_brief&utm_content=day_0_choose_one_system
+https://georgebjohnson.com/go/skool
 ```
 
 ## Day 2 — map the path before you automate it
@@ -105,7 +105,7 @@ https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campai
 - Subject: `Map the path before you automate it` (35 characters)
 - Preheader: `Make the source, record, review, approved handoff, and test visible.` (68 characters)
 - CTA: `Review Builders Lab membership`
-- CTA URL: `https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campaign=builders_lab_first_build_brief&utm_content=day_2_map_the_path`
+- CTA URL: `https://georgebjohnson.com/go/skool`
 
 ### Paste-ready body
 
@@ -129,7 +129,7 @@ Test: Choose one bounded case and define the evidence you will keep.
 If any step is vague, keep the work manual there. A visible gap is more useful than hidden automation.
 
 Review Builders Lab membership
-https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campaign=builders_lab_first_build_brief&utm_content=day_2_map_the_path
+https://georgebjohnson.com/go/skool
 ```
 
 ## Day 5 — bring one sanitized artifact and the evidence
@@ -137,7 +137,7 @@ https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campai
 - Subject: `Bring one sanitized artifact and the evidence` (45 characters)
 - Preheader: `Use a safe example to show what the system did, what failed, and what changes next.` (83 characters)
 - CTA: `Review Builders Lab membership`
-- CTA URL: `https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campaign=builders_lab_first_build_brief&utm_content=day_5_bring_evidence`
+- CTA URL: `https://georgebjohnson.com/go/skool`
 
 ### Paste-ready body
 
@@ -161,7 +161,7 @@ Do not polish away the failure. A failed check can show exactly where the system
 If this is how you want to build, review the current Builders Lab membership details on Skool.
 
 Review Builders Lab membership
-https://georgebjohnson.com/go/skool?utm_source=email&utm_medium=email&utm_campaign=builders_lab_first_build_brief&utm_content=day_5_bring_evidence
+https://georgebjohnson.com/go/skool
 ```
 
 ## Sender, unsubscribe, and privacy requirements
@@ -186,11 +186,10 @@ https://georgebjohnson.com/builders-lab/?utm_source=meta&utm_medium=paid_social&
 - `utm_source`: exact value `meta`
 - `utm_medium`: exact value `paid_social`
 - `utm_campaign`: exact value `builders_lab_direct_membership`
-- `utm_content`: lowercase creative slug matching `^[a-z0-9._~-]{1,100}$`
+- `utm_content`: optional lowercase creative slug matching `^[a-z0-9._~-]{1,100}$`
 - `utm_term`: optional lowercase audience/test slug matching the same pattern
-- `fbclid`: preserve in the browser only for downstream platform attribution; never map it or a raw query string into Encharge.
 
-The live page strips `fbclid` from the visible Builders Lab URL before GA4 initializes, holds a validated value in session storage, and appends it to the local `/go/skool` CTA. The Cloudflare redirect preserves the query on the one-hop `302` to Skool.
+The Builders Lab page and `/go/skool` Function preserve those five lowercase keys only when the three fixed Meta values match exactly and no allowlisted key is duplicated. The one-hop `302` always uses `https://www.skool.com/local-seo-engineering-7047/about`. It drops platform click IDs, arbitrary parameters, uppercase variants, malformed or overlong values, duplicates, control characters, and destination overrides such as `next` or `url`. No platform click identifier is collected, stored, or forwarded by the site. Untagged and non-Meta links still reach the fixed Skool page without query parameters.
 
 ### Paste-ready Meta ad copy
 
@@ -225,7 +224,7 @@ Do not import a Meta lead unless its record includes the approved consent text/v
 | `email_optin_started` | First interaction with an active optional form | `form_name`, `source_path` | Submission or consent |
 | `email_optin_submitted` | Server accepts a valid consented request into DOI pending | `form_name`, `source_path`, `doi_status=pending_confirmation` | Confirmation or membership |
 
-Never emit a membership event from a click. Never put email addresses, `fbclid`, raw queries, or other personal/click identifiers into GA4 event parameters.
+Never emit a membership event from a click. Never put email addresses, raw queries, or personal or platform click identifiers into GA4 event parameters.
 
 ## Meta Pixel and connection status
 

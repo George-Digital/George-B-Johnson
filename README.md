@@ -16,4 +16,4 @@ npm run build
 npm run preview
 ```
 
-Astro writes the static site to `dist/`. Production URLs use trailing slashes, and Cloudflare-compatible redirects are defined in `public/_redirects`.
+Astro writes the static site to `dist/`. Production URLs use trailing slashes. Static redirects are defined in `public/_redirects`, while the tracked Builders Lab short link is handled by the narrow Cloudflare Pages Function in `functions/go/skool/`.

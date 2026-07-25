@@ -1,45 +1,33 @@
-const PAID_CAMPAIGN = Object.freeze({
-  utm_source: "meta",
-  utm_medium: "paid_social",
-  utm_campaign: "builders_lab_direct_membership",
-});
-const SAFE_CAMPAIGN_VALUE = /^[A-Za-z0-9._~-]{1,100}$/;
-const CLICK_ID = /^[A-Za-z0-9._-]{1,300}$/;
+import { allowedMetaCampaignParams } from "../lib/builders-lab-attribution.js";
 
-function trackedSkoolPath() {
-  const current = new URL(window.location.href);
-  const target = new URL("/go/skool", window.location.origin);
-  const paidPatternMatches = Object.entries(PAID_CAMPAIGN)
-    .every(([key, value]) => current.searchParams.get(key) === value);
+export const SKOOL_CTA_EVENT = "skool_cta_click";
 
-  if (paidPatternMatches) {
-    for (const [key, value] of Object.entries(PAID_CAMPAIGN)) target.searchParams.set(key, value);
-    for (const key of ["utm_content", "utm_term"]) {
-      const value = current.searchParams.get(key);
-      if (value && SAFE_CAMPAIGN_VALUE.test(value)) target.searchParams.set(key, value);
-    }
+export function trackedSkoolPath(locationHref) {
+  const current = new URL(locationHref);
+  const campaign = allowedMetaCampaignParams(current.searchParams);
+  const query = campaign.toString();
+  return query ? `/go/skool?${query}` : "/go/skool";
+}
+
+export function initBuildersLabTracking(browserWindow, browserDocument) {
+  if (typeof browserWindow.gtag === "function") {
+    browserWindow.gtag("event", "builders_lab_view", { page_path: "/builders-lab/" });
   }
 
-  let clickId = null;
-  try { clickId = sessionStorage.getItem("builders_lab_fbclid"); } catch {}
-  if (clickId && CLICK_ID.test(clickId)) target.searchParams.set("fbclid", clickId);
-
-  return `${target.pathname}${target.search}`;
-}
-
-const gtag = window.gtag;
-if (typeof gtag === "function") {
-  gtag("event", "builders_lab_view", { page_path: "/builders-lab/" });
-}
-
-document.querySelectorAll("[data-skool-cta]").forEach((link) => {
-  link.setAttribute("href", trackedSkoolPath());
-  link.addEventListener("click", () => {
-    if (typeof window.gtag === "function") {
-      window.gtag("event", "skool_cta_click", {
-        cta_placement: link.getAttribute("data-skool-cta") || "unknown",
-        link_url: "/go/skool",
-      });
-    }
+  const trackedPath = trackedSkoolPath(browserWindow.location.href);
+  browserDocument.querySelectorAll("[data-skool-cta]").forEach((link) => {
+    link.setAttribute("href", trackedPath);
+    link.addEventListener("click", () => {
+      if (typeof browserWindow.gtag === "function") {
+        browserWindow.gtag("event", SKOOL_CTA_EVENT, {
+          cta_placement: link.getAttribute("data-skool-cta") || "unknown",
+          link_url: "/go/skool",
+        });
+      }
+    });
   });
-});
+}
+
+if (typeof window !== "undefined" && typeof document !== "undefined") {
+  initBuildersLabTracking(window, document);
+}
