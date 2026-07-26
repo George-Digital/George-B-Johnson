@@ -251,7 +251,7 @@ The Encharge developer page points to the ReDoc REST reference as the recommende
 
 | Asset | Documented creation access | Safe disposition in this run |
 | --- | --- | --- |
-| Email template | Yes: `POST /v1/emails`; this creates a saved template and does not send it | Three standalone Builders Lab templates created and read back by ID |
+| Email template | Yes: `POST /v1/emails`; this creates a saved template and does not send it | Four standalone Builders Lab templates created and read back by ID; the three editorial drafts were corrected through documented version operations |
 | Native Form | No documented REST create/update path found | Dashboard-only; none created |
 | Flow | No documented REST create/update path found | Dashboard-only; none created or activated |
 | Account tag | Yes: `POST /v1/tags-management` | Five inert account tags created; no person was tagged |
@@ -278,13 +278,14 @@ Current terminology and safeguards were checked on 2026-07-26 against:
 
 The following saved email templates exist. They are standalone templates, not Broadcasts and not attached to any Flow:
 
-| Email | Encharge ID | API verification |
-| --- | ---: | --- |
-| `BUILDERS LAB — First Build Brief — Day 0` | `472553` | Subject, preheader, George From/Reply-to, approved body, CTA, privacy link, mailing-address merge tag, global unsubscribe, and preferences verified |
-| `BUILDERS LAB — First Build Brief — Day 2` | `472554` | Same checks passed |
-| `BUILDERS LAB — First Build Brief — Day 5` | `472555` | Same checks passed |
+| Email | Encharge ID | Current version | Version record | API verification |
+| --- | ---: | ---: | ---: | --- |
+| `BUILDERS LAB — First Build Brief — Day 0` | `472553` | `6` | `356631` | Restored from the polished API-created version; latest raw HTML and text-equivalent match the approved Day 0 body |
+| `BUILDERS LAB — First Build Brief — Day 2` | `472554` | `5` | `356632` | Restored from the polished API-created version; latest raw HTML and text-equivalent match the approved Day 2 body |
+| `BUILDERS LAB — First Build Brief — Day 5` | `472555` | `5` | `356633` | Restored from the polished API-created version; latest raw HTML and text-equivalent match the approved Day 5 body |
+| `BUILDERS LAB — First Build Brief — Confirm subscription` | `472564` | `1` | `356622` | Standalone confirmation draft created with the documented native-Form `{{person.confirmationLink}}` tag and the approved minimal copy |
 
-All three use:
+All three editorial drafts use:
 
 - From name: `George Johnson`
 - From email: `george@georgebjohnson.com`
@@ -294,7 +295,11 @@ All three use:
 - visible footer: George Johnson, `{{account.mailingAddress}}`, Privacy Policy, a link using `{{person.unsubscribeAllURL}}`, and a link using `{{person.managePreferencesURL}}`
 - API-returned spam-compliance state: `approved`
 
-The API assigned the same communication category to all three, but the documented API response exposes only its numeric ID. The dashboard must show that this ID is **Marketing Emails** before any test or activation.
+All four templates use communication category ID `322189`. The documented API response exposes only the numeric ID, so the dashboard must still show that this ID is **Marketing Emails** before any test or activation.
+
+The confirmation draft uses subject `Confirm your First Build Brief`, preheader `Confirm your email address before the three-part brief begins.`, the same George From/Reply-to and compliance footer, and only `{{person.confirmationLink}}` for its primary confirmation CTA. It remains standalone, unarchived, unselected, unattached, and unsent.
+
+A separate read-only API pass verified every current `email.html` value and every latest version's `data.html`: approved unique copy and activity prompts are present; only the exact approved URLs and merge tags occur; the starter-template phrases are absent; CAN-SPAM compliance is `approved`; all templates are standalone and unselected; and both the account counter and full people list remain zero. Encharge retains an older visual-editor object on the three editorial records even after documented PATCH and version-restore operations. That internal object is not the current raw/send HTML, but the dashboard editor can overwrite the corrected HTML if it is opened and saved without review. Visually verify the body in the dashboard and do not save any reintroduced starter content.
 
 These inert account tags now exist with zero people attached:
 
@@ -376,8 +381,8 @@ Do not turn on a Form or Flow, use **Send test**, or submit an address while com
 9. Set the button to `Get the First Build Brief`.
 10. Set the **Success message** text to `Check your inbox to confirm your email address. The brief starts only after you confirm.`
 11. Still in **Fields**, scroll to **Double Opt-In** and enable **Enable double opt-in** on the deactivated Form draft.
-12. Click **Choose confirmation email**. Create a separate confirmation template named `BUILDERS LAB — First Build Brief — Confirm subscription`; this is not one of the three editorial sequence emails.
-13. Use subject `Confirm your First Build Brief` and preview text `Confirm your email address before the three-part brief begins.` Set Category, From, Reply-to, mailing address, privacy, global unsubscribe, and preferences exactly as in step 1.
+12. Click **Choose confirmation email**. Select the existing standalone template `BUILDERS LAB — First Build Brief — Confirm subscription` (Encharge ID `472564`). Do not create a duplicate; this is not one of the three editorial sequence emails.
+13. Confirm its subject is `Confirm your First Build Brief` and its preview text is `Confirm your email address before the three-part brief begins.` Confirm Category, From, Reply-to, mailing address, privacy, global unsubscribe, and preferences exactly as in step 1.
 14. Use this minimal confirmation body:
 
 ```text
@@ -463,7 +468,7 @@ This plan is for a later explicit test window. It is not authorization to run it
 ## Remaining activation blockers
 
 - Encharge must document scanner-safe behavior and a distinct native DOI completion signal.
-- The confirmation email and both dashboard Flows must be built, kept off, and reviewed.
+- The standalone confirmation email exists but must be visually reviewed and selected for the deactivated native Form; both dashboard Flows still must be built, kept off, and reviewed.
 - The native Form's active-by-default creation behavior needs operator acceptance or provider guidance.
 - The custom-field segment API issue needs provider resolution before `doiStatus` or `marketingConsent` can be used as segment conditions.
 - The accurate mailing address must be set and visually rendered.
