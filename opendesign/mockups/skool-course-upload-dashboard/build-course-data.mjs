@@ -115,7 +115,8 @@ async function markdownItem(filePath, kind, context) {
   const words = toPlainText(markdown).split(/\s+/).filter(Boolean).length;
   const relativePath = path.relative(coursesRoot, filePath).split(path.sep).join("/");
   const id = `${kind}:${relativePath}`;
-  const existingLive = kind === "lesson" && /^01-ai-systems-builder-sprint\/Start Here\/0[1-3]\s+-/.test(relativePath);
+  // The rebuilt Course 1 has not been independently verified in Skool yet.
+  const existingLive = false;
 
   return {
     id,
@@ -180,7 +181,7 @@ for (const [courseIndex, entry] of courseEntries.entries()) {
       id: folderId,
       order: folderIndex + 1,
       name: folderEntry.name,
-      existingLive: courseIndex === 0 && folderIndex === 0,
+      existingLive: false,
       lessons,
       resources,
     });
@@ -202,7 +203,11 @@ for (const [courseIndex, entry] of courseEntries.entries()) {
     order: courseIndex + 1,
     name: meta.name,
     description: meta.description,
-    existingLive: courseIndex === 0,
+    releaseStatus: courseIndex === 0 ? "active" : "hold",
+    releaseNote: courseIndex === 0
+      ? "Approved replacement course; upload in Draft and verify before release."
+      : "Legacy draft on hold for curriculum reconciliation. Do not upload or mark complete.",
+    existingLive: false,
     readmeHref: browserHref(readmePath),
     folders,
     resources,

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-22T15:24:56.298974Z",
+  "generated": "2026-07-27T21:25:00Z",
   "sections": [
     {
       "id": "mockups",
@@ -15,11 +15,11 @@
           ]
         },
         {
-          "slug": "skool-course-cover-sprint",
+          "slug": "skool-course-cover-client-knowledge-portal",
           "files": [
             {
-              "label": "AI Systems Builder Sprint course cover",
-              "path": "mockups/skool-course-cover-sprint/index.html"
+              "label": "Client Knowledge Portal course cover",
+              "path": "mockups/skool-course-cover-client-knowledge-portal/index.html"
             }
           ]
         },

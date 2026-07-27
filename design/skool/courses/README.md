@@ -1,17 +1,31 @@
-# Builders Lab Classroom — Complete Course Catalogue
+# Builders Lab Classroom — Course Catalogue
+
+## Current direction
+
+Course 1 has been rebuilt around George’s actual operating philosophy: track source data, preserve provenance, separate private files from structured records, route only approved context, and keep human review visible. George demonstrates the build in VS Code with Pi.
+
+The former four-week AI Systems Builder Sprint is archived at:
+
+`design/skool/archive/AI Systems Builder Sprint — Skool Upload Package v1/`
+
+Courses 2–5 remain complete local drafts, but they predate the new stack-specific direction. Do not upload or market them until their sequence and overlap have been reconciled. A detailed VS Code/Pi setup course and an Open Brain course are planned as separate builds; they are not currently represented as finished course packages.
 
 ## Build status
 
-All five finite courses are built locally as Skool-ready upload packages. They are not considered live until their folders, pages, and resources are uploaded, reviewed in Draft, and published inside Builders Lab.
+| Order | Course | Local folder | Lesson pages | Resources | Anchor scripts | Status |
+|---|---|---|---:|---:|---:|---|
+| 1 | Client Knowledge Portal | `01-client-knowledge-portal/` | 4 | 4 | 4 | Rebuilt locally; requires Skool migration and verification |
+| 2 | Context & Knowledge Systems for AI Workflows | `02-context-and-knowledge-systems-for-ai-workflows/` | 13 | 5 | 4 | Legacy draft; hold for reconciliation |
+| 3 | AI System Evaluation, Reliability & Governance | `03-ai-system-evaluation-reliability-and-governance/` | 15 | 7 | 4 | Legacy draft; hold for reconciliation |
+| 4 | Automation & Integrations for AI Operators | `04-automation-and-integrations-for-ai-operators/` | 19 | 6 | 5 | Legacy draft; hold for reconciliation |
+| 5 | Adoption & Continuous Improvement for AI Systems | `05-adoption-and-continuous-improvement-for-ai-systems/` | 15 | 6 | 4 | Legacy draft; hold for reconciliation |
+| **Total** |  |  | **66** | **28** | **21** |  |
 
-| Order | Course | Local folder | Lesson pages | Template resources | Anchor video scripts |
-|---|---|---|---:|---:|---:|
-| 1 | AI Systems Builder Sprint | `01-ai-systems-builder-sprint/` | 18 | 5 | 5 |
-| 2 | Context & Knowledge Systems for AI Workflows | `02-context-and-knowledge-systems-for-ai-workflows/` | 13 | 5 | 4 |
-| 3 | AI System Evaluation, Reliability & Governance | `03-ai-system-evaluation-reliability-and-governance/` | 15 | 7 | 4 |
-| 4 | Automation & Integrations for AI Operators | `04-automation-and-integrations-for-ai-operators/` | 19 | 6 | 5 |
-| 5 | Adoption & Continuous Improvement for AI Systems | `05-adoption-and-continuous-improvement-for-ai-systems/` | 15 | 6 | 4 |
-| **Total** |  |  | **80** | **29** | **22** |
+## Course 1 outcome
+
+A member builds a web portal for one configured project where an authorized client can upload knowledge documents. Original files remain private, metadata and status are stored in a database, a human controls approval, and only approved documents enter the agent handoff.
+
+The course deliberately excludes chat, embeddings, autonomous ingestion, and Open Brain. Its one inspectable artifact is the working portal plus acceptance evidence.
 
 ## Physical structure
 
@@ -19,53 +33,35 @@ All five finite courses are built locally as Skool-ready upload packages. They a
 courses/
 ├── README.md
 ├── VIDEO-PRODUCTION-INDEX.md
-├── 01-ai-systems-builder-sprint/
+├── 01-client-knowledge-portal/
 ├── 02-context-and-knowledge-systems-for-ai-workflows/
 ├── 03-ai-system-evaluation-reliability-and-governance/
 ├── 04-automation-and-integrations-for-ai-operators/
 └── 05-adoption-and-continuous-improvement-for-ai-systems/
 ```
 
-Use `VIDEO-PRODUCTION-INDEX.md` as the master recording checklist for all 22 folder-anchor videos.
-
-Each course directory contains:
-
-- its own `README.md` with paste-ready course name and description, prerequisites, outcome, exact physical tree, upload workflow, resources, and completion standard
-- physical folders named to match the intended Skool folders
-- numbered Markdown lesson pages in upload order
-- a `Resources/` directory containing copyable templates and prompts
-- a local-only `Video Scripts/` directory with one folder-anchor recording script per course folder, including exact embed destination, screen demonstration, teleprompter copy, member action, and recording checklist
+Each numbered course directory contains a course README, member lesson pages, resources, and local-only video scripts. Course art and recording scripts are production assets, not Skool curriculum folders.
 
 ## Skool upload workflow
 
-1. Open the course’s `README.md` and use its course name and description.
-2. Create the physical course folders in Skool with **Add folder**, in the order shown in that README.
-3. Create each numbered lesson with **Add page** inside the matching folder.
-4. Open the local lesson in a rendered Markdown preview.
-5. Copy the rendered content—not the raw Markdown—and paste it into Skool’s rich-text editor.
-6. Confirm the page title is H1; the takeaway remains bold; and `Concrete example`, `Action checklist`, `Required deliverable`, and `Community prompt` are H2.
-7. Keep pages in Draft until content, formatting, and relevant resources are checked; then Save.
-8. Make each course’s templates and prompts available from the lesson named in its README, using only resource controls verified in the live Skool interface.
-9. Record each folder-anchor video from its local-only script, using the named synthetic demonstration and screen cues, then embed the finished video on the exact first lesson mapped in the course README. Do not upload the production script as a member lesson or resource.
+1. Open the course README and use its current course name and description.
+2. Create the intended Skool folders and pages in the documented order.
+3. Copy the rendered lesson content into Skool’s rich-text editor.
+4. Confirm headings, bold text, bullets, links, and resources survived the paste.
+5. Keep the content in Draft until the full member path is checked.
+6. Upload the current course art through the course image field.
+7. Record and embed only the scripts mapped in the README.
+8. Perform a buyer read-through and verify that every action and label makes sense without access to internal files.
+9. Do not describe a local package as live until the Skool version has been checked directly.
 
 ## Recommended release order
 
-The files are complete, but member access should remain sequenced:
+Release **Client Knowledge Portal** first and observe where members stall. Do not release the existing Courses 2–5 automatically. Use evidence from the first member builds to decide the next sequence.
 
-1. AI Systems Builder Sprint
-2. Context & Knowledge Systems for AI Workflows
-3. AI System Evaluation, Reliability & Governance
-4. Automation & Integrations for AI Operators
-5. Adoption & Continuous Improvement for AI Systems
+Likely separate follow-on courses are:
 
-This progression takes a member from defining one useful system through knowledge design, reliability, automation, adoption, and ongoing maintenance. It avoids requiring a specific AI provider, coding assistant, automation platform, or technical stack.
+- **Set Up Your Builder Workspace** — VS Code, Pi, project folders, Markdown, Git, credentials, and a verified first session.
+- **ICM Workspaces and Context Routing** — stage contracts, reference versus working context, outputs, and human review gates.
+- **Build a Second Brain with Open Brain** — capture, database and retrieval architecture, privacy, and integration with the project workspace.
 
-## Living resources outside the finite-course count
-
-Keep these as maintained member resources rather than adding more course shells:
-
-- Templates & Prompts Library
-- System Blueprint & Implementation Archive
-- Relevant AI Change Notes
-
-The finite courses create progression. Retention should also come from scheduled help, implementation clinics, member teardowns, artifact-based critique, monthly build cycles, updated resources, and support improving systems used in real work.
+These are planning directions, not claims that the courses are already available.

@@ -2,21 +2,26 @@
 
 ## Production standard
 
-- Record one anchor video for each course folder: **22 videos total**.
-- Target approximately **6–12 minutes** per video.
+- Record the separate Builders Lab introduction first: `../Video Scripts/Builders Lab introduction.md`.
+- Record the four short Client Knowledge Portal anchors before migrating Course 1.
+- The current local catalogue contains **21 anchor scripts**, but Courses 2–5 are on hold for curriculum reconciliation.
+- Target approximately **4–7 minutes** for Course 1; retain the existing targets in later-course scripts until those courses are revised.
 - Follow the matching local script rather than reading lesson pages aloud.
 - Demonstrate only the named synthetic or sanitized example and local resources.
 - Never display credentials, private member information, client information, operational records, or confidential sources.
 - Embed the finished video on the exact first lesson named in the course README and script.
 - Keep additional page-level videos optional and create them only when a visual demonstration is genuinely needed.
 
-## Course 1 — AI Systems Builder Sprint
+## Builders Lab introduction
 
-- [ ] `01-ai-systems-builder-sprint/Video Scripts/01 - Start Here anchor video script.md`
-- [ ] `01-ai-systems-builder-sprint/Video Scripts/02 - Week 1 — Choose the Problem anchor video script.md`
-- [ ] `01-ai-systems-builder-sprint/Video Scripts/03 - Week 2 — Extract the Expertise anchor video script.md`
-- [ ] `01-ai-systems-builder-sprint/Video Scripts/04 - Week 3 — Build the First Workflow anchor video script.md`
-- [ ] `01-ai-systems-builder-sprint/Video Scripts/05 - Week 4 — Package, Test, and Revise anchor video script.md`
+- [ ] `../Video Scripts/Builders Lab introduction.md`
+
+## Course 1 — Client Knowledge Portal
+
+- [ ] `01-client-knowledge-portal/Video Scripts/01 - See how files move anchor video script.md`
+- [ ] `01-client-knowledge-portal/Video Scripts/02 - Keep files safe and tracked anchor video script.md`
+- [ ] `01-client-knowledge-portal/Video Scripts/03 - Build the upload page with Pi anchor video script.md`
+- [ ] `01-client-knowledge-portal/Video Scripts/04 - Test what the AI can use anchor video script.md`
 
 ## Course 2 — Context & Knowledge Systems for AI Workflows
 
@@ -49,12 +54,13 @@
 
 ## Recording order
 
-Record in member-release order rather than recording all 22 before launch:
+Record in member-release order rather than recording the full legacy queue before launch:
 
-1. Course 1 Start Here
-2. Course 1 Week 1
-3. Remaining Course 1 folders as their member weeks open
-4. Course 2 anchors before Course 2 release
-5. Courses 3–5 in sequence before each course is released
+1. Builders Lab introduction
+2. Course 1 — See How Files Move
+3. Course 1 — Keep Files Safe and Tracked
+4. Course 1 — Build the Upload Page with Pi
+5. Course 1 — Test What the AI Can Use
+6. Pause and observe member completion before recording Courses 2–5
 
-This keeps the public/member experience moving without creating a large unreleased video-production backlog.
+This keeps the first course short and actionable. Do not continue the legacy recording queue until the next-course sequence is approved.

@@ -5,311 +5,246 @@
 **Member price:** $7/month
 **Role in the portfolio:** Personal-brand education and working-membership offer
 
-Use **one YouTube channel only:** `https://www.youtube.com/@georgeb.johnson`. YouTube shows how George turns real expertise into practical AI-assisted systems; Builders Lab is the $7/month working membership where people apply that thinking to their own work, receive critique, and complete a System Pack. George Digital, AtsKaleSEO, and other projects supply examples rather than separate channels to manage.
+Use one YouTube channel: `https://www.youtube.com/@georgeb.johnson`. YouTube teaches complete public lessons from George’s real work. Builders Lab is where members apply the method, share artifacts, receive bounded critique, and improve the system they are building.
 
 ## Positioning decision
 
-Builders Lab is not a backlink community and should not operate as a disguised funnel for George Digital.
+Builders Lab is a working group for builders and operators who want to create practical AI systems around information they can inspect.
 
-**Core positioning:**
+George demonstrates the environment he actually uses:
 
-> Builders Lab is George B. Johnson’s working membership for builders and operators turning real domain expertise into practical AI-assisted systems. Members build one workflow at a time, document it, get critique, and improve it with the group.
+- VS Code as the IDE and project workspace;
+- Pi as the minimal terminal coding harness;
+- databases for durable records and state;
+- project files for code, instructions, references, and working artifacts;
+- ICM-inspired context routing and review boundaries; and
+- human approval before consequential information reaches an agent.
 
-AtsKaleSEO, SEO operations, content systems, niche software, and backlink workflows can appear as real examples. They should not become prerequisites or the identity of the group.
+The tools support the philosophy; they are not the entire offer. The durable promise is to build visible, testable systems from real source material instead of relying on disposable chats or unexplained automation.
 
-**Member baseline:** The core course assumes members already have access to an AI assistant and can run, review, and revise a basic prompt. No specific product, coding environment, or technical tool is required. Builders Lab is not positioned as a zero-to-AI fundamentals course.
-
-Members who need occasional setup or foundational help are still welcome. Scheduled help, practical troubleshooting, and direct feedback can strengthen commitment and retention; they should be delivered through the community and defined support cadence rather than expanding the core curriculum or promising unlimited private access.
+Builders Lab is not a backlink community, a disguised George Digital funnel, an income opportunity, a generic prompt library, or a promise that AI can operate without human judgment.
 
 ## Current member value
 
-The value is not a large passive video library. The value is a repeatable working cycle:
+The value is not the number of videos. The value is a repeatable build-and-review cycle:
 
-1. Choose one real problem.
-2. Map the expert workflow behind it.
-3. Build a prompt, automation, or lightweight system.
-4. Test an actual output.
-5. Get critique.
-6. Revise and document the system.
+1. Choose one narrow system.
+2. Identify the source data and its owner.
+3. Build one inspectable interface or workflow.
+4. Track state and provenance.
+5. Test the actual handoff.
+6. Share evidence and receive critique.
+7. Revise the source system rather than hiding the failure.
 
-Every member should work toward a **System Pack** containing:
-
-- problem statement
-- workflow map
-- decision rules or SOP
-- prompt or runbook
-- example input and output
-- quality checklist
-- test evidence
-- next-improvement list
+Course 1 produces a real artifact: a Client Knowledge Portal that can receive documents for one configured project, store the originals privately, record metadata and review state, and expose only approved knowledge to an AI agent.
 
 ## Classroom architecture
 
-### Launch and complete initial setup — one course
+### Launch course — Client Knowledge Portal
 
-Build **one complete course: AI Systems Builder Sprint**. It contains five folders, eighteen member-facing pages, and five template resources:
+The first course is intentionally short: four lessons, four resources, and four anchor videos.
 
-1. **Start Here** — orientation, first build, and build-log setup
-2. **Week 1 — Choose the Problem** — repeated pain, user/output definition, and finish line
-3. **Week 2 — Extract the Expertise** — decision rules, minimum SOP, constraints, edge cases, and quality rubric
-4. **Week 3 — Build the First Workflow** — build path, prompt stack, examples, constraints, and runbook
-5. **Week 4 — Package, Test, and Revise** — system home, manual test, feedback, revision, and completed System Pack
+1. **See how a file reaches the AI** — follow the file from upload to a person’s approval.
+2. **Keep each file safe and tracked** — save the real file privately and track its source and status.
+3. **Build the upload page with Pi** — use VS Code and Pi to build one full upload path.
+4. **Test what the AI is allowed to use** — prove that approved files get through and other files stay blocked.
 
-The complete physical upload package lives at:
+One deployment represents one project. The uploader does not choose a project.
 
-`design/skool/courses/01-ai-systems-builder-sprint/`
+The local upload package is:
 
-Do not split Start Here, prompt quality, or test-and-package material into separate course shells. Those outcomes are already integrated into the flagship Sprint. Additional empty or overlapping courses would add navigation and production work without improving the member result.
+`design/skool/courses/01-client-knowledge-portal/`
 
-### Mature state — five finite courses
+The former AI Systems Builder Sprint is archived at:
 
-All five sequenced, finite courses are built locally. Launch member access with AI Systems Builder Sprint first, then release the remaining courses across a four-to-six-month progression after each Skool upload and member path is verified:
+`design/skool/archive/AI Systems Builder Sprint — Skool Upload Package v1/`
 
-1. **AI Systems Builder Sprint** — Define and ship one bounded AI-assisted workflow with clear inputs, outputs, decision rules, human review, testing, and a System Pack.
-2. **Context & Knowledge Systems for AI Workflows** — Build a maintainable source of truth with document structure, update rules, access boundaries, and traceable context.
-3. **AI System Evaluation, Reliability & Governance** — Create test cases, failure handling, quality thresholds, permissions, review paths, and an operating runbook.
-4. **Automation & Integrations for AI Operators** — Turn a validated workflow into a recurring process with structured inputs and outputs, error handling, and a manual fallback.
-5. **Adoption & Continuous Improvement for AI Systems** — Establish ownership, onboarding, usage feedback, review cadence, change logs, maintenance, and retirement criteria.
+Preserve the current live or draft Skool material until the replacement has been uploaded and verified in Draft.
 
-Release these sequentially. Do not present a locally built course as currently available until it has been uploaded and verified in Skool. The flagship Sprint launches first; member evidence and recurring questions should refine each later course before publication.
+### Planned separate courses
 
-### Living member resources
+Keep these separate so Course 1 remains understandable:
 
-These are maintained resources rather than additional finite courses:
+- **Set Up Your Builder Workspace** — VS Code, terminal basics, Pi installation and authentication, project trust, context files, Markdown, Git, environment variables, and one verified session.
+- **ICM Workspaces and Context Routing** — stage contracts, reference versus working context, explicit handoffs, review gates, and source-level improvement.
+- **Build a Second Brain with Open Brain** — capture, storage, retrieval, privacy, maintenance, and connection to the Pi/project workflow.
 
-- **Templates & Prompts Library** — versioned system briefs, prompt scaffolds, test sets, rubrics, SOPs, and handoff templates
-- **System Blueprint & Implementation Archive** — member-safe examples, workflow maps, teardowns, and reusable implementation patterns
-- **Relevant AI Change Notes** — concise updates explaining what changed, which systems may be affected, and what members should retest
+These are approved directions, not claims that the course packages are finished or live.
 
-Retention comes from the progression plus bounded direct help, implementation clinics, artifact-based critique, monthly build cycles, useful resource updates, and members improving systems that are active in real work—not from course count alone.
+### Existing local Courses 2–5
+
+The existing Context, Evaluation, Automation, and Adoption packages predate this pivot. Hold them for reconciliation. Do not upload, market, or record them automatically merely because the files exist.
 
 ## Suggested Skool copy
 
-### About — plain-text version
+### About — plain text
 
-> Builders Lab is George B. Johnson’s $7/month working membership for builders and operators turning real domain expertise into practical AI-assisted systems. Build one useful workflow at a time, document the decisions behind it, test real outputs, and improve it through direct critique, weekly build threads, and examples from active projects. No hype, income promises, or one-size-fits-all templates.
-
-**Character count:** 401
+> Builders Lab is George B. Johnson’s working group for building useful AI tools. Follow real builds in VS Code with Pi, keep your files and data organized, test each step, and make sure a person stays in control. Build along, share what worked, and get help when something fails. No hype, income promises, or mystery automation.
 
 ### About — emoji version
 
-> 🧪 Builders Lab is George B. Johnson’s $7/month working membership for builders and operators turning real domain expertise into practical AI-assisted systems. Build one useful workflow at a time, test real outputs, and improve it through direct critique, weekly build threads, and examples from active projects. No hype, income promises, or one-size-fits-all templates.
+> 🧪 Builders Lab is George B. Johnson’s working group for building useful AI tools. Follow real builds in VS Code with Pi, keep your files and data organized, test each step, and make sure a person stays in control. Build along, share what worked, and get help when something fails. No hype, income promises, or mystery automation.
 
-**Character count:** 369
+### Client Knowledge Portal description
 
-### AI Systems Builder Sprint description
+> Build a simple website where a client can upload files for one AI project. Save each file in a private place, keep a clear database record, and make sure a person checks it before the AI can use it. I will show the build in VS Code with Pi. One small project. No magic prompts or automatic approval.
 
-> Build and document one practical AI-assisted workflow from your own domain expertise. Choose a repeated problem, map the judgment behind it, create a prompt or lightweight automation, test a real output, and finish with a System Pack you can improve or share. Every module produces an artifact, and the community provides critique—not hype, income promises, or a one-size-fits-all formula.
+## Public founder introduction
 
-**Character count:** 389
+Use:
+
+`design/skool/Video Scripts/Builders Lab introduction.md`
+
+The current 20–30 second script is a public founder video. It presents Builders Lab as a hands-on working lab, states that George is active daily and shares current projects, and directs viewers to the current membership details. Use separate member orientation or stack-demo recordings when those need more depth.
 
 ## Pinned posts
 
-### 1 — Start Here
+### 1 — Start here
 
-**Title:** Start here: choose your first build
+**Title:** Start here: build from inspectable data
 
-> Builders Lab is a working membership, not a passive course library.
+> Builders Lab is a working group, not a passive video library.
 >
-> In your first 24 hours, introduce yourself with:
+> Introduce yourself with:
 >
-> 1. The domain you know well
-> 2. One repeated problem you see
-> 3. The system you want to test this month
-> 4. The artifact you will finish first
+> 1. The kind of work or client project you understand
+> 2. One source of information an AI system would need
+> 3. Who owns or supplies that information
+> 4. Which human decision should happen before an agent uses it
 >
-> Then create one build-log thread and keep your updates there throughout the sprint.
+> Use synthetic or authorized examples only. Do not post private client files, credentials, personal data, or confidential records.
 
-### 2 — This Month’s Sprint
+### 2 — Current build
 
-**Title:** This month: finish one System Pack
+**Title:** Current build: Client Knowledge Portal
 
-> This month we are building one practical AI-assisted workflow.
+> We are building one single-project portal where an authorized client can upload knowledge documents. The original file stays private, the database tracks provenance and review state, and only approved documents enter the agent handoff.
 >
-> The finish line is a System Pack containing your problem, workflow map, decision rules, prompt or runbook, example output, quality checklist, test evidence, and next improvement.
->
-> Narrow and usable beats ambitious and unfinished.
+> Share the smallest artifact you completed: the flow map, schema, upload screen, approval test, or failed acceptance check.
 
-### 3 — Feedback Standard
+### 3 — Feedback standard
 
-**Title:** How to ask for useful feedback
+**Title:** Bring the artifact and the evidence
 
 > When requesting critique, include:
 >
-> - the artifact
-> - who it is for
-> - what “good” should look like
-> - where it currently fails
-> - the decision you need help making
+> - the artifact or sanitized screenshot
+> - what the step is supposed to do
+> - the evidence you checked
+> - where it failed or remains unclear
+> - the one decision you need help making
 >
-> Give useful feedback on another member’s work before requesting a second review of your own.
+> Remove credentials, private URLs, client identities, and document contents before posting.
 
 ## Weekly activity loop
 
-### Monday — Build Target
+### Monday — Build target
 
-> What one artifact will you finish this week? Include the user or problem, your finish line, and the smallest next step.
+> What one inspectable artifact will you finish this week: flow, schema, upload slice, review gate, or acceptance test?
 
-### Wednesday — Critique Desk
+### Wednesday — Critique desk
 
-> Share one prompt, workflow step, page section, or output. What is unclear or failing? One submission will receive a deeper teardown.
+> Share one sanitized screen, schema decision, failed check, or handoff boundary. What evidence should another builder inspect?
 
-### Friday — Build Log
+### Friday — Build evidence
 
-> What changed, what evidence did you get, what broke, and what will you test next? Unfinished work is welcome when the lesson is specific.
+> What changed, what did you verify directly, what failed, and what source-level change will you test next?
 
-## Four-week founding-member launch
+## Two-week founding-member launch
 
-| Week | Classroom release | Community action | YouTube support | George’s commitment |
-|---|---|---|---|---|
-| 1 | Start Here + Sprint Week 1 | Every member posts a build target | Publish long-form video 1: turn domain expertise into a first AI-assisted system | Reply personally to every introduction and scope the finish line |
-| 2 | Sprint Week 2 | Members share workflow maps or rubrics | Reuse one useful segment from video 1; no new long-form requirement | Publish one member teardown |
-| 3 | Week 3 — Build the First Workflow + Prompt Stack and Runbook Template | Members submit a prompt/output pair | Publish long-form video 2: extract the hidden decisions behind an AI workflow | Turn one real question into a micro-lesson |
-| 4 | Week 4 — Package, Test, and Revise + Test and Revision Template | System Pack review and next-theme vote | Publish a sprint recap or member-question response; no new long-form requirement | Publish one review/showcase and the next sprint brief |
+### Week 1 — Understand and build
+
+- Release Lessons 1–3.
+- Members map the flow, create the schema, and build one upload slice.
+- George replies to each first scope or implementation decision within the announced support window.
+- Publish one public video explaining why agent knowledge needs provenance and approval.
+
+### Week 2 — Review and verify
+
+- Release Lesson 4.
+- Members test uploader and reviewer roles, approved-only handoff, replacement, and failure states.
+- George publishes one sanitized teardown of a failed test or confusing interface.
+- Collect setup problems separately for the future VS Code/Pi setup course.
+
+Do not stretch the course into a four-week drip. Its value is a short, finished build.
 
 ## First seven community posts
 
-These support the pinned posts and course without turning the feed into a content dump.
+1. **What information would your agent need?** Identify one source and its owner.
+2. **A file is not a trustworthy record.** Compare file content with metadata, provenance, and review state.
+3. **Upload does not equal approval.** Ask members where the human gate belongs.
+4. **VS Code and Pi in one picture.** Show the IDE, repository, terminal harness, and review step without teaching full setup.
+5. **One clean failure.** Show a rejected file type or partial upload and explain the source-level fix.
+6. **Approved-only handoff.** Demonstrate one included record and one excluded record.
+7. **First-cycle review.** Ask where members stalled and whether the blocker belongs in setup, data design, UI, authorization, or deployment.
 
-1. **What do you know unusually well?** Ask members to identify the domain expertise behind their build.
-2. **Start with pain, not AI.** Share one example of narrowing a broad AI idea into one useful workflow.
-3. **The hidden-decision exercise.** Ask what experienced operators check that beginners miss.
-4. **AtsKaleSEO build example.** Show one workflow decision, what failed, and what changed; keep it useful outside SEO.
-5. **Prompt/output critique.** Share an imperfect output and invite members to use the quality rubric.
-6. **Packaging choices.** Compare a checklist, document, static page, and lightweight tool as possible homes for a system.
-7. **Founding-member review.** Ask what members built, where they stalled, and which teardown they want next.
-
-## Relationship to George Digital and backlinks
+## Relationship to George Digital and other projects
 
 - George Digital remains a separate service business.
-- Backlink operations may be used as one domain-expertise example among several.
-- Do not make every lesson or post lead to a backlink-service CTA.
-- Do not run reciprocal-link, link-exchange, or member-promotion schemes.
-- If a member independently needs George Digital’s service, disclose the separate commercial relationship and route them to the appropriate service page without changing the educational promise of Builders Lab.
+- AtsKaleSEO and other projects may supply sanitized examples.
+- Do not make every lesson or post lead to a service CTA.
+- Do not use member projects for promotion without explicit permission.
+- If a member independently needs a service, disclose the separate commercial relationship.
 
 ## Promotion strategy
 
-Do not run paid acquisition to an empty classroom.
+Do not promote broadly until:
 
-Before promoting Builders Lab broadly, complete these minimum readiness checks:
+- the new Client Knowledge Portal course is uploaded and verified in Skool;
+- the public/private introduction is recorded;
+- all four lessons and resources work on mobile;
+- at least one complete synthetic build has passed the acceptance checklist;
+- the uploader and reviewer concepts are clear;
+- support capacity and critique times are published; and
+- the old Sprint is archived or clearly separated so members do not enter two conflicting starts.
 
-- Start Here is published.
-- Sprint Weeks 1 and 2 are available.
-- The three pinned posts are live.
-- At least three useful discussions or build examples are visible.
-- A recurring critique day is scheduled.
-- George can sustain one direct teardown per week.
-
-Ads and public promotion should sell the outcome—**turn your expertise into one usable AI-assisted system with feedback**—not generic access to a community.
+Promote the outcome—**build a controlled path from client document to approved agent knowledge**—not generic community access or fully autonomous AI.
 
 ## YouTube launch system
 
 ### Channel role
 
-The **George B. Johnson YouTube channel** (`https://www.youtube.com/@georgeb.johnson`) is Builders Lab’s public proof and discovery layer. It should teach complete, useful system-building lessons: choosing a repeated problem, extracting expert judgment, building a lightweight workflow, and testing it.
+The George B. Johnson YouTube channel is the public proof and discovery layer. Each video should teach a complete idea and show a real artifact, decision, test, or failure.
 
-The channel is not limited to AI SEO tools and should not be branded as George Digital. AtsKaleSEO, SEO operations, content systems, and backlink workflows are valid build examples when the framing remains useful to builders and operators outside SEO.
+The public lesson should remain useful without joining. Builders Lab provides implementation resources, critique, recurring review, and a place to share the member’s own build.
 
-Every long-form video should:
+### First four public videos
 
-- answer one practical question in the opening
-- show a real artifact, decision, test, or failure
-- explain where human judgment remains necessary
-- use a title understandable outside SEO
-- end with one relevant Builders Lab action
-
-### YouTube-to-Skool value boundary
-
-| YouTube | Builders Lab |
-|---|---|
-| Complete public lesson and real example | Apply the lesson to the member’s own domain |
-| George’s build, reasoning, trade-offs, and results | Build-log accountability, critique, and revision |
-| Public comments and one-way teaching | Direct feedback and recurring member review |
-| A viewer learns the method | A member completes and improves a System Pack |
-
-Do not turn YouTube into a teaser library or hide the core explanation behind Skool. Do not position Builders Lab as “more videos.” The paid value is applying the method to the member’s real system through scoped finish lines, critique, build logs, and revisions.
+1. **Why AI Agents Need Better Data, Not More Prompts** — source, provenance, status, and human approval.
+2. **How I Use VS Code and Pi to Build Practical AI Systems** — the working environment without a full installation tutorial.
+3. **Build a Client Knowledge Upload Portal for an AI Agent** — one complete vertical slice.
+4. **How to Stop Unapproved Documents From Reaching an AI Agent** — authorization and the approved-only handoff.
 
 ### Sustainable cadence
 
-Publish **one focused long-form video every two weeks from the start**. Outline the first two and record the first video before announcing the series. The first four long-form videos can span roughly eight weeks; they do not need to match the four classroom weeks one-for-one.
+Publish one focused long-form video every two weeks. Create Shorts only when a clip contains a complete useful idea. Do not create a separate production treadmill.
 
-Create one or two Shorts from an existing long-form video only when the clip contains a complete useful claim, example, or mistake. Do not create a separate Shorts production treadmill.
+### CTA
 
-### First four long-form videos
+> If you want to build this against your own project and get feedback on the flow, schema, upload path, or approval gate, join Builders Lab and bring the artifact you are working on.
 
-These follow the same learning sequence as the sprint but can publish across approximately eight weeks.
-
-| Learning stage | Video | Public proof | Builders Lab handoff |
-|---|---|---|---|
-| 1 — Choose the problem | **How to Turn Your Domain Expertise Into a First AI-Assisted System** | Select one repeated pain, one user, and one narrow output. | Post your domain, repeated problem, and four-week finish line. |
-| 2 — Extract expertise | **How to Extract the Hidden Decisions Behind an AI Workflow** | Create a workflow map, decision rules, constraints, and quality rubric. | Share one hidden decision and request feedback on your rubric. |
-| 3 — Build the workflow | **Build a Lightweight AI Workflow: Prompt, Runbook, and Real Output** | Show a prompt or lightweight automation, input/output pair, and human review. | Post one workflow step and the output that needs critique. |
-| 4 — Package and test | **How to Test and Package an AI-Assisted Workflow Into a System Pack** | Show a usable document, page, or demo plus one failure and revision. | Submit a System Pack or one unfinished section for review. |
-
-AtsKaleSEO can supply the visible example for one or more videos, but each lesson must remain transferable to another domain.
-
-### Content waterfall
-
-For each long-form video:
-
-1. Publish the complete public lesson on YouTube.
-2. Create one same-week Skool implementation thread tied to the sprint deliverable.
-3. Add one checklist, example, or build artifact that helps members apply it.
-4. Cut one or two self-contained Shorts when useful.
-5. Turn one member question or recurring failure into a micro-lesson or future video.
-6. Use the resulting evidence to improve the associated course lesson.
-
-### CTA and attribution
-
-Use one primary CTA after the useful teaching and repeat it in the description or pinned comment:
-
-> If you want to turn this into a system for your own domain, Builders Lab is the working membership where you can post your build, get critique, and finish a System Pack.
-
-Use the personal-brand landing page rather than a service-business CTA:
+Use the personal-brand landing page:
 
 ```text
-https://georgebjohnson.com/builders-lab/?utm_source=youtube&utm_medium=organic_video&utm_campaign=builders_lab_launch&utm_content=wk1_choose_problem
+https://georgebjohnson.com/builders-lab/
 ```
 
-Change only `utm_content` for each video or Short. Track landing-page traffic and outbound Skool clicks in GA4, and add a Skool onboarding question asking how each member found Builders Lab. Do not imply that a membership guarantees business, ranking, automation, or income outcomes.
-
-### YouTube readiness checks
-
-Before announcing the four-video series:
-
-- There is only one active YouTube channel in this plan: **George B. Johnson** (`@georgeb.johnson`).
-- The channel describes the broader builders/operators positioning.
-- The Builders Lab landing page and tracked links work on mobile.
-- The first video is recorded or scheduled, and the second is outlined.
-- Each video has a title, opening claim, proof artifact, description, CTA, and matching Skool thread before it publishes.
-- Start Here and Sprint Week 1 are live before viewers arrive.
-- George has capacity to respond to new build targets and critique requests.
-- Titles, thumbnails, descriptions, and CTAs contain no ranking, income, or fully automated-result claims.
-
-### YouTube scorecard
-
-Track weekly:
-
-- long-form videos published versus planned
-- production hours per video
-- click-through rate, early retention, and average view duration
-- comments that identify a real problem or implementation question
-- YouTube-to-Builders-Lab visits by UTM
-- tracked outbound clicks to Skool
-- members who report YouTube as their source
-- video-attributed members who post a build target within seven days
-- recurring questions that should become lessons or future videos
+The local `/go/skool` redirect preserves only the approved Meta campaign parameters, so do not append unsupported YouTube UTM values or claim per-video Skool attribution through that route. Do not imply guaranteed business, reliability, privacy, automation, or income outcomes.
 
 ## First-month scorecard
 
-Track weekly:
+Track:
 
-- active members who post a build target
-- members who submit an artifact
-- critiques given and received
-- completed System Packs
-- cancellations and stated reasons
-- questions converted into lessons
-- member-reported progress or confusion
+- members who start Course 1;
+- members who complete the flow map;
+- members who create the schema;
+- members who complete one upload;
+- members who verify storage and database records;
+- members who prove approved-only handoff;
+- setup blockers routed to the planned setup course;
+- failed tests that produce a source-level improvement;
+- critiques given and received;
+- YouTube-to-Skool visits and tracked outbound clicks; and
+- cancellations or confusion reasons.
 
-For the first month, prioritize **participation and completed artifacts** over total member count. Three active members producing useful work is stronger proof than a larger silent group.
+Prioritize completed artifacts and useful evidence over member count. One working, reviewed portal is stronger proof than a large silent classroom.

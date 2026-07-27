@@ -320,6 +320,15 @@ button {
   transform: scaleX(1);
 }
 
+.course-button--hold::after {
+  background: var(--text-secondary);
+}
+
+.course-button--hold .course-button__title,
+.course-button--hold .course-number {
+  color: color-mix(in oklch, var(--paper-50) 58%, transparent);
+}
+
 .course-number {
   color: color-mix(in oklch, var(--paper-50) 44%, transparent);
   font-family: var(--font-mono);
@@ -542,6 +551,11 @@ button {
   background: var(--accent-secondary);
 }
 
+.task-state--hold {
+  border-color: var(--text-secondary);
+  color: var(--text-secondary);
+}
+
 .task-row[aria-current="true"] .task-state--existing {
   box-shadow: inset 0 0 0 3px var(--surface-elevated);
 }
@@ -743,6 +757,12 @@ button {
   color: color-mix(in oklch, var(--accent-secondary) 76%, var(--ink-950));
 }
 
+.status-chip--hold {
+  border-color: var(--text-secondary);
+  background: color-mix(in oklch, var(--text-secondary) 8%, transparent);
+  color: var(--text-secondary);
+}
+
 .existing-notice {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -769,11 +789,24 @@ button {
   line-height: 1.55;
 }
 
+.existing-notice--hold {
+  border-color: var(--text-secondary);
+  background: color-mix(in oklch, var(--text-secondary) 7%, var(--surface-elevated));
+}
+
 .action-bar {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-3);
   margin-top: var(--space-5);
+}
+
+.action-button:disabled {
+  border-color: var(--border-subtle);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .action-button {
@@ -876,9 +909,15 @@ button {
   cursor: pointer;
 }
 
-.copy-small:hover {
+.copy-small:hover:not(:disabled) {
   border-color: var(--ink-950);
   background: var(--surface-secondary);
+}
+
+.copy-small:disabled {
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .folder-summary {

@@ -34,10 +34,12 @@
   const tasksByCourse = new Map(data.courses.map((course) => [course.id, buildCourseTasks(course)]));
   const allTasks = data.courses.flatMap((course) => tasksByCourse.get(course.id));
   const allTaskIds = new Set(allTasks.map((task) => task.id));
+  const actionableTasks = allTasks.filter((task) => task.course.releaseStatus === "active");
+  const actionableTaskIds = new Set(actionableTasks.map((task) => task.id));
 
   function readProgress() {
     try {
-      return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]").filter((id) => allTaskIds.has(id)));
+      return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]").filter((id) => actionableTaskIds.has(id)));
     } catch {
       return new Set();
     }
@@ -56,6 +58,7 @@
   }
 
   function statusChip(task, completed) {
+    if (task.course.releaseStatus === "hold") return h("span", { className: "status-chip status-chip--hold" }, "On hold");
     if (completed) return h("span", { className: "status-chip status-chip--done" }, "Uploaded");
     if (task.existingLive) return h("span", { className: "status-chip status-chip--existing" }, "Exists — verify");
     return h("span", { className: "status-chip" }, "Draft queue");
@@ -65,21 +68,22 @@
     return h(
       "nav",
       { className: "course-rail", "aria-label": "Builders Lab courses" },
-      h("div", { className: "rail-heading" }, h("span", { className: "eyebrow" }, "Upload order"), h("h2", null, "Five-course path")),
+      h("div", { className: "rail-heading" }, h("span", { className: "eyebrow" }, "Release control"), h("h2", null, "Course status")),
       h(
         "ol",
         { className: "course-list" },
         data.courses.map((course) => {
           const tasks = tasksByCourse.get(course.id);
-          const done = tasks.filter((task) => completed.has(task.id)).length;
-          const percent = Math.round((done / tasks.length) * 100);
+          const held = course.releaseStatus === "hold";
+          const done = held ? 0 : tasks.filter((task) => completed.has(task.id)).length;
+          const percent = held ? 0 : Math.round((done / tasks.length) * 100);
           return h(
             "li",
             { key: course.id },
             h(
               "button",
               {
-                className: "course-button",
+                className: `course-button${held ? " course-button--hold" : ""}`,
                 type: "button",
                 "aria-current": activeCourseId === course.id ? "true" : undefined,
                 onClick: () => onSelect(course),
@@ -89,20 +93,21 @@
                 "span",
                 { className: "course-button__body" },
                 h("span", { className: "course-button__title" }, course.name),
-                h("span", { className: "course-button__meta" }, h("span", null, `${done}/${tasks.length} steps`), h("span", null, `${percent}%`)),
+                h("span", { className: "course-button__meta" }, held ? h("span", null, "On hold · inspect only") : h(React.Fragment, null, h("span", null, `${done}/${tasks.length} steps`), h("span", null, `${percent}%`))),
               ),
               h("span", { className: "mini-progress", "aria-hidden": "true" }, h("span", { style: { width: `${percent}%` } })),
             ),
           );
         }),
       ),
-      h("p", { className: "rail-note" }, "Progress is saved in this browser. Video production scripts are intentionally outside this upload queue."),
+      h("p", { className: "rail-note" }, "Only the active replacement course can be marked uploaded. Held legacy courses remain available for inspection."),
     );
   }
 
   function TaskRow({ task, activeTaskId, completed, onSelect, number, child = false }) {
     const isDone = completed.has(task.id);
-    const stateClass = isDone ? "task-state task-state--done" : task.existingLive ? "task-state task-state--existing" : "task-state";
+    const held = task.course.releaseStatus === "hold";
+    const stateClass = held ? "task-state task-state--hold" : isDone ? "task-state task-state--done" : task.existingLive ? "task-state task-state--existing" : "task-state";
     return h(
       "button",
       {
@@ -112,7 +117,7 @@
         "aria-current": activeTaskId === task.id ? "true" : undefined,
         onClick: () => onSelect(task),
       },
-      h("span", { className: stateClass, "aria-label": isDone ? "Uploaded" : task.existingLive ? "Exists in Skool; verify" : "Not uploaded" }, isDone ? "✓" : ""),
+      h("span", { className: stateClass, "aria-label": held ? "On hold" : isDone ? "Uploaded" : task.existingLive ? "Exists in Skool; verify" : "Not uploaded" }, held ? "—" : isDone ? "✓" : ""),
       h(
         "span",
         { className: "task-row__text" },
@@ -188,23 +193,28 @@
     );
   }
 
-  function ExistingNotice({ task }) {
+  function ReleaseNotice({ task }) {
+    if (task.course.releaseStatus === "hold") {
+      return h("div", { className: "existing-notice existing-notice--hold" }, h("strong", null, "Release hold"), h("p", null, task.course.releaseNote));
+    }
     if (!task.existingLive) return null;
     const noun = task.kind === "course" ? "course shell" : task.kind === "folder" ? "folder" : "page";
     return h("div", { className: "existing-notice" }, h("strong", null, "Avoid a duplicate"), h("p", null, `This ${noun} already exists in Skool as a draft. Compare or update it, then mark this step uploaded.`));
   }
 
   function TaskActions({ task, completed, onToggle, onCopy, copyLabel }) {
+    const held = task.course.releaseStatus === "hold";
     return h(
       "div",
       { className: "action-bar" },
-      onCopy ? h("button", { className: "action-button", type: "button", onClick: onCopy }, copyLabel) : null,
-      h("button", { className: `action-button action-button--secondary${completed ? " action-button--done" : ""}`, type: "button", onClick: onToggle }, completed ? "Marked uploaded" : "Mark uploaded"),
+      onCopy ? h("button", { className: "action-button", type: "button", onClick: onCopy, disabled: held }, held ? "Copy disabled — on hold" : copyLabel) : null,
+      h("button", { className: `action-button action-button--secondary${completed ? " action-button--done" : ""}`, type: "button", onClick: onToggle, disabled: held }, held ? "On hold" : completed ? "Marked uploaded" : "Mark uploaded"),
       task.sourceHref ? h("a", { className: "source-link", href: task.sourceHref, target: "_blank", rel: "noreferrer" }, "Open Markdown source ↗") : null,
     );
   }
 
   function TaskPreview({ task, completed, onToggle, onCopyText, onCopyRich }) {
+    const held = task.course.releaseStatus === "hold";
     const kindLabel = task.kind === "course" ? "Course setup" : task.kind === "folder" ? "Folder setup" : task.kind === "resource" ? "Copyable resource" : "Lesson page";
     const meta = [kindLabel];
     if (task.words) meta.push(`${task.words.toLocaleString()} words`, `${task.minutes} min read`);
@@ -214,8 +224,8 @@
       body = h(
         "div",
         { className: "setup-panel" },
-        h("div", { className: "setup-field" }, h("span", { className: "setup-field__label" }, "Course name"), h("p", { className: "setup-field__value" }, task.course.name), h("button", { className: "copy-small", type: "button", onClick: () => onCopyText(task.course.name, "Course name copied") }, "Copy name")),
-        h("div", { className: "setup-field" }, h("span", { className: "setup-field__label" }, "Description"), h("p", { className: "setup-field__value" }, task.course.description), h("button", { className: "copy-small", type: "button", onClick: () => onCopyText(task.course.description, "Course description copied") }, "Copy description")),
+        h("div", { className: "setup-field" }, h("span", { className: "setup-field__label" }, "Course name"), h("p", { className: "setup-field__value" }, task.course.name), h("button", { className: "copy-small", type: "button", disabled: held, onClick: () => onCopyText(task.course.name, "Course name copied") }, held ? "Copy disabled — on hold" : "Copy name")),
+        h("div", { className: "setup-field" }, h("span", { className: "setup-field__label" }, "Description"), h("p", { className: "setup-field__value" }, task.course.description), h("button", { className: "copy-small", type: "button", disabled: held, onClick: () => onCopyText(task.course.description, "Course description copied") }, held ? "Copy disabled — on hold" : "Copy description")),
         h("a", { className: "source-link", href: task.course.readmeHref, target: "_blank", rel: "noreferrer" }, "Open full course instructions ↗"),
       );
     } else if (task.kind === "folder") {
@@ -223,7 +233,7 @@
         React.Fragment,
         null,
         h("div", { className: "folder-summary" }, h("div", null, h("strong", null, task.folder.lessons.length), h("span", null, "Lesson pages")), h("div", null, h("strong", null, task.folder.resources.length), h("span", null, "Local resources"))),
-        h("div", { className: "setup-panel" }, h("div", { className: "setup-field" }, h("span", { className: "setup-field__label" }, "Folder name"), h("p", { className: "setup-field__value" }, task.folder.name), h("button", { className: "copy-small", type: "button", onClick: () => onCopyText(task.folder.name, "Folder name copied") }, "Copy name"))),
+        h("div", { className: "setup-panel" }, h("div", { className: "setup-field" }, h("span", { className: "setup-field__label" }, "Folder name"), h("p", { className: "setup-field__value" }, task.folder.name), h("button", { className: "copy-small", type: "button", disabled: held, onClick: () => onCopyText(task.folder.name, "Folder name copied") }, held ? "Copy disabled — on hold" : "Copy name"))),
       );
     } else {
       body = h("article", { className: "lesson-preview", dangerouslySetInnerHTML: { __html: task.html } });
@@ -237,7 +247,7 @@
         { className: "task-header" },
         h("div", { className: "task-header__meta" }, ...meta.map((value) => h("span", { key: value }, value)), statusChip(task, completed)),
         h("h1", null, task.title),
-        h(ExistingNotice, { task }),
+        h(ReleaseNotice, { task }),
         h(TaskActions, {
           task,
           completed,
@@ -263,8 +273,8 @@
     const activeCourse = data.courses.find((course) => course.id === activeCourseId) || data.courses[0];
     const activeTask = allTasks.find((task) => task.id === activeTaskId) || tasksByCourse.get(activeCourse.id)[0];
     const activeIndex = allTasks.findIndex((task) => task.id === activeTask.id);
-    const doneCount = completed.size;
-    const progress = Math.round((doneCount / allTasks.length) * 100);
+    const doneCount = [...completed].filter((id) => actionableTaskIds.has(id)).length;
+    const progress = Math.round((doneCount / actionableTasks.length) * 100);
 
     useEffect(() => localStorage.setItem(STORAGE_KEY, JSON.stringify([...completed])), [completed]);
     useEffect(() => localStorage.setItem(ACTIVE_KEY, JSON.stringify({ courseId: activeCourseId, taskId: activeTaskId })), [activeCourseId, activeTaskId]);
@@ -302,6 +312,10 @@
     }
 
     function toggleComplete() {
+      if (activeTask.course.releaseStatus === "hold") {
+        notify("This legacy course is on hold and cannot be marked uploaded.", true);
+        return;
+      }
       setCompleted((current) => {
         const next = new Set(current);
         if (next.has(activeTask.id)) next.delete(activeTask.id);
@@ -311,6 +325,10 @@
     }
 
     async function copyText(text, message) {
+      if (activeTask.course.releaseStatus === "hold") {
+        notify("Copying is disabled while this legacy course is on hold.", true);
+        return;
+      }
       try {
         await window.CopyKit.copyText(text);
         notify(message);
@@ -320,6 +338,10 @@
     }
 
     async function copyRich(task) {
+      if (task.course.releaseStatus === "hold") {
+        notify("Copying is disabled while this legacy course is on hold.", true);
+        return;
+      }
       try {
         await window.CopyKit.copyRich(task.html, task.plainText);
         notify(`${task.kind === "resource" ? "Resource" : "Lesson"} copied with rich formatting`);
@@ -339,7 +361,7 @@
         "header",
         { className: "topbar" },
         h("div", { className: "brand-block" }, h("span", { className: "brand-mark" }, "BL"), h("div", { className: "brand-copy" }, h("strong", null, "Course upload desk"), h("span", null, "Local working tool · Draft only"))),
-        h("div", { className: "progress-block" }, h("div", { className: "progress-block__line" }, h("span", null, "Total progress"), h("strong", null, `${doneCount} / ${allTasks.length}`)), h("div", { className: "progress-track", role: "progressbar", "aria-label": "Overall upload progress", "aria-valuemin": 0, "aria-valuemax": allTasks.length, "aria-valuenow": doneCount }, h("span", { style: { width: `${progress}%` } }))),
+        h("div", { className: "progress-block" }, h("div", { className: "progress-block__line" }, h("span", null, "Active-course progress"), h("strong", null, `${doneCount} / ${actionableTasks.length}`)), h("div", { className: "progress-track", role: "progressbar", "aria-label": "Active course upload progress", "aria-valuemin": 0, "aria-valuemax": actionableTasks.length, "aria-valuenow": doneCount }, h("span", { style: { width: `${progress}%` } }))),
         h("a", { className: "topbar__action", href: "/design/skool/courses/README.md", target: "_blank", rel: "noreferrer" }, "Catalogue", h("span", { className: "topbar__arrow", "aria-hidden": "true" }, "↗")),
         h("a", { className: "topbar__action topbar__action--primary", href: data.skoolUrl, target: "_blank", rel: "noreferrer" }, "Open Skool", h("span", { className: "topbar__arrow", "aria-hidden": "true" }, "↗")),
       ),

@@ -1,234 +1,204 @@
 # Builders Lab Course and Retention Plan
 
-## Current build and release status
+## Current decision
 
-All five finite courses are built locally as structured, Skool-ready upload packages. Local completion does not mean they are currently live inside Builders Lab.
+Builders Lab begins with one short, concrete build that reflects how George actually works rather than a broad four-week system-design sprint.
 
-1. **AI Systems Builder Sprint** — built locally; current Skool draft shell observed; publication not independently verified
-2. **Context & Knowledge Systems for AI Workflows** — built locally; ready for upload; not verified live
-3. **AI System Evaluation, Reliability & Governance** — built locally; ready for upload; not verified live
-4. **Automation & Integrations for AI Operators** — built locally; ready for upload; not verified live
-5. **Adoption & Continuous Improvement for AI Systems** — built locally; ready for upload; not verified live
+**Course 1: Client Knowledge Portal**
 
-The complete physical catalogue is the source of truth:
+A member uses VS Code and Pi to build a web portal for one configured project. An authorized client can upload source documents. Original files remain private, database records preserve provenance and status, a human controls approval, and only approved documents enter the AI agent’s handoff.
 
-`design/skool/courses/README.md`
+The former AI Systems Builder Sprint was too broad for the first member experience and was difficult to follow after the classroom changed. Its local package is archived at:
+
+`design/skool/archive/AI Systems Builder Sprint — Skool Upload Package v1/`
 
 ## Member baseline
 
-The curriculum assumes members:
+This is not a generic AI-from-zero program. Members should already be able to use an AI assistant and review its output.
 
-- have access to an AI assistant
-- can submit, review, and revise a basic prompt
-- bring domain expertise or a real workflow to improve
+George’s demonstrations use:
 
-No specific AI product, coding tool, terminal, API, or automation platform is required.
+- VS Code as the IDE and visible project workspace;
+- Pi as the minimal terminal coding harness;
+- project files and instructions as durable context;
+- a database for structured records and state;
+- private object storage for source documents; and
+- ICM-inspired boundaries for explicit inputs, outputs, context scope, and human review.
 
-Members who need occasional foundational help are welcome to use scheduled community Q&A and support windows. Builders Lab is not a separate zero-to-AI fundamentals program, and membership does not promise unlimited private technical support.
+Members do not need to understand every part before joining. A separate setup course should teach installation and configuration. Course 1 explains enough of the stack for a member to understand what George is doing and why.
 
-## Course 1 — AI Systems Builder Sprint
+## Course 1 — Client Knowledge Portal
 
-**Status:** Built locally; Skool draft shell observed; publication not independently verified  
-**Length:** Four weeks  
-**Outcome:** Build, test, document, and revise one bounded AI-assisted workflow and complete a System Pack.
+- **Status:** Rebuilt locally; not verified live in Skool
+- **Member effort:** One focused build sequence; validate the actual time through a complete reference build and first member cycle
+- **Classroom size:** Four lessons, four resources, four short anchor videos
+- **Outcome:** Build and verify one single-project document upload and approval path for AI-agent knowledge.
 
-### Start Here
+### Lesson 1 — See how a file reaches the AI
 
-1. Welcome and the Builders Lab standard
-2. Choose your first build
-3. Create your build-log thread
+Members map:
 
-### Week 1 — Choose the Problem
+- authorized uploader;
+- private file storage;
+- structured database metadata;
+- human reviewer;
+- approved-only handoff; and
+- the agent workspace that receives scoped context.
 
-1. Start with repeated pain, not a tool
-2. Define one user and one useful output
-3. Set a narrow four-week finish line
+They learn the roles of VS Code, Pi, the database, object storage, project files, and ICM-inspired review boundaries without turning the lesson into installation training.
 
-### Week 2 — Extract the Expertise
+### Lesson 2 — Keep each file safe and tracked
 
-1. Extract your decision rules
-2. Create the minimum useful SOP
-3. Define inputs, constraints, and edge cases
-4. Build a quality rubric
+Members create:
 
-### Week 3 — Build the First Workflow
+- a document metadata table;
+- a small status model;
+- provenance and replacement fields;
+- private storage; and
+- an explicit `approved` filter for the controlled handoff.
 
-1. Choose the simplest build path
-2. Build the prompt stack
-3. Add examples and constraints
-4. Create a repeatable runbook
+They distinguish authentication from authorization and keep uploader and reviewer permissions separate.
 
-### Week 4 — Package, Test, and Revise
+### Lesson 3 — Build the upload page with Pi
 
-1. Give the system a simple home
-2. Run a small manual test
-3. Ask better feedback questions
-4. Revise and complete the System Pack
+Members use Pi inside the real repository to:
 
-### Sprint completion standard
+- inspect the existing stack;
+- approve a small implementation plan;
+- build one upload vertical slice;
+- validate type and size on the server;
+- store the original privately;
+- create the matching metadata record; and
+- review the diff and existing project checks.
 
-A completing member should have:
+There is no project selector. One deployment represents one project.
 
-- a defined user and repeated problem
-- an output specification and finish line
-- a visible build log
-- explicit decision rules and a minimum SOP
-- documented inputs, constraints, and edge cases
-- a quality rubric
-- a selected build path
-- a prompt stack with examples and constraints
-- a repeatable runbook with human review
-- a simple home for the system
-- manual test evidence and useful feedback
-- documented revisions, limitations, and a next-improvement decision
+### Lesson 4 — Test what the AI is allowed to use
 
-## Mature five-course roadmap
+Members prove that:
 
-The mature curriculum contains **five finite, sequenced courses in total** for a four-to-six-month member progression. Do not add disconnected courses merely to make the Classroom look larger.
+- new uploads begin unapproved;
+- only authorized reviewers can approve;
+- rejected and archived documents stay excluded;
+- approved documents carry provenance into the handoff;
+- replacement preserves history; and
+- failures do not silently leave unexplained objects or records.
 
-### Course 2 — Context & Knowledge Systems for AI Workflows
+They complete a buyer read-through and record production blockers honestly.
 
-**Status:** Built locally; ready for Skool upload; not yet verified live  
-**Prerequisite:** Completed Sprint system or equivalent workflow brief  
-**Outcome:** Create a maintainable source of truth for an AI-assisted system.
+## Course 1 completion standard
 
-Core subjects:
+A completing member has:
 
-- context and source-material inventory
-- document and knowledge structure
-- source authority and traceability
-- update and expiration rules
-- access, privacy, and permission boundaries
-- retrieval and missing-context tests
+- a working development or staging web UI;
+- one supported synthetic upload;
+- a private storage object;
+- a matching structured record;
+- visible review status;
+- verified separate uploader and reviewer authorization, including rejection of an unauthorized approval attempt;
+- an approved-only agent handoff;
+- one included approved document and one excluded unapproved document; and
+- a completed acceptance checklist with evidence.
 
-### Course 3 — AI System Evaluation, Reliability & Governance
+Chat, embeddings, automatic classification, autonomous ingestion, and Open Brain are intentionally out of scope.
 
-**Status:** Built locally; ready for Skool upload; not yet verified live  
-**Prerequisite:** Working or prototype workflow  
-**Outcome:** Make the system measurable, reviewable, and dependable enough for its intended use.
+## Planned separate courses
 
-Core subjects:
+These are approved directions, not finished or live course claims.
 
-- representative test cases
-- failure modes and escalation paths
-- quality thresholds and acceptance criteria
-- permissions and consequential-decision boundaries
-- human-review ownership
-- incident, change, and evaluation logs
+### Set Up Your Builder Workspace
 
-### Course 4 — Automation & Integrations for AI Operators
+A dedicated setup course should cover:
 
-**Status:** Built locally; ready for Skool upload; not yet verified live  
-**Prerequisite:** Validated workflow and reliability checks  
-**Outcome:** Automate only stable, repeatable parts of a working system while preserving error handling and manual fallback.
+- installing and using VS Code;
+- opening the correct project folder;
+- basic terminal and file navigation;
+- installing, authenticating, and safely running Pi;
+- project trust and context files;
+- Markdown and repository structure;
+- Git status, diffs, and recovery;
+- environment variables and credential hygiene; and
+- one verified read-plan-edit-check session.
 
-Core subjects:
+This course exists so tool setup does not overwhelm the first build.
 
-- automation-readiness decisions
-- structured inputs and outputs
-- choosing implementation paths
-- integration boundaries
-- retries, errors, and stop conditions
-- fallback and recovery procedures
-- cost and maintenance considerations
+### ICM Workspaces and Context Routing
 
-No specific coding assistant, model, or automation platform is a universal prerequisite.
+A dedicated ICM course should cover:
 
-### Course 5 — Adoption & Continuous Improvement for AI Systems
+- where filesystem orchestration fits and where it does not;
+- one stage, one job;
+- global routing, workspace routing, and stage contracts;
+- reference material versus working artifacts;
+- explicit inputs and outputs;
+- human review gates;
+- observable handoffs; and
+- improving source instructions from repeated output corrections.
 
-**Status:** Built locally; ready for Skool upload; not yet verified live  
-**Prerequisite:** Active system with real users or operating evidence  
-**Outcome:** Turn a pilot into an owned process that can be maintained, improved, or retired responsibly.
+Present ICM’s early practitioner evidence as preliminary rather than controlled proof.
 
-Core subjects:
+### Build a Second Brain with Open Brain
 
-- ownership and operating responsibilities
-- user onboarding and handoff
-- usage and quality feedback
-- review cadence and change logs
-- source and dependency changes
-- maintenance and retirement criteria
-- selecting the next system or iteration
+Open Brain should be its own implementation course after the member understands structured records, source provenance, permissions, and context routing.
 
-## Living member resources — not additional courses
+Before building the course, confirm the exact Open Brain repository and deployment path, database and retrieval architecture, account and API costs, privacy expectations, backup and deletion behavior, and how Open Brain connects to Pi and the project workspace.
 
-### Templates & Prompts Library
+## Existing Courses 2–5
 
-Maintain versioned, outcome-specific resources such as:
+The following complete local packages predate the new stack-specific direction:
 
-- workflow scorecards
-- system briefs
-- context-intake templates
-- prompt scaffolds
-- decision rubrics
-- test sets and edge-case worksheets
-- human-review checklists
-- SOP and handoff templates
-- adoption and maintenance scorecards
+1. Context & Knowledge Systems for AI Workflows
+2. AI System Evaluation, Reliability & Governance
+3. Automation & Integrations for AI Operators
+4. Adoption & Continuous Improvement for AI Systems
 
-Each prompt or template should state when to use it, required inputs, expected output, limitations, a practical example, and the human-review requirement.
+Keep them local and unreleased until they are reconciled against Course 1, the setup course, the ICM course, and the Open Brain course. Do not record or upload them automatically merely because the files exist.
 
-### System Blueprint & Implementation Archive
+## Public founder introduction
 
-Add reusable, member-safe examples from real builds:
+Use the current public founder video:
 
-- workflow maps
-- before-and-after process designs
-- sanitized System Packs
-- implementation patterns
-- teardown notes
-- failure and revision examples
+`design/skool/Video Scripts/Builders Lab introduction.md`
 
-### Relevant AI Change Notes
-
-Publish short updates only when a tool or model change may affect systems members have built. Each note should explain:
-
-- what changed
-- who may be affected
-- what to retest
-- whether a template or workflow should be revised
+The 20–30 second script introduces Builders Lab as a hands-on working lab, states that George is active daily and shares current projects, and directs viewers to the current membership details. Keep any longer member orientation or stack walkthrough separate from this public script.
 
 ## Retention model
 
-Courses establish progression. Retention comes from helping members apply and maintain the work.
-
-### Recurring support
-
-- one scheduled build or triage clinic each month
-- one scheduled system teardown or review each month
-- a bounded submission queue and rotating review slots
-- community Q&A for occasional setup and foundational help
+Courses establish a shared operating model. Retention comes from helping members finish and improve real artifacts.
 
 ### Weekly participation loop
 
-- **Monday:** build target
-- **Wednesday:** critique desk
-- **Friday:** build log
+- **Monday:** state the smallest build target.
+- **Wednesday:** share one artifact or failed check for critique.
+- **Friday:** report what changed, what the evidence showed, and what will be tested next.
 
-Reply once to each member’s first build target during their first seven days. Route ongoing feedback through the scheduled critique windows rather than promising unlimited individual responses.
+### Recurring support
 
-### Monthly implementation cycle
+- one scheduled build or triage clinic each month;
+- one artifact teardown or review each month;
+- bounded submission and review capacity;
+- community Q&A for setup blockers; and
+- revision of course material from repeated member confusion.
 
-Each month should produce one inspectable artifact, such as:
+### First-course signals
 
-- a workflow map
-- a context inventory
-- a test set
-- a reliability rubric
-- an automation plan
-- a runbook
-- an adoption or maintenance plan
+Track:
 
-### YouTube continuity
+- members who begin the portal;
+- members who complete one upload;
+- members who verify storage and database records;
+- members who implement or identify the approval blocker;
+- members who prove approved-only handoff;
+- failed tests shared with useful evidence;
+- setup problems that belong in the separate setup course; and
+- cancellation or confusion reasons.
 
-Use the single George B. Johnson YouTube channel for complete public lessons and examples. Builders Lab members receive the implementation resource, member thread, feedback process, and opportunity to apply the lesson to their own system.
+## Release rules
 
-## Build and release rules
-
-1. Keep AI Systems Builder Sprint as the only available course at launch.
-2. Improve the Sprint through at least one real member cycle before releasing Course 2.
-3. Release courses 2–5 sequentially, using member evidence and recurring problems to refine them before publication.
-4. Do not market a locally built course as currently available until its Skool upload, member path, resources, and publication state have been verified.
-5. Keep changing tool-specific material in living resources rather than permanent course shells.
-6. Expand templates and prompts based on observed use, not generic volume.
-7. Track first artifact completion, active systems after 60/90 days, support participation, resource use, system revisions, and cancellation reasons.
+1. Migrate Course 1 in Draft and verify the full Skool path before unpublishing the former Sprint.
+2. Publish the four lessons and resources as one short course, not a four-week drip.
+3. Record the Builders Lab introduction and the four Course 1 anchors before broad promotion.
+4. Use only synthetic or explicitly authorized material in lessons, recordings, screenshots, and member examples.
+5. Do not invite real client uploads until authentication, authorization, database policies, storage policies, file handling, privacy, deletion, backups, and deployment are independently verified.
+6. Observe at least one member cycle before finalizing the next course.
+7. Build the setup and Open Brain courses separately rather than expanding Course 1.

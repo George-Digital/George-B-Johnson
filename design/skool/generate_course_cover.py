@@ -8,8 +8,8 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT = Path(__file__).resolve().parent
 FONTS = ROOT / "course-cover-assets" / "fonts"
 RAW_ART = ROOT / "runware-raw-cover.png"
-OUTPUT_DIR = ROOT / "courses" / "01-ai-systems-builder-sprint" / "Course Art"
-OUTPUT = OUTPUT_DIR / "ai-systems-builder-sprint-cover-1280x720.png"
+OUTPUT_DIR = ROOT / "courses" / "01-client-knowledge-portal" / "Course Art"
+OUTPUT = OUTPUT_DIR / "client-knowledge-portal-cover-1280x720.png"
 
 WIDTH, HEIGHT = 1280, 720
 NAVY = (8, 18, 35)
@@ -56,18 +56,18 @@ def add_signal_details(draw: ImageDraw.ImageDraw) -> None:
     mono = font("IBMPlexMono-Medium.ttf", 15)
     small = font("IBMPlexMono-Regular.ttf", 13)
 
-    draw.text((72, 554), "SCOPE", font=mono, fill=MUTED)
-    draw.line((132, 564, 171, 564), fill=BLUE, width=2)
-    draw.ellipse((167, 560, 175, 568), fill=CYAN)
-    draw.text((189, 554), "MAP", font=mono, fill=MUTED)
-    draw.line((231, 564, 270, 564), fill=BLUE, width=2)
-    draw.ellipse((266, 560, 274, 568), fill=CYAN)
-    draw.text((288, 554), "BUILD", font=mono, fill=MUTED)
-    draw.line((347, 564, 386, 564), fill=BLUE, width=2)
-    draw.ellipse((382, 560, 390, 568), fill=LIME)
-    draw.text((404, 554), "TEST", font=mono, fill=MUTED)
+    draw.text((72, 554), "UPLOAD", font=mono, fill=MUTED)
+    draw.line((137, 564, 166, 564), fill=BLUE, width=2)
+    draw.ellipse((162, 560, 170, 568), fill=CYAN)
+    draw.text((183, 554), "RECORD", font=mono, fill=MUTED)
+    draw.line((248, 564, 277, 564), fill=BLUE, width=2)
+    draw.ellipse((273, 560, 281, 568), fill=CYAN)
+    draw.text((294, 554), "REVIEW", font=mono, fill=MUTED)
+    draw.line((359, 564, 388, 564), fill=BLUE, width=2)
+    draw.ellipse((384, 560, 392, 568), fill=LIME)
+    draw.text((405, 554), "APPROVE", font=mono, fill=MUTED)
 
-    draw.text((72, 628), "SYSTEM PACK SPRINT", font=small, fill=MUTED)
+    draw.text((72, 628), "DATA BEFORE AGENTS", font=small, fill=MUTED)
     draw.line((72, 612, 481, 612), fill=(38, 65, 105), width=1)
     draw.line((72, 612, 218, 612), fill=BLUE, width=3)
     draw.line((218, 612, 270, 612), fill=LIME, width=3)
@@ -85,19 +85,20 @@ def generate() -> Path:
 
     rounded_label(draw)
 
-    title_font = font("Manrope-Variable.ttf", 76, "ExtraBold")
-    subtitle_font = font("Manrope-Variable.ttf", 29, "Bold")
-    supporting_font = font("Manrope-Variable.ttf", 21, "Medium")
+    title_font = font("Manrope-Variable.ttf", 68, "ExtraBold")
+    portal_font = font("Manrope-Variable.ttf", 76, "ExtraBold")
+    subtitle_font = font("Manrope-Variable.ttf", 27, "Bold")
+    supporting_font = font("Manrope-Variable.ttf", 19, "Medium")
 
-    draw.text((70, 165), "AI Systems", font=title_font, fill=WHITE)
-    draw.text((70, 248), "Builder Sprint", font=title_font, fill=LIGHT_BLUE)
+    draw.text((70, 165), "Client Knowledge", font=title_font, fill=WHITE)
+    draw.text((70, 242), "Portal", font=portal_font, fill=LIGHT_BLUE)
 
-    draw.line((72, 359, 427, 359), fill=BLUE, width=6)
-    draw.line((427, 359, 498, 359), fill=LIME, width=6)
+    draw.line((72, 350, 427, 350), fill=BLUE, width=6)
+    draw.line((427, 350, 498, 350), fill=LIME, width=6)
 
-    draw.text((70, 400), "Build one useful system", font=subtitle_font, fill=WHITE)
-    draw.text((70, 440), "in four weeks.", font=subtitle_font, fill=WHITE)
-    draw.text((72, 497), "One user. One workflow. Visible evidence.", font=supporting_font, fill=MUTED)
+    draw.text((70, 394), "Build a controlled document intake", font=subtitle_font, fill=WHITE)
+    draw.text((70, 434), "for one AI project.", font=subtitle_font, fill=WHITE)
+    draw.text((72, 490), "Private files. Tracked status. Human approval.", font=supporting_font, fill=MUTED)
 
     add_signal_details(draw)
 
