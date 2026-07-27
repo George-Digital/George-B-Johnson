@@ -188,8 +188,9 @@ https://georgebjohnson.com/builders-lab/?utm_source=meta&utm_medium=paid_social&
 - `utm_campaign`: exact value `builders_lab_direct_membership`
 - `utm_content`: optional lowercase creative slug matching `^[a-z0-9._~-]{1,100}$`
 - `utm_term`: optional lowercase audience/test slug matching the same pattern
+- Recognized click-ID keys: `fbclid`, `gclid`, `gbraid`, `wbraid`, `msclkid`, `ttclid`, and `li_fat_id`; values must match `^[A-Za-z0-9._~-]{1,256}$`
 
-The Builders Lab page and `/go/skool` Function preserve those five lowercase keys only when the three fixed Meta values match exactly and no allowlisted key is duplicated. The one-hop `302` always uses `https://www.skool.com/local-seo-engineering-7047/about`. It drops platform click IDs, arbitrary parameters, uppercase variants, malformed or overlong values, duplicates, control characters, and destination overrides such as `next` or `url`. No platform click identifier is collected, stored, or forwarded by the site. Untagged and non-Meta links still reach the fixed Skool page without query parameters.
+The Builders Lab page and `/go/skool` Function use one shared sanitizer. They forward the optional values and recognized click IDs only with the complete valid three-key Meta campaign. Identical repeated allowlisted values collapse to one canonical value. A conflicting or non-approved required UTM returns the fixed Skool URL without attribution; a conflicting, malformed, or overlong optional UTM or click ID removes only that dimension and retains the other valid attribution values. The one-hop `302` always uses `https://www.skool.com/local-seo-engineering-7047/about`. It drops arbitrary parameters, mixed-case key variants, control characters, unknown click-ID keys, and destination overrides such as `next` or `url`. The site application does not persist click IDs or include them in GA4 event parameters; it forwards only validated allowlisted values to the fixed Skool destination. Untagged and non-Meta links still reach that destination without query parameters.
 
 ### Paste-ready Meta ad copy
 

@@ -2,10 +2,10 @@
 
 **Owner:** George B. Johnson  
 **Platform:** Skool  
-**Member price:** $50/month  
+**Member price:** $7/month
 **Role in the portfolio:** Personal-brand education and working-membership offer
 
-Use **one YouTube channel only:** `https://www.youtube.com/@georgeb.johnson`. YouTube shows how George turns real expertise into practical AI-assisted systems; Builders Lab is the $50/month working membership where people apply that thinking to their own work, receive critique, and complete a System Pack. George Digital, AtsKaleSEO, and other projects supply examples rather than separate channels to manage.
+Use **one YouTube channel only:** `https://www.youtube.com/@georgeb.johnson`. YouTube shows how George turns real expertise into practical AI-assisted systems; Builders Lab is the $7/month working membership where people apply that thinking to their own work, receive critique, and complete a System Pack. George Digital, AtsKaleSEO, and other projects supply examples rather than separate channels to manage.
 
 ## Positioning decision
 
@@ -21,7 +21,7 @@ AtsKaleSEO, SEO operations, content systems, niche software, and backlink workfl
 
 Members who need occasional setup or foundational help are still welcome. Scheduled help, practical troubleshooting, and direct feedback can strengthen commitment and retention; they should be delivered through the community and defined support cadence rather than expanding the core curriculum or promising unlimited private access.
 
-## What makes $50/month credible
+## Current member value
 
 The value is not a large passive video library. The value is a repeatable working cycle:
 
@@ -87,15 +87,15 @@ Retention comes from the progression plus bounded direct help, implementation cl
 
 ### About — plain-text version
 
-> Builders Lab is George B. Johnson’s $50/month working membership for builders and operators turning real domain expertise into practical AI-assisted systems. Build one useful workflow at a time, document the decisions behind it, test real outputs, and improve it through direct critique, weekly build threads, and examples from active projects. No hype, income promises, or one-size-fits-all templates.
+> Builders Lab is George B. Johnson’s $7/month working membership for builders and operators turning real domain expertise into practical AI-assisted systems. Build one useful workflow at a time, document the decisions behind it, test real outputs, and improve it through direct critique, weekly build threads, and examples from active projects. No hype, income promises, or one-size-fits-all templates.
 
-**Character count:** 402
+**Character count:** 401
 
 ### About — emoji version
 
-> 🧪 Builders Lab is George B. Johnson’s $50/month working membership for builders and operators turning real domain expertise into practical AI-assisted systems. Build one useful workflow at a time, test real outputs, and improve it through direct critique, weekly build threads, and examples from active projects. No hype, income promises, or one-size-fits-all templates.
+> 🧪 Builders Lab is George B. Johnson’s $7/month working membership for builders and operators turning real domain expertise into practical AI-assisted systems. Build one useful workflow at a time, test real outputs, and improve it through direct critique, weekly build threads, and examples from active projects. No hype, income promises, or one-size-fits-all templates.
 
-**Character count:** 370
+**Character count:** 369
 
 ### AI Systems Builder Sprint description
 
