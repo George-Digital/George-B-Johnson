@@ -1,7 +1,7 @@
 # Builders Lab: First Build Brief and paid campaign handoff
 
 Status: **planned, not active**
-Last updated: 2026-07-26
+Last updated: 2026-07-27
 
 This is the tracked, paste-ready campaign source for Builders Lab by George Johnson. It does not authorize sending, ad launch, or spend. The public Skool path is always available without email signup.
 
@@ -230,44 +230,105 @@ Never emit a membership event from a click. Never put email addresses, raw queri
 
 No Meta Pixel is installed. Do not install one without an approved Pixel ID plus a privacy, consent, and Content Security Policy review. No ad has been launched and no spend is authorized. The Meta-to-Encharge connection is not active.
 
-## Encharge workspace snapshot — 2026-07-26
+## Encharge workspace snapshot — 2026-07-27
 
-Read-only checks used only the currently documented Encharge REST API and did not list or create people. The workspace now reports:
+The current documented Encharge REST API was used for the approved saved-email reconstruction and read-only verification. No private or speculative app endpoint was called. The workspace reports:
 
 - account name: `Builders Lab`
 - account status: `active`
 - timezone: `America/Phoenix`
 - site: `https://georgebjohnson.com/`
-- people: `0`
+- account people count: `0`
+- full documented people-list count: `0`
 - sending domain: `georgebjohnson.com`, status `verified`; all seven required returned DNS checks are valid, the eighth check is optional DMARC and returned false, and the domain has no reported error
-- custom account tags before this run: `0`
-- dynamic segments before this run: the five standard person segments plus `All Companies`
 
-The documented REST API has no current list/read operation for native Forms or Flows. Their old zero-count snapshot must not be treated as current proof. No private or speculative app endpoint was called.
+The documented REST API has no current list/read operation for native Forms or Flows. Their old zero-count snapshot must not be treated as current proof.
 
 ### Documented API boundary
 
 The Encharge developer page points to the ReDoc REST reference as the recommended API reference. That current ReDoc specification documents the following safe account-asset mutations:
 
-| Asset | Documented creation access | Safe disposition in this run |
+| Asset | Documented creation access | Safe disposition |
 | --- | --- | --- |
-| Email template | Yes: `POST /v1/emails`; this creates a saved template and does not send it | Four inert standalone templates remain by ID. A read-only hazard review found that raw/latest HTML is correct but the three editorial records retain conflicting visual-editor data; no replacement or archive was attempted because the documented API cannot select a supported editor mode or define a safe editor representation |
-| Native Form | No documented REST create/update path found | Dashboard-only; none created |
-| Flow | No documented REST create/update path found | Dashboard-only; none created or activated |
-| Account tag | Yes: `POST /v1/tags-management` | Five inert account tags created; no person was tagged |
-| Custom person field | Yes: `POST /v1/fields` | Twelve Builders Lab evidence fields created; the default `marketingConsent` field already existed |
-| Dynamic segment | Yes in the recommended ReDoc: `POST /v1/segments` | One empty, deny-by-default confirmed-recipient segment created |
+| Email template | Yes: `POST /v1/emails` creates a saved template without sending; `PATCH /v1/emails/{id}` updates or archives one | Four active canonical Simple-editor templates now pass current/latest/editor parity; four superseded hazards are renamed and archived, not deleted |
+| Native Form | No documented REST create/update path found | Dashboard-only; none created, attached, published, or activated in this reconstruction |
+| Flow | No documented REST create/update path found | Dashboard-only; none created, attached, or activated in this reconstruction |
+| Account tag | Yes: `POST /v1/tags-management` | Five inert account tags exist; no person was tagged in this reconstruction |
+| Custom person field | Yes: `POST /v1/fields` | Twelve Builders Lab evidence fields exist; the default `marketingConsent` field already existed |
+| Dynamic segment | Yes in the recommended ReDoc: `POST /v1/segments` | One empty, deny-by-default confirmed-recipient segment exists |
 | DOI configuration | No documented REST path found | Dashboard-only; not configured |
 
-The developer page's separate raw-OpenAPI download currently serves an older, smaller definition that omits several operations present in the recommended ReDoc. Mutations were limited to operations visible in the recommended ReDoc UI. No Broadcast, send, Flow activation, Form, person, import, webhook, or integration mutation was used.
+The developer page's separate raw-OpenAPI download currently serves an older, smaller definition that omits several operations present in the recommended ReDoc. Mutations were limited to operations visible in the recommended ReDoc UI. No Broadcast, send, Flow, Form, person, import, webhook, integration, or delete mutation was used.
 
-The current recommended OpenAPI schema was re-fetched on 2026-07-26. `POST /v1/emails`, `PATCH /v1/emails/{id}`, and `PATCH /v1/emails/{id}/versions/latest` accept `type`, `html`, and an optional `editor` value. However, `editor` is described only as Encharge's internal UI representation and has no published properties or format. The create schema has no `editorMode`, `builder`, or documented Simple-editor selector. Encharge's current help documents choosing **Drag and Drop editor** or **Simple editor** in the dashboard, but it does not document an API value that chooses either mode. A prior documented PATCH with `editor: null` was accepted but did not remove the retained visual-editor object. Supplying an invented editor object would therefore rely on an undocumented internal contract.
+The recommended OpenAPI schema was re-fetched on 2026-07-27. `POST /v1/emails`, `PATCH /v1/emails/{id}`, and `PATCH /v1/emails/{id}/versions/latest` accept `type`, `html`, and an optional `editor` value. `editor` remains described only as Encharge's internal UI representation and has no published properties or format; the create schema still has no `editorMode`, `builder`, or documented Simple-editor selector. Supplying an invented editor object remains unsafe.
 
-Because a documented API call cannot currently prove a safe dashboard-editable state, this remediation made **no Encharge mutation**: no replacement, archive, delete, send, person, Form, or Flow operation. The exact supported-dashboard reconstruction is recorded below. The hazardous drafts must not be opened and saved before that reconstruction is complete.
+### Operator-created Simple-editor base evidence
+
+Before any mutation, operator-created base email `472872` was inspected through documented `GET /v1/emails/{id}` and version-history operations. It provided a safe, exact UI-created representation without requiring an invented schema:
+
+- current `email.editor` had exactly two returned keys: `type` and `state`
+- `editor.type` was exactly `richtext`
+- `editor.state` was byte-identical to current `email.html`
+- versions `1` / record `357893` and `2` / record `357895` had the same raw/editor parity
+- version `2` had `changeReason=content_updated`, providing an operator UI save-and-read round-trip for that exact representation
+- all returned versions had `metadata.isSelected=false`
+
+The reconstruction reused only that exact two-property representation and `richtext` type, setting `state` to each approved Simple-editor body and setting documented top-level `html` to the same byte-identical value. No extra editor key, private endpoint, guessed mode value, or visual-editor schema was used.
+
+### Canonical Simple-editor email assets
+
+All four current canonical assets are active, standalone saved templates. Current `email.html`, latest-version `data.html`, current `editor.state`, and latest-version `data.editor.state` are byte-identical for each asset. Every current/latest editor object has exactly `type=richtext` plus `state`; no version is selected in returned history.
+
+| Email | Encharge ID | Latest version / record | Selected-version evidence | Current/latest/editor/archive evidence |
+| --- | ---: | --- | --- | --- |
+| `BUILDERS LAB — First Build Brief — Day 0` | `472872` | `3` / `357905`; `changeReason=content_updated` | None; every returned version has `isSelected=false` | Raw/latest/current editor/latest editor pass; `archived=false`; `isStandalone=true` |
+| `BUILDERS LAB — First Build Brief — Day 2` | `472875` | `2` / `357910`; `changeReason=content_updated` | None; every returned version has `isSelected=false` | Raw/latest/current editor/latest editor pass; `archived=false`; `isStandalone=true` |
+| `BUILDERS LAB — First Build Brief — Day 5` | `472876` | `2` / `357911`; `changeReason=content_updated` | None; every returned version has `isSelected=false` | Raw/latest/current editor/latest editor pass; `archived=false`; `isStandalone=true` |
+| `BUILDERS LAB — First Build Brief — Confirm subscription` | `472877` | `2` / `357912`; `changeReason=content_updated` | None; every returned version has `isSelected=false` | Raw/latest/current editor/latest editor pass; `archived=false`; `isStandalone=true` |
+
+Day 0's immutable base history versions `1` and `2` retain the operator's pre-reconstruction starter body. They are unselected and are not current/latest/editor surfaces. Current version `3`, its current editor state, and all selectable evidence are clean. The three API-created replacements contained approved content from version `1`; their version `2` records reflect the final canonical-name update with the same approved raw/editor content.
+
+Each canonical asset independently passed all of these documented-API checks:
+
+- exact tracked subject and preheader
+- `George Johnson` From and Reply-to names
+- `george@georgebjohnson.com` From and Reply-to addresses
+- empty CC/BCC
+- communication category ID `322189`
+- exact approved visible source copy
+- exact editorial CTA `https://georgebjohnson.com/go/skool`, or only `{{person.confirmationLink}}` as the confirmation email's primary CTA
+- `https://georgebjohnson.com/privacy/`, `{{account.mailingAddress}}`, `{{person.unsubscribeAllURL}}`, and `{{person.managePreferencesURL}}`
+- no unexpected or invalid merge token
+- no starter phrase in current raw, latest, current editor, latest editor, or selected-version surfaces
+- API-returned CAN-SPAM compliance `approved`
+- `archived=false` and `isStandalone=true`
+
+The documented `GET /v1/emails/{id}/versions/selected` operation still returns provider HTTP `422` because the implementation validates the literal path segment `selected` as a numeric version. Version history is the available documented selection evidence and marks no replacement version selected.
+
+### Archived visual-editor hazards
+
+Only after a pre-archive pass succeeded for all four replacements, the four hazardous IDs were renamed and archived through documented `PATCH /v1/emails/{id}` operations. They were not deleted.
+
+| Old Encharge ID | Archived name | Final version / record | Archive evidence |
+| ---: | --- | --- | --- |
+| `472553` | `ARCHIVED — EDITOR HAZARD — BUILDERS LAB — First Build Brief — Day 0` | `7` / `357906` | `archived=true`; `isStandalone=true` |
+| `472554` | `ARCHIVED — EDITOR HAZARD — BUILDERS LAB — First Build Brief — Day 2` | `6` / `357907` | `archived=true`; `isStandalone=true` |
+| `472555` | `ARCHIVED — EDITOR HAZARD — BUILDERS LAB — First Build Brief — Day 5` | `6` / `357908` | `archived=true`; `isStandalone=true` |
+| `472564` | `ARCHIVED — EDITOR HAZARD — BUILDERS LAB — First Build Brief — Confirm subscription` | `2` / `357909` | `archived=true`; `isStandalone=true` |
+
+A final readback of all eight controlled IDs shows exactly one active canonical asset for each tracked email and all four hazards archived. The documented API does not provide an all-email listing, so this is exact for the eight known and controlled IDs rather than a claim based on an undocumented workspace-list endpoint.
+
+### Reconstruction and independent verification result
+
+The safe sequence was: create and verify Day 2, Day 5, and confirmation replacements; convert base `472872` to Day 0; verify all four together; archive the four old hazards; remove temporary replacement prefixes; then perform a fresh independent read-only check.
+
+The final independent pass verified current/latest/editor parity, selection history, exact visible copy, exact links and merge-token sets, no current/latest/selected starter content, compliance, canonical names, archive state, and standalone state for every controlled ID. Account `peopleCount` and the complete documented people list both remained zero.
+
+No send endpoint was called. Saved-email responses expose no lifetime send counter, so zero sends is an operation/state assertion rather than a provider send-metric read. No Form, Flow, Broadcast, person, or attachment operation was called. All replacements return `isStandalone=true`; because the documented API cannot enumerate native Forms or Flows, unattached status is supported by creation/operation history and standalone state rather than a provider attachment-list response.
 
 ### Provider documentation reviewed
 
-Current terminology and safeguards were checked on 2026-07-26 against:
+Current terminology and safeguards were checked on 2026-07-27 against:
 
 - [API Documentation](https://docs.encharge.io/api-documentation) and its recommended [ReDoc REST reference](https://app-encharge-resources.s3.amazonaws.com/redoc.html)
 - [Double Opt-in](https://help.encharge.io/en/article/double-opt-in-14ncbnq/) — updated 2026-04-14
@@ -277,52 +338,6 @@ Current terminology and safeguards were checked on 2026-07-26 against:
 - [Create a Segment](https://help.encharge.io/en/article/create-a-segment-ykpylx/) and [Entered Segment](https://help.encharge.io/en/article/trigger-entered-segment-1wdhks1/)
 - [Send Email](https://help.encharge.io/en/article/action-send-email-gr83ma/), [Wait](https://help.encharge.io/en/article/action-wait-1khk84l/), [Add Tag](https://help.encharge.io/en/article/action-add-tag-1v9tbnl/), [Remove Tag](https://help.encharge.io/en/article/action-remove-tag-ptz9yz/), and [Change Field](https://help.encharge.io/en/article/action-change-field-9htfu4/)
 - [Insert Unsubscribe Link](https://help.encharge.io/en/article/insert-unsubscribe-link-1ubjurz/), [Unsubscribing from Emails and Email Categories](https://help.encharge.io/en/article/unsubscribing-from-emails-and-email-categories-2tyntt/), [Unsubscribed People](https://help.encharge.io/en/article/unsubscribed-people-a4aw5y/), and [How to Set Your Mailing Address](https://help.encharge.io/en/article/how-to-set-your-mailing-address-1trm19x/)
-
-### Current email assets and visual-editor hazard
-
-The following saved email templates remain standalone, active drafts. They are not Broadcasts and are not attached to a Flow:
-
-| Email | Encharge ID | Latest version / record | Selected version / record from history | Raw/latest/selected/editor finding |
-| --- | ---: | --- | --- | --- |
-| `BUILDERS LAB — First Build Brief — Day 0` | `472553` | `6` / `356631`; `isSelected=false` | `2` / `356585`; `isSelected=true` | Current raw, latest HTML, and selected HTML are byte-identical approved Day 0 HTML; current/latest `editor.html` is conflicting starter content, while the selected version has no editor value — hazardous on visual-editor Save |
-| `BUILDERS LAB — First Build Brief — Day 2` | `472554` | `5` / `356632`; `isSelected=false` | `1` / `356583`; `isSelected=true` | Current raw, latest HTML, and selected HTML are byte-identical approved Day 2 HTML; current/latest `editor.html` is conflicting starter content, while the selected version has no editor value — hazardous on visual-editor Save |
-| `BUILDERS LAB — First Build Brief — Day 5` | `472555` | `5` / `356633`; `isSelected=false` | `1` / `356584`; `isSelected=true` | Current raw, latest HTML, and selected HTML are byte-identical approved Day 5 HTML; current/latest `editor.html` is conflicting starter content, while the selected version has no editor value — hazardous on visual-editor Save |
-| `BUILDERS LAB — First Build Brief — Confirm subscription` | `472564` | `1` / `356622`; `isSelected=false` | None in returned history | Current raw/latest HTML is byte-identical approved confirmation HTML, but neither response contains an editor representation; this does not prove that opening and saving in a supported editor will preserve the copy |
-
-The three editorial editor objects contain the same starter copy: `Email Title`, `Now it's the time to insert your own content...`, `Unsubscribe`, `Your footer info might be placed here`, and `Your Company name`. That copy is absent from current raw/latest HTML but could replace it when the visual editor saves. Do not open or save IDs `472553`, `472554`, or `472555` in the dashboard editor. Treat `472564` as unverified for editor round-trip safety and do not attach, open/save, or select it for a Form.
-
-The documented `GET /v1/emails/{id}/versions/selected` operation currently returns provider HTTP `422` for all four IDs because the implementation validates the literal path segment `selected` as a numeric version. The documented version-history response nevertheless marks exactly one older version `metadata.isSelected=true` for each editorial ID; those selected-version HTML values are byte-identical to current raw HTML and contain no editor value. Confirmation ID `472564` has no selected version in returned history. The table distinguishes this history evidence from the broken selected-version operation instead of claiming that all four are unselected.
-
-All three editorial drafts currently use:
-
-- From name: `George Johnson`
-- From email: `george@georgebjohnson.com`
-- Reply-to name: `George Johnson`
-- Reply-to email: `george@georgebjohnson.com`
-- CTA: `https://georgebjohnson.com/go/skool`
-- visible footer: George Johnson, `{{account.mailingAddress}}`, Privacy Policy, a link using `{{person.unsubscribeAllURL}}`, and a link using `{{person.managePreferencesURL}}`
-- API-returned spam-compliance state: `approved`
-
-All four templates use communication category ID `322189`. The documented API response exposes only the numeric ID, so the dashboard must still show that this ID is **Marketing Emails** before any future test or activation.
-
-The confirmation raw/latest HTML uses subject `Confirm your First Build Brief`, preheader `Confirm your email address before the three-part brief begins.`, the same George From/Reply-to and compliance footer, and only `{{person.confirmationLink}}` for its primary confirmation CTA. It remains standalone, unarchived, unattached, and unselected, but its safe editable state is not proven.
-
-An independent read-only public-API pass verified the raw/latest findings above, the conflicting or absent editor states, approved unique copy, exact CTA/privacy/merge-tag sets, CAN-SPAM state `approved`, standalone and version-selection metadata, account `peopleCount=0`, and an empty full people list. No send operation was called. The documented email response does not expose a lifetime send counter, so the no-send statement is an operation/state assertion rather than a provider send-metric read.
-
-### Required supported-dashboard reconstruction
-
-Use the current Encharge **Create a New Email** help workflow. The API-only path is blocked until Encharge publishes an editor schema/mode or fixes the existing records itself.
-
-1. Do not open/save the four current IDs. In **Emails**, click the blue **+** and explicitly choose **Simple editor** — not Drag and Drop.
-2. Create four temporary, clearly named assets so there is no ambiguous active duplicate: prefix each canonical name with `REPLACEMENT CHECK — `. Keep every asset standalone and unattached.
-3. Re-enter the exact subject, preheader, From, Reply-to, **Marketing Emails** category, approved body, CTA, privacy link, `{{account.mailingAddress}}`, global-unsubscribe URL merge tag, and preference-center URL merge tag from this file. For the confirmation replacement, use only `{{person.confirmationLink}}` for the confirmation CTA.
-4. Keep CC/BCC empty. Do not use Send test, create a person, attach an email to a Form/Flow/Broadcast, or activate anything. Save and close each Simple-editor asset.
-5. Reopen each **replacement**, confirm the dashboard still identifies the supported Simple editor and displays only the approved copy, make no content change, click Save and close, then reopen once more. This supported editor round trip is mandatory because an API-created HTML asset with no editor representation did not prevent the original hazard.
-6. Record the four replacement IDs. Through documented read-only operations, verify current `email.html` equals latest-version `data.html`; approved text, links, merge tags, subject, preheader, sender, Reply-to, category ID, compliance, and standalone state all pass; every version marked `metadata.isSelected=true`, if any, has the same approved HTML; and no starter phrase appears in raw, latest, selected, or any returned editor value. If an editor value is returned, its visible text must also match the approved source copy. Reconfirm account and full-list people counts are zero.
-7. If any replacement or editor round trip fails, leave the four old records unchanged and archive the failed, clearly prefixed replacement through documented `PATCH /v1/emails/{id}` with `archived:true`. Stop and ask Encharge support to reconstruct the template/editor state.
-8. Only after **all four** replacements pass, archive and clearly rename the hazardous records through documented `PATCH /v1/emails/{id}` using `archived:true` and names prefixed `ARCHIVED — EDITOR HAZARD — ` for IDs `472553`, `472554`, `472555`, and `472564`. Do not delete them.
-9. Immediately read back all eight IDs. Confirm the four old IDs are archived, the four replacements remain unarchived and standalone, and all protected settings still pass. Then remove `REPLACEMENT CHECK — ` from the four safe assets through documented PATCH so only one active canonical name exists for each email.
-10. Run a fresh independent read-only raw/latest/editor parity check and update this table with all replacement IDs, latest version/record IDs, selected-version evidence, editor-state evidence, and archive state before using any draft elsewhere.
 
 These inert account tags now exist with zero people attached:
 
@@ -368,11 +383,11 @@ Also note that Encharge documents native Forms as **active by default when creat
 
 Do not turn on a Form or Flow, use **Send test**, or submit an address while completing the draft-build steps below. The later self-test is a separate, explicitly controlled window.
 
-### 1. Reconstruct and verify the four emails before any other dashboard work
+### 1. Verify the four canonical emails before any other dashboard work
 
-Complete **Required supported-dashboard reconstruction** above first. Do not open/save IDs `472553`, `472554`, `472555`, or `472564`; do not select `472564` for Double Opt-In. Stop this handoff until the campaign table contains four independently verified replacement IDs and the old IDs are archived.
+Use only these independently verified Simple-editor IDs: Day 0 `472872`, Day 2 `472875`, Day 5 `472876`, and confirmation `472877`. IDs `472553`, `472554`, `472555`, and `472564` are archived editor hazards; do not restore, attach, or select them.
 
-After reconstruction, verify each safe replacement shows **Marketing Emails**, `george@georgebjohnson.com` From/Reply-to, `George Johnson` names, the tracked preheader, empty CC/BCC, the exact approved body/CTA, `{{account.mailingAddress}}`, privacy, global unsubscribe, and preferences. Do not click **Send test**.
+Before any later Form/Flow attachment, visually confirm each canonical asset still opens as a Simple-editor email and shows **Marketing Emails**, `george@georgebjohnson.com` From/Reply-to, `George Johnson` names, the tracked preheader, empty CC/BCC, the exact approved body/CTA, `{{account.mailingAddress}}`, privacy, global unsubscribe, and preferences. The API representation is round-trip safe, but this reconstruction intentionally did not send a test. Do not click **Send test** outside the later controlled test window.
 
 ### 2. Verify consent fields and tags
 
@@ -397,7 +412,7 @@ After reconstruction, verify each safe replacement shows **Marketing Emails**, `
 9. Set the button to `Get the First Build Brief`.
 10. Set the **Success message** text to `Check your inbox to confirm your email address. The brief starts only after you confirm.`
 11. Still in **Fields**, scroll to **Double Opt-In** and enable **Enable double opt-in** on the deactivated Form draft.
-12. Click **Choose confirmation email**. Select only the independently verified Simple-editor replacement ID recorded in the campaign table after reconstruction. Do not select hazardous ID `472564`.
+12. Click **Choose confirmation email**. Select only the independently verified Simple-editor confirmation email ID `472877`. Do not select archived hazardous ID `472564`.
 13. Confirm its subject is `Confirm your First Build Brief` and its preview text is `Confirm your email address before the three-part brief begins.` Confirm Category, From, Reply-to, mailing address, privacy, global unsubscribe, and preferences exactly as in step 1.
 14. Use this minimal confirmation body:
 
@@ -450,9 +465,9 @@ The initial Form/API path may set only `doiStatus=pending_confirmation`. If Ench
 3. Add **Entered Segment** and select `Builders Lab — Confirmed First Build Brief recipients`.
 4. Select **People who enter this segment in the future**. Do not include people currently in the segment.
 5. Build three paths from the trigger so timing is relative to confirmed segment entry:
-   - **Send Email** → select `BUILDERS LAB — First Build Brief — Day 0`.
-   - **Wait** for `2 days` → **Send Email** → select `BUILDERS LAB — First Build Brief — Day 2`.
-   - **Wait** for `5 days` → **Send Email** → select `BUILDERS LAB — First Build Brief — Day 5`.
+   - **Send Email** → select `BUILDERS LAB — First Build Brief — Day 0` (ID `472872`).
+   - **Wait** for `2 days` → **Send Email** → select `BUILDERS LAB — First Build Brief — Day 2` (ID `472875`).
+   - **Wait** for `5 days` → **Send Email** → select `BUILDERS LAB — First Build Brief — Day 5` (ID `472876`).
 6. On every **Send Email** step, leave **People can receive email more than once** off and **Track replies** off. Reply tracking would replace the approved Reply-to and Encharge warns it can reduce deliverability.
 7. Confirm there is no Broadcast, no All People/Subscriber trigger, no click/open branch, and no unconnected Send Email step.
 8. Leave the Flow switch **Off**. Flows auto-save; do not click the On switch.
@@ -484,7 +499,7 @@ This plan is for a later explicit test window. It is not authorization to run it
 ## Remaining activation blockers
 
 - Encharge must document scanner-safe behavior and a distinct native DOI completion signal.
-- The three editorial IDs retain conflicting starter visual-editor data, and confirmation ID `472564` has no editor representation. All four require the supported Simple-editor reconstruction, API parity verification, and old-ID archival above before any Form/Flow work.
+- The four canonical Simple-editor assets pass documented-API parity and the old editor hazards are archived. Dashboard visual rendering, mobile/plain-text review, and controlled test sends remain intentionally unperformed until the later approved self-test window.
 - The native Form's active-by-default creation behavior needs operator acceptance or provider guidance.
 - The custom-field segment API issue needs provider resolution before `doiStatus` or `marketingConsent` can be used as segment conditions.
 - The accurate mailing address must be set and visually rendered.
