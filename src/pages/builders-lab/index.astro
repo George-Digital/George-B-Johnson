@@ -1,6 +1,7 @@
 ---
 import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
 import CtaBand from "../../components/CtaBand.astro";
+import MetaMeasurementConsent from "../../components/MetaMeasurementConsent.astro";
 import { site } from "../../data/site";
 import "../../styles/builders-lab.css";
 
@@ -131,6 +132,8 @@ const schema = {
     external
     trackingName="final-review"
   />
+
+  <MetaMeasurementConsent />
 
   <script>
     import "../../scripts/builders-lab.js";

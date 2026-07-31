@@ -12,6 +12,15 @@ import {
   initBuildersLabTracking,
   trackedSkoolPath,
 } from "../src/scripts/builders-lab.js";
+import {
+  META_CONSENT_KEY,
+  META_NOTICE_VERSION,
+  META_OUTBOUND_EVENT,
+  initMetaMeasurementConsent,
+  readMetaPreference,
+  trackMetaSkoolOutbound,
+  writeMetaPreference,
+} from "../src/scripts/builders-lab-meta.js";
 
 const metaQuery = [
   "utm_source=meta",
@@ -226,12 +235,165 @@ test("CTA clicks emit skool_cta_click and never a membership event", () => {
   );
 });
 
+test("Meta preference is minimal, versioned, expiring, and rejects malformed state", () => {
+  const values = new Map();
+  const storage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, value),
+    removeItem: (key) => values.delete(key),
+  };
+  const now = Date.parse("2026-07-31T18:00:00.000Z");
+  const preference = writeMetaPreference(storage, "allow", now);
+  assert.deepEqual(Object.keys(preference).sort(), ["decisionAt", "expiresAt", "noticeVersion", "status"]);
+  assert.equal(preference.noticeVersion, META_NOTICE_VERSION);
+  assert.equal(readMetaPreference(storage, now + 1)?.status, "allow");
+  assert.equal(readMetaPreference(storage, Date.parse(preference.expiresAt)), null);
+  assert.equal(values.has(META_CONSENT_KEY), false);
+
+  values.set(META_CONSENT_KEY, JSON.stringify({ ...preference, visitorId: "not-allowed" }));
+  assert.equal(readMetaPreference(storage, now + 1), null);
+});
+
+test("Meta makes no request before Allow and sends only bounded consented events", () => {
+  const values = new Map();
+  const storage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, value),
+    removeItem: (key) => values.delete(key),
+  };
+  const listeners = {};
+  const allow = {
+    getAttribute: () => "allow",
+    addEventListener: (name, handler) => { listeners.allow = handler; },
+  };
+  const reject = {
+    getAttribute: () => "reject",
+    addEventListener: (name, handler) => { listeners.reject = handler; },
+  };
+  const panel = {
+    hidden: true,
+    querySelectorAll: () => [allow, reject],
+  };
+  const manage = {
+    hidden: true,
+    addEventListener: (name, handler) => { listeners.manage = handler; },
+  };
+  const inserted = [];
+  const browserDocument = {
+    querySelector: (selector) => selector.includes("panel") ? panel : manage,
+    createElement: () => ({}),
+    getElementsByTagName: () => [{ parentNode: { insertBefore: (node) => inserted.push(node) } }],
+    head: { appendChild: (node) => inserted.push(node) },
+  };
+  const replaced = [];
+  const browserWindow = {
+    localStorage: storage,
+    location: {
+      href: `https://georgebjohnson.com/builders-lab/?${metaQuery}&fbclid=${clickIds.fbclid}`,
+      reload: () => { throw new Error("reload should not run on first allow"); },
+    },
+    history: {
+      state: null,
+      replaceState: (_state, _title, url) => replaced.push(url),
+    },
+  };
+
+  initMetaMeasurementConsent(browserWindow, browserDocument, { enableMeasurement: true });
+  assert.equal(panel.hidden, false);
+  assert.equal(inserted.length, 0);
+  assert.equal(typeof browserWindow.fbq, "undefined");
+
+  listeners.allow();
+  assert.equal(panel.hidden, true);
+  assert.equal(inserted.length, 1);
+  assert.deepEqual(replaced, ["/builders-lab/"]);
+  assert.equal(browserWindow.fbq.queue.some((entry) => entry[0] === "track" && entry[1] === "PageView"), true);
+  assert.equal(trackMetaSkoolOutbound(browserWindow, "unknown"), false);
+  assert.equal(trackMetaSkoolOutbound(browserWindow, "final-review"), true);
+  const outbound = browserWindow.fbq.queue.find((entry) => entry[0] === "trackCustom");
+  assert.deepEqual(outbound, ["trackCustom", META_OUTBOUND_EVENT, { cta_placement: "final-review" }]);
+  const rendered = JSON.stringify(browserWindow.fbq.queue);
+  for (const forbidden of ["fbclid", "utm_source", "membership", "purchase", "value", "currency", "/go/skool"]) {
+    assert.equal(rendered.toLowerCase().includes(forbidden), false);
+  }
+});
+
+test("Meta withdrawal propagates across tabs and expiry reloads an already-loaded runtime", () => {
+  const values = new Map();
+  const storage = {
+    getItem: (key) => values.get(key) ?? null,
+    setItem: (key, value) => values.set(key, value),
+    removeItem: (key) => values.delete(key),
+  };
+  writeMetaPreference(storage, "allow");
+  let storageHandler;
+  const timers = [];
+  let reloads = 0;
+  const panel = { hidden: true, querySelectorAll: () => [] };
+  const manage = { hidden: true, addEventListener: () => undefined };
+  const browserDocument = {
+    querySelector: (selector) => selector.includes("panel") ? panel : manage,
+    createElement: () => ({}),
+    getElementsByTagName: () => [{ parentNode: { insertBefore: () => undefined } }],
+    head: { appendChild: () => undefined },
+  };
+  const browserWindow = {
+    localStorage: storage,
+    location: { href: "https://georgebjohnson.com/builders-lab/", reload: () => { reloads += 1; } },
+    history: { state: null, replaceState: () => undefined },
+    addEventListener: (name, handler) => { if (name === "storage") storageHandler = handler; },
+    setTimeout: (handler) => { timers.push(handler); return timers.length; },
+  };
+  initMetaMeasurementConsent(browserWindow, browserDocument, { enableMeasurement: true });
+  assert.equal(typeof browserWindow.fbq, "function");
+
+  writeMetaPreference(storage, "reject");
+  storageHandler({ key: META_CONSENT_KEY });
+  assert.equal(reloads, 1);
+
+  values.set(META_CONSENT_KEY, JSON.stringify({
+    status: "allow",
+    noticeVersion: META_NOTICE_VERSION,
+    decisionAt: "2020-01-01T00:00:00.000Z",
+    expiresAt: "2020-01-02T00:00:00.000Z",
+  }));
+  timers[0]();
+  assert.equal(reloads, 2);
+});
+
 test("analytics CSP uses only the exact additional runtime hosts", async () => {
   const headers = await readFile(new URL("../public/_headers", import.meta.url), "utf8");
   assert.match(headers, /script-src[^\n]*https:\/\/static\.cloudflareinsights\.com/);
-  assert.match(headers, /connect-src[^\n]*https:\/\/www\.google\.com/);
+  assert.match(headers, /script-src[^\n]*https:\/\/connect\.facebook\.net/);
+  assert.match(headers, /connect-src[^\n]*https:\/\/www\.facebook\.com/);
+  assert.match(headers, /img-src[^\n]*https:\/\/www\.facebook\.com/);
   assert.doesNotMatch(headers, /connect-src[^\n]*https:\/\/cloudflareinsights\.com/);
   assert.doesNotMatch(headers, /\*\.cloudflareinsights\.com/);
+  assert.doesNotMatch(headers, /\*\.facebook\.com/);
+});
+
+test("Meta measurement stays Builders-Lab-only and the public notice matches the consent control", async () => {
+  const [landing, baseLayout, privacy, component, footer] = await Promise.all([
+    readFile(new URL("../src/pages/builders-lab/index.astro", import.meta.url), "utf8"),
+    readFile(new URL("../src/layouts/BaseLayout.astro", import.meta.url), "utf8"),
+    readFile(new URL("../src/pages/privacy/index.astro", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/MetaMeasurementConsent.astro", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/Footer.astro", import.meta.url), "utf8"),
+  ]);
+  assert.match(landing, /MetaMeasurementConsent/);
+  assert.doesNotMatch(baseLayout, /builders-lab-meta|MetaMeasurementConsent|connect\.facebook/);
+  assert.match(privacy, /Optional Meta measurement on Builders Lab/);
+  assert.match(privacy, /privacy@georgebjohnson\.com/);
+  assert.match(component, /Allow Meta measurement/);
+  assert.match(component, /Reject Meta measurement/);
+  const choiceClasses = [...component.matchAll(/class="([^"]+)"[^>]+data-meta-consent-choice/g)].map((match) => match[1]);
+  assert.equal(choiceClasses.length, 2);
+  assert.equal(choiceClasses[0], choiceClasses[1]);
+  assert.doesNotMatch(component, /button-dark|button-outline/);
+  assert.doesNotMatch(`${landing}${component}`, /<noscript/i);
+  assert.doesNotMatch(privacy, /server-side redirect|allowlisted|approved Meta campaign/i);
+  assert.match(footer, /showBuildersLabLink/);
+  assert.match(footer, /Astro\.url\.pathname !== "\/builders-lab\/"/);
 });
 
 test("the landing page states the approved offer and keeps both CTAs on the Skool route", async () => {

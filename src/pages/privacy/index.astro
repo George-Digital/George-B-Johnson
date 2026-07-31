@@ -1,21 +1,22 @@
 ---
 import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
+import MetaMeasurementConsent from "../../components/MetaMeasurementConsent.astro";
 ---
 
 <InnerPageLayout
   title="Privacy | George B. Johnson"
-  description="Read the privacy policy for georgebjohnson.com, including site analytics, Builders Lab link attribution, hosting, and external links."
+  description="Read the privacy policy for georgebjohnson.com, including site analytics, optional Builders Lab Meta measurement, link attribution, hosting, and external links."
   canonicalPath="/privacy/"
   eyebrow="Site policy"
   heading="Privacy"
-  lead="This site does not currently collect email addresses through a form. It uses Google Analytics and Cloudflare Web Analytics to understand site usage and links to external services."
+  lead="This site does not currently collect email addresses through a form. It uses site analytics and offers an optional Meta measurement choice on Builders Lab."
   currentPage="Privacy"
 >
   <section class="policy-content section-pad" aria-labelledby="policy-title">
     <div class="section-label"><span>01</span><span>Privacy policy</span></div>
     <div class="prose prose-wide">
       <h2 id="policy-title">How this site handles data</h2>
-      <p><strong>Last updated: July 27, 2026.</strong></p>
+      <p><strong>Last updated: July 31, 2026.</strong></p>
       <p>This policy applies to <a href="/">georgebjohnson.com</a>.</p>
 
       <h3>Information submitted to this site</h3>
@@ -30,8 +31,16 @@ import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
       <p>This site also uses Cloudflare Web Analytics for aggregate page-view and performance information. Cloudflare automatically adds its analytics script when it serves the site and receives the resulting measurement request. Cloudflare states that Web Analytics does not use cookies, local storage, or fingerprinting to track visitors across sites. Read <a href="https://www.cloudflare.com/web-analytics/">Cloudflare’s Web Analytics information</a> and <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare’s Privacy Policy</a>.</p>
 
       <h3>Builders Lab links and campaign attribution</h3>
-      <p>Builders Lab buttons use a local server-side redirect to the fixed Builders Lab page on Skool. For the approved Meta campaign only, the redirect may carry the exact lowercase values <code>utm_source=meta</code>, <code>utm_medium=paid_social</code>, and <code>utm_campaign=builders_lab_direct_membership</code>, plus strictly validated lowercase <code>utm_content</code> and <code>utm_term</code> slugs. It may also forward validated click identifiers supplied by recognized advertising platforms: <code>fbclid</code>, <code>gclid</code>, <code>gbraid</code>, <code>wbraid</code>, <code>msclkid</code>, <code>ttclid</code>, and <code>li_fat_id</code>.</p>
-      <p>Identical repeated allowlisted values are reduced to one value. Conflicting required campaign values cause the campaign attribution to be discarded; a conflicting or malformed optional value or click identifier is discarded without removing the other valid values. All unrecognized parameters and any parameter that attempts to change the destination are discarded. The site application does not persist click identifiers or include them in Google Analytics events; it only passes validated values to Skool with the fixed-destination link. This site does not currently install the Meta Pixel. Skool applies its own privacy practices after the redirect.</p>
+      <p>Builders Lab buttons lead to the current membership page on Skool. When a visitor arrives through an advertisement, the site may preserve a limited set of campaign details and advertising click identifiers in the link to Skool so the visit can be attributed. Unknown, malformed, conflicting, or destination-changing information is discarded.</p>
+      <p>This site does not save those click identifiers or include them in its Google Analytics events. Skool receives only the retained attribution details after you choose to follow the link, and Skool’s own privacy practices then apply.</p>
+
+      <h3 id="meta-measurement">Optional Meta measurement on Builders Lab</h3>
+      <p>Meta measurement is limited to the Builders Lab page and does not load unless you choose <strong>Allow Meta measurement</strong>. After an affirmative choice, the page can send one page-view event and record which of the two Builders Lab join buttons you selected. These events do not show that you reached Skool, registered, joined, or paid for a membership.</p>
+      <p>Meta may receive technical information needed to deliver and measure these events, such as an IP address, browser or device information, referrer information, and cookie or similar identifiers created by Meta’s browser tool. Before Meta measurement loads, this site removes the landing page query string from the visible browser address. It does not intentionally add names, email addresses, phone numbers, payment details, destination URLs, campaign parameters, click identifiers, membership status, value, or currency to Meta events.</p>
+      <p>Your Meta measurement choice is stored only in this browser for up to six months with the choice, notice version, decision time, and expiry time. Rejecting does not affect the page or its links. Use the persistent <strong>Privacy choices</strong> control to change your preference. Withdrawing stops future site-originated Meta measurement after the page reloads; it does not retract information already received by Meta. Read <a href="https://www.facebook.com/privacy/policy/">Meta’s Privacy Policy</a> for information about Meta’s processing and privacy choices.</p>
+
+      <h3>Controller contact and privacy requests</h3>
+      <p>George B. Johnson, sole proprietor, is responsible for this site’s handling of the choices and events described above. For privacy questions or rights requests, email <a href="mailto:privacy@georgebjohnson.com">privacy@georgebjohnson.com</a>.</p>
 
       <h3>Fonts</h3>
       <p>This site serves its typeface files from the same domain. Loading the site’s fonts does not require your browser to connect to Google Fonts or another font-delivery service.</p>
@@ -43,4 +52,10 @@ import InnerPageLayout from "../../layouts/InnerPageLayout.astro";
       <p>This page may be updated if the site adds new features or changes the services used to deliver it. The date above identifies the latest published version.</p>
     </div>
   </section>
+
+  <MetaMeasurementConsent />
+  <script>
+    import { initMetaMeasurementConsent } from "../../scripts/builders-lab-meta.js";
+    initMetaMeasurementConsent(window, document, { enableMeasurement: false });
+  </script>
 </InnerPageLayout>

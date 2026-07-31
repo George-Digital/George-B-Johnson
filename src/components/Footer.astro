@@ -1,6 +1,7 @@
 ---
 import { site } from "../data/site";
 const year = new Date().getUTCFullYear();
+const showBuildersLabLink = Astro.url.pathname !== "/builders-lab/";
 ---
 
 <footer class="site-footer">
@@ -19,7 +20,7 @@ const year = new Date().getUTCFullYear();
       <span>Connect</span>
       <a href={site.social.linkedin}>LinkedIn</a>
       <a href={site.social.youtube}>YouTube</a>
-      <a href={site.skoolUrl}>Builders Lab</a>
+      {showBuildersLabLink && <a href={site.skoolUrl}>Builders Lab</a>}
     </div>
     <div>
       <span>Site</span>

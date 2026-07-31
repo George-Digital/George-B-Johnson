@@ -1,0 +1,101 @@
+.meta-consent {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 1000;
+  width: min(680px, calc(100vw - 2 * var(--space-4)));
+  padding: var(--space-5);
+  color: var(--text-primary);
+  background: var(--paper-50);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 18px 60px color-mix(in oklch, var(--ink-950) 22%, transparent);
+}
+
+.meta-consent[hidden],
+.meta-consent-manage[hidden] {
+  display: none;
+}
+
+.meta-consent__copy h2 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--h2-family);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: var(--weight-regular);
+  line-height: 1.05;
+}
+
+.meta-consent__copy p {
+  max-width: 68ch;
+  margin: 0 0 var(--space-3);
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.meta-consent__eyebrow {
+  color: var(--bronze-700) !important;
+  font-family: var(--font-mono);
+  font-size: var(--type-label) !important;
+  letter-spacing: var(--label-tracking);
+  text-transform: uppercase;
+}
+
+.meta-consent__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.meta-consent__actions .button {
+  width: 100%;
+  min-height: 48px;
+  justify-content: center;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  font: inherit;
+  cursor: pointer;
+}
+
+.meta-consent__actions .button:hover,
+.meta-consent__actions .button:focus-visible {
+  color: var(--text-inverse);
+  background: var(--ink-950);
+}
+
+.meta-consent-manage {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 999;
+  min-height: 44px;
+  padding: 0.65rem 0.9rem;
+  color: var(--text-inverse);
+  background: var(--ink-950);
+  border: 1px solid color-mix(in oklch, var(--paper-50) 25%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+}
+
+@media (max-width: 620px) {
+  .meta-consent {
+    right: var(--space-3);
+    bottom: var(--space-3);
+    width: calc(100vw - 2 * var(--space-3));
+    max-height: calc(100vh - 2 * var(--space-3));
+    padding: var(--space-4);
+    overflow-y: auto;
+  }
+
+  .meta-consent__actions {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-consent-manage {
+    right: var(--space-3);
+    bottom: var(--space-3);
+  }
+}

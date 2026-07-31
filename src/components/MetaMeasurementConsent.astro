@@ -1,0 +1,32 @@
+---
+import "../styles/meta-consent.css";
+---
+
+<section class="meta-consent" data-meta-consent-panel hidden aria-labelledby="meta-consent-title">
+  <div class="meta-consent__copy">
+    <p class="meta-consent__eyebrow">Optional measurement</p>
+    <h2 id="meta-consent-title">Meta measurement for Builders Lab</h2>
+    <p>
+      If you choose Allow, this Builders Lab page can send Meta a page-view event and a
+      limited event when you select a link to the Builders Lab community on Skool. Meta
+      may receive browser, device, and event information. These events do not confirm
+      that you joined or paid for a membership.
+    </p>
+    <p>
+      Rejecting does not affect access to this page or its links. Read the
+      <a href="/privacy/#meta-measurement">privacy notice</a> for details.
+    </p>
+  </div>
+  <div class="meta-consent__actions" aria-label="Meta measurement preference">
+    <button class="button meta-consent__choice" type="button" data-meta-consent-choice="allow">
+      Allow Meta measurement
+    </button>
+    <button class="button meta-consent__choice" type="button" data-meta-consent-choice="reject">
+      Reject Meta measurement
+    </button>
+  </div>
+</section>
+
+<button class="meta-consent-manage" type="button" data-meta-consent-manage hidden>
+  Privacy choices
+</button>
