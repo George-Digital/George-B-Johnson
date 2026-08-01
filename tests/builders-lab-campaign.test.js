@@ -307,7 +307,10 @@ test("Meta makes no request before Allow and sends only bounded consented events
   assert.equal(panel.hidden, true);
   assert.equal(inserted.length, 1);
   assert.deepEqual(replaced, ["/builders-lab/"]);
-  assert.equal(browserWindow.fbq.queue.some((entry) => entry[0] === "track" && entry[1] === "PageView"), true);
+  const pageView = browserWindow.fbq.queue.find(
+    (entry) => entry[0] === "track" && entry[1] === "PageView",
+  );
+  assert.deepEqual(pageView, ["track", "PageView"]);
   assert.equal(trackMetaSkoolOutbound(browserWindow, "unknown"), false);
   assert.equal(trackMetaSkoolOutbound(browserWindow, "final-review"), true);
   const outbound = browserWindow.fbq.queue.find((entry) => entry[0] === "trackCustom");
@@ -382,7 +385,16 @@ test("Meta measurement stays Builders-Lab-only and the public notice matches the
   ]);
   assert.match(landing, /MetaMeasurementConsent/);
   assert.doesNotMatch(baseLayout, /builders-lab-meta|MetaMeasurementConsent|connect\.facebook/);
+  const sanitizerTag = baseLayout.indexOf('/scripts/analytics-page-location.js');
+  const analyticsConfig = baseLayout.indexOf('gtag("config", "G-EK4D73E6DT"');
+  assert.ok(sanitizerTag >= 0 && sanitizerTag < analyticsConfig);
+  assert.match(baseLayout, /Astro\.url\.pathname === "\/builders-lab\/"/);
+  assert.match(baseLayout, /BUILDERS_LAB_GA4_PAGE_LOCATION_POLICY/);
+  assert.match(baseLayout, /define:vars=\{\{ analyticsAttributionPolicy \}\}/);
+  assert.match(baseLayout, /window\.gtag = gtag/);
   assert.match(privacy, /Optional Meta measurement on Builders Lab/);
+  assert.match(privacy, /Google Analytics receives only the approved campaign source, medium, campaign, and content parameters/);
+  assert.match(privacy, /other query parameters and click identifiers are excluded/);
   assert.match(privacy, /privacy@georgebjohnson\.com/);
   assert.match(component, /Allow Meta measurement/);
   assert.match(component, /Reject Meta measurement/);

@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { BUILDERS_LAB_GA4_PAGE_LOCATION_POLICY } from "../lib/analytics-attribution.js";
 import "../styles/tokens.css";
 import "../styles/global.css";
 
@@ -26,6 +27,9 @@ const robots = noindex
   ? "noindex,follow"
   : "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1";
 const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const analyticsAttributionPolicy = Astro.url.pathname === "/builders-lab/"
+  ? BUILDERS_LAB_GA4_PAGE_LOCATION_POLICY
+  : null;
 ---
 
 <!doctype html>
@@ -43,12 +47,23 @@ const schemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     <link rel="preload" href="/fonts/manrope-400-700-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/instrument-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin />
 
+    {analyticsAttributionPolicy && (
+      <script src="/scripts/analytics-page-location.js" is:inline></script>
+    )}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EK4D73E6DT" is:inline></script>
-    <script is:inline>
+    <script is:inline define:vars={{ analyticsAttributionPolicy }}>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
+      function gtag() { window.dataLayer.push(arguments); }
+      window.gtag = gtag;
       gtag("js", new Date());
-      const analyticsPageLocation = `${window.location.origin}${window.location.pathname}`;
+      const queryFreePageLocation = `${window.location.origin}${window.location.pathname}`;
+      const analyticsPageLocation = typeof window.__sanitizeAnalyticsPageLocation === "function"
+        ? window.__sanitizeAnalyticsPageLocation(
+            window.location.href,
+            analyticsAttributionPolicy,
+          ) || queryFreePageLocation
+        : queryFreePageLocation;
+      try { delete window.__sanitizeAnalyticsPageLocation; } catch {}
       let analyticsPageReferrer = "";
       if (document.referrer) {
         try {
