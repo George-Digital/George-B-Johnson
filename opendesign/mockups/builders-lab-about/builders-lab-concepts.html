@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Builders Lab — Skool About Graphic Concepts</title>
+  <style>
+    :root {
+      --ink: #07101f;
+      --ink-2: #0d1a31;
+      --paper: #f3f0e8;
+      --white: #f7f9fc;
+      --muted: #9caac1;
+      --blue: #43a5ff;
+      --cyan: #74e5ff;
+      --lime: #8df34f;
+      --orange: #ff914d;
+      --line: rgba(145, 180, 224, 0.24);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #cbd1d7;
+      color: var(--white);
+      font-family: "Ubuntu Sans", "DejaVu Sans", sans-serif;
+    }
+
+    body {
+      padding: 76px 28px 28px;
+    }
+
+    .toolbar {
+      position: fixed;
+      z-index: 100;
+      inset: 0 0 auto 0;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: rgba(7, 16, 31, 0.96);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 30px rgba(7, 16, 31, 0.18);
+    }
+
+    .toolbar button {
+      appearance: none;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: transparent;
+      color: #b9c6da;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font: 650 13px/1 "Ubuntu Sans", sans-serif;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+    }
+
+    .toolbar button.active {
+      color: #07101f;
+      border-color: var(--lime);
+      background: var(--lime);
+    }
+
+    .stage {
+      position: relative;
+      width: 1400px;
+      height: 790px;
+      margin: 0 auto 24px;
+      overflow: hidden;
+      background: var(--ink);
+      box-shadow: 0 22px 70px rgba(7, 16, 31, 0.28);
+    }
+
+    .concept {
+      position: absolute;
+      inset: 0;
+      display: none;
+      overflow: hidden;
+    }
+
+    .concept.active {
+      display: block;
+    }
+
+    .mono {
+      font-family: "DejaVu Sans Mono", monospace;
+    }
+
+    .brand-row {
+      position: absolute;
+      z-index: 8;
+      left: 70px;
+      right: 70px;
+      top: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-mark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 760;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-symbol {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      border: 2px solid currentColor;
+      transform: rotate(45deg);
+    }
+
+    .brand-symbol::after {
+      content: "";
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      right: -5px;
+      bottom: -5px;
+      background: var(--lime);
+    }
+
+    .byline {
+      color: #b5c2d7;
+      font: 600 13px/1 "DejaVu Sans Mono", monospace;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* Concept 1 — Transformation Path */
+    #concept-1 {
+      background-color: var(--ink);
+      background-image:
+        linear-gradient(rgba(90, 135, 200, 0.075) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(90, 135, 200, 0.075) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+
+    #concept-1::before {
+      content: "";
+      position: absolute;
+      width: 460px;
+      height: 460px;
+      right: 38px;
+      top: 150px;
+      border: 1px solid rgba(67, 165, 255, 0.16);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 70px rgba(67, 165, 255, 0.035),
+        0 0 0 140px rgba(67, 165, 255, 0.02);
+    }
+
+    .c1-copy {
+      position: absolute;
+      z-index: 6;
+      left: 70px;
+      top: 190px;
+      width: 610px;
+    }
+
+    .c1-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      color: var(--orange);
+      font: 700 14px/1 "DejaVu Sans Mono", monospace;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .c1-kicker::before {
+      content: "";
+      width: 42px;
+      height: 3px;
+      background: var(--orange);
+    }
+
+    .c1-copy h1 {
+      margin: 0;
+      max-width: 600px;
+      color: var(--white);
+      font-size: 94px;
+      line-height: 0.9;
+      font-weight: 790;
+      letter-spacing: -0.06em;
+    }
+
+    .c1-copy h1 .work {
+      color: var(--blue);
+    }
+
+    .c1-copy h1 .period {
+      color: var(--lime);
+    }
+
+    .c1-name {
+      margin-top: 42px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #b9c6da;
+      font-size: 19px;
+      font-weight: 570;
+      letter-spacing: 0.01em;
+    }
+
+    .c1-name::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      background: var(--lime);
+      border-radius: 50%;
+      box-shadow: 0 0 0 6px rgba(141, 243, 79, 0.12);
+    }
+
+    .system-map {
+      position: absolute;
+      z-index: 5;
+      right: 72px;
+      top: 167px;
+      width: 595px;
+      height: 500px;
+    }
+
+    .system-map .rail {
+      position: absolute;
+      left: 35px;
+      right: 34px;
+      top: 248px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--orange), var(--blue) 48%, var(--lime));
+      box-shadow: 0 0 18px rgba(67, 165, 255, 0.38);
+    }
+
+    .system-map .rail::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -6px;
+      width: 12px;
+      height: 12px;
+      border-top: 2px solid var(--lime);
+      border-right: 2px solid var(--lime);
+      transform: rotate(45deg);
+    }
+
+    .endpoint {
+      position: absolute;
+      top: 220px;
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font: 800 19px/1 "DejaVu Sans Mono", monospace;
+    }
+
+    .endpoint.a {
+      left: 6px;
+      color: var(--ink);
+      background: var(--orange);
+      box-shadow: 0 0 0 10px rgba(255, 145, 77, 0.12);
+    }
+
+    .endpoint.b {
+      right: 0;
+      color: var(--ink);
+      background: var(--lime);
+      box-shadow: 0 0 0 10px rgba(141, 243, 79, 0.1);
+    }
+
+    .input-stack {
+      position: absolute;
+      left: 82px;
+      top: 78px;
+      width: 124px;
+      height: 160px;
+    }
+
+    .input-card {
+      position: absolute;
+      width: 118px;
+      height: 78px;
+      border: 1px solid rgba(255, 145, 77, 0.55);
+      background: #101b2f;
+      box-shadow: 10px 12px 0 rgba(255, 145, 77, 0.08);
+    }
+
+    .input-card:nth-child(1) { left: 0; top: 0; }
+    .input-card:nth-child(2) { left: 17px; top: 23px; }
+    .input-card:nth-child(3) { left: 34px; top: 46px; }
+
+    .input-card::before,
+    .input-card::after {
+      content: "";
+      position: absolute;
+      left: 16px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    .input-card::before { top: 21px; width: 63px; }
+    .input-card::after { top: 36px; width: 82px; }
+
+    .engine {
+      position: absolute;
+      left: 218px;
+      top: 125px;
+      width: 174px;
+      height: 174px;
+      border: 1px solid rgba(116, 229, 255, 0.6);
+      background: #0b1629;
+      box-shadow:
+        14px 14px 0 rgba(67, 165, 255, 0.09),
+        0 0 55px rgba(67, 165, 255, 0.12);
+    }
+
+    .engine::before,
+    .engine::after {
+      content: "";
+      position: absolute;
+      inset: 24px;
+      border: 1px solid rgba(67, 165, 255, 0.42);
+      transform: rotate(45deg);
+    }
+
+    .engine::after {
+      inset: 56px;
+      background: var(--blue);
+      border: 0;
+      box-shadow: 0 0 24px rgba(67, 165, 255, 0.55);
+    }
+
+    .pin-row {
+      position: absolute;
+      left: -8px;
+      right: -8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .pin-row.top { top: 34px; }
+    .pin-row.bottom { bottom: 34px; }
+
+    .pin-row i {
+      width: 15px;
+      height: 4px;
+      background: var(--cyan);
+    }
+
+    .output-panel {
+      position: absolute;
+      right: 69px;
+      top: 65px;
+      width: 152px;
+      height: 156px;
+      border: 1px solid rgba(141, 243, 79, 0.48);
+      background: #0d1b2d;
+      box-shadow: 12px 14px 0 rgba(141, 243, 79, 0.07);
+    }
+
+    .output-panel .money {
+      position: absolute;
+      left: 17px;
+      top: 15px;
+      color: var(--lime);
+      font: 700 16px/1 "DejaVu Sans Mono", monospace;
+    }
+
+    .bars {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 23px;
+      height: 86px;
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .bars i {
+      flex: 1;
+      background: var(--blue);
+    }
+
+    .bars i:nth-child(1) { height: 23%; opacity: 0.45; }
+    .bars i:nth-child(2) { height: 42%; opacity: 0.62; }
+    .bars i:nth-child(3) { height: 66%; opacity: 0.8; }
+    .bars i:nth-child(4) { height: 92%; background: var(--lime); }
+
+    .map-code {
+      position: absolute;
+      right: 33px;
+      bottom: 49px;
+      color: rgba(116, 229, 255, 0.74);
+      font: 700 36px/1 "DejaVu Sans Mono", monospace;
+      letter-spacing: 0.08em;
+    }
+
+    .map-tick {
+      position: absolute;
+      left: 224px;
+      bottom: 45px;
+      width: 164px;
+      height: 52px;
+      border-top: 1px solid rgba(67, 165, 255, 0.48);
+      border-right: 1px solid rgba(67, 165, 255, 0.48);
+      transform: skewY(-17deg);
+    }
+
+    .c1-bottom {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      bottom: 48px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .c1-bottom::before {
+      content: "";
+      display: block;
+      width: 31%;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    /* Concept 2 — Operator Console */
+    #concept-2 {
+      background: #0b1729;
+    }
+
+    #concept-2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 540px;
+      height: 100%;
+      background: var(--orange);
+    }
+
+    #concept-2::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      top: 170px;
+      width: 540px;
+      height: 540px;
+      border: 1px solid rgba(67, 165, 255, 0.15);
+      transform: rotate(45deg);
+    }
+
+    .c2-top {
+      position: absolute;
+      z-index: 10;
+      left: 58px;
+      right: 64px;
+      top: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .c2-top .brand-mark {
+      color: var(--ink);
+    }
+
+    .c2-top .brand-symbol::after {
+      background: var(--ink);
+    }
+
+    .c2-top .byline {
+      color: #b9c6da;
+    }
+
+    .success-shell {
+      position: absolute;
+      z-index: 5;
+      left: 58px;
+      top: 126px;
+      width: 482px;
+      height: 604px;
+      padding: 42px 42px 38px;
+      background-color: #07101f;
+      background-image:
+        linear-gradient(rgba(67, 165, 255, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(67, 165, 255, 0.09) 1px, transparent 1px);
+      background-size: 34px 34px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      box-shadow: 22px 24px 0 rgba(7, 16, 31, 0.2);
+      overflow: hidden;
+    }
+
+    .success-shell::before {
+      content: "A";
+      position: absolute;
+      right: 18px;
+      top: 0;
+      color: rgba(67, 165, 255, 0.08);
+      font: 820 210px/0.9 "Ubuntu Sans", sans-serif;
+      letter-spacing: -0.08em;
+    }
+
+    .success-kicker {
+      position: relative;
+      z-index: 2;
+      color: var(--lime);
+      font: 700 13px/1 "DejaVu Sans Mono", monospace;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .success-shell h2 {
+      position: relative;
+      z-index: 2;
+      max-width: 360px;
+      margin: 34px 0 20px;
+      color: var(--white);
+      font-size: 54px;
+      line-height: 0.94;
+      font-weight: 790;
+      letter-spacing: -0.055em;
+    }
+
+    .success-intro {
+      position: relative;
+      z-index: 2;
+      width: 340px;
+      margin: 0;
+      color: #b9c6da;
+      font-size: 18px;
+      line-height: 1.38;
+      font-weight: 520;
+    }
+
+    .success-list {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 0;
+      margin-top: 29px;
+      border-top: 1px solid rgba(116, 229, 255, 0.25);
+    }
+
+    .success-item {
+      display: grid;
+      grid-template-columns: 39px 1fr;
+      align-items: center;
+      min-height: 55px;
+      color: var(--white);
+      border-bottom: 1px solid rgba(116, 229, 255, 0.2);
+      font-size: 20px;
+      font-weight: 690;
+    }
+
+    .success-item .mono {
+      color: var(--orange);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .success-name {
+      position: absolute;
+      z-index: 2;
+      left: 42px;
+      bottom: 30px;
+      color: #aab8cd;
+      font: 650 13px/1 "DejaVu Sans Mono", monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .success-name::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 11px 1px 0;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 5px rgba(141, 243, 79, 0.1);
+    }
+
+    .c2-copy {
+      position: absolute;
+      z-index: 6;
+      left: 618px;
+      top: 179px;
+      width: 690px;
+    }
+
+    .c2-route {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 44px;
+    }
+
+    .route-end {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background: var(--orange);
+      border-radius: 50%;
+      font: 800 15px/1 "DejaVu Sans Mono", monospace;
+    }
+
+    .route-end.b {
+      background: var(--lime);
+    }
+
+    .route-line {
+      position: relative;
+      width: 220px;
+      height: 2px;
+      background: rgba(67, 165, 255, 0.64);
+    }
+
+    .route-line i {
+      position: absolute;
+      top: -6px;
+      width: 14px;
+      height: 14px;
+      background: #0b1729;
+      border: 2px solid var(--blue);
+      transform: rotate(45deg);
+    }
+
+    .route-line i:nth-child(1) { left: 25%; }
+    .route-line i:nth-child(2) { left: 50%; }
+    .route-line i:nth-child(3) { left: 75%; }
+
+    .c2-copy h1 {
+      margin: 0;
+      color: var(--white);
+      font-size: 101px;
+      line-height: 0.88;
+      letter-spacing: -0.065em;
+      font-weight: 790;
+    }
+
+    .c2-copy h1 .build {
+      color: var(--orange);
+    }
+
+    .c2-copy h1 .work {
+      position: relative;
+      display: inline-block;
+      color: var(--white);
+    }
+
+    .c2-copy h1 .work::after {
+      content: "";
+      position: absolute;
+      left: 2px;
+      right: -12px;
+      bottom: -12px;
+      height: 7px;
+      background: var(--lime);
+    }
+
+    .console-cards {
+      position: absolute;
+      z-index: 6;
+      right: 64px;
+      bottom: 56px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .console-card {
+      position: relative;
+      width: 178px;
+      height: 90px;
+      border: 1px solid rgba(116, 229, 255, 0.28);
+      background: rgba(7, 16, 31, 0.72);
+    }
+
+    .console-card::before,
+    .console-card::after {
+      content: "";
+      position: absolute;
+      left: 17px;
+      height: 5px;
+    }
+
+    .console-card::before {
+      top: 22px;
+      width: 64px;
+      background: rgba(255, 255, 255, 0.36);
+    }
+
+    .console-card::after {
+      top: 43px;
+      width: 116px;
+      background: var(--blue);
+      box-shadow: 0 14px 0 rgba(141, 243, 79, 0.72);
+    }
+
+    .console-card:last-child::after {
+      width: 138px;
+      background: var(--lime);
+      box-shadow: 0 14px 0 rgba(67, 165, 255, 0.72);
+    }
+
+    /* Concept 3 — ROI Blueprint */
+    #concept-3 {
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        linear-gradient(rgba(7, 16, 31, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(7, 16, 31, 0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    #concept-3::before {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 154px;
+      height: 100%;
+      background: var(--orange);
+    }
+
+    .c3-top {
+      position: absolute;
+      z-index: 10;
+      left: 62px;
+      right: 54px;
+      top: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .c3-top .brand-mark {
+      color: var(--ink);
+    }
+
+    .c3-top .brand-symbol::after {
+      background: var(--blue);
+    }
+
+    .c3-top .byline {
+      color: var(--ink);
+      margin-right: 145px;
+    }
+
+    .c3-copy {
+      position: absolute;
+      z-index: 5;
+      left: 60px;
+      top: 134px;
+      width: 915px;
+    }
+
+    .c3-copy h1 {
+      margin: 0;
+      color: var(--ink);
+      font-size: 151px;
+      line-height: 0.82;
+      font-weight: 820;
+      letter-spacing: -0.075em;
+    }
+
+    .c3-copy h1 .tools {
+      color: var(--blue);
+    }
+
+    .c3-copy h1 .work {
+      position: relative;
+      display: inline-block;
+      color: var(--ink);
+      z-index: 1;
+    }
+
+    .c3-copy h1 .work::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: -5px;
+      right: -14px;
+      bottom: -1px;
+      height: 34px;
+      background: var(--lime);
+    }
+
+    .c3-blueprint {
+      position: absolute;
+      z-index: 4;
+      right: 188px;
+      top: 164px;
+      width: 278px;
+      height: 480px;
+      border-left: 2px solid var(--ink);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .c3-blueprint::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: -2px;
+      width: 12px;
+      height: 12px;
+      background: var(--orange);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+    }
+
+    .stair {
+      position: absolute;
+      left: 28px;
+      bottom: 29px;
+      width: 220px;
+      height: 326px;
+    }
+
+    .stair .h,
+    .stair .v {
+      position: absolute;
+      background: var(--blue);
+    }
+
+    .stair .h { height: 12px; }
+    .stair .v { width: 12px; }
+
+    .stair .h1 { left: 0; bottom: 0; width: 68px; }
+    .stair .v1 { left: 56px; bottom: 0; height: 86px; }
+    .stair .h2 { left: 56px; bottom: 74px; width: 71px; }
+    .stair .v2 { left: 115px; bottom: 74px; height: 93px; }
+    .stair .h3 { left: 115px; bottom: 155px; width: 75px; }
+    .stair .v3 { left: 178px; bottom: 155px; height: 107px; background: var(--lime); }
+    .stair .h4 { left: 178px; bottom: 250px; width: 42px; background: var(--lime); }
+
+    .stair .arrow {
+      position: absolute;
+      right: -2px;
+      top: 45px;
+      width: 56px;
+      height: 56px;
+      border-top: 12px solid var(--lime);
+      border-right: 12px solid var(--lime);
+      transform: rotate(0deg);
+    }
+
+    .blueprint-end {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      color: var(--paper);
+      background: var(--ink);
+      border-radius: 50%;
+      font: 800 16px/1 "DejaVu Sans Mono", monospace;
+    }
+
+    .blueprint-end.a {
+      left: -25px;
+      bottom: -25px;
+    }
+
+    .blueprint-end.b {
+      right: 12px;
+      top: 24px;
+      color: var(--ink);
+      background: var(--lime);
+      border: 2px solid var(--ink);
+    }
+
+    .c3-portrait {
+      position: absolute;
+      z-index: 8;
+      right: 38px;
+      bottom: 44px;
+      width: 116px;
+      height: 116px;
+      border-radius: 50%;
+      border: 5px solid var(--paper);
+      box-shadow: 0 0 0 2px var(--ink);
+      object-fit: cover;
+      object-position: center 23%;
+    }
+
+    .c3-name {
+      position: absolute;
+      z-index: 7;
+      left: 62px;
+      bottom: 48px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 720;
+      letter-spacing: 0.02em;
+    }
+
+    .c3-name::after {
+      content: "";
+      display: inline-block;
+      width: 140px;
+      height: 3px;
+      margin: 0 0 5px 18px;
+      background: var(--orange);
+    }
+
+    .c3-code {
+      position: absolute;
+      z-index: 6;
+      right: 28px;
+      top: 40px;
+      color: var(--ink);
+      font: 800 14px/1 "DejaVu Sans Mono", monospace;
+      letter-spacing: 0.12em;
+      transform: rotate(90deg) translateX(100%);
+      transform-origin: top right;
+    }
+
+    @media (max-width: 1450px) {
+      body {
+        min-width: 1456px;
+      }
+    }
+
+    body.export {
+      padding: 0;
+      background: transparent;
+    }
+
+    body.export .toolbar {
+      display: none;
+    }
+
+    body.export .stage {
+      margin: 0;
+      box-shadow: none;
+    }
+  </style>
+</head>
+<body>
+  <nav class="toolbar" aria-label="Concept selector">
+    <button type="button" data-concept="1">01 — Transformation Path</button>
+    <button type="button" data-concept="2">02 — Operator Console</button>
+    <button type="button" data-concept="3">03 — ROI Blueprint</button>
+  </nav>
+
+  <main class="stage" aria-label="Builders Lab 1400 by 790 graphic concepts">
+    <section class="concept" id="concept-1" aria-label="Transformation Path concept">
+      <header class="brand-row">
+        <div class="brand-mark"><span class="brand-symbol"></span><span>Builders Lab</span></div>
+      </header>
+
+      <div class="c1-copy">
+        <div class="c1-kicker">Builders Lab</div>
+        <h1>Build tools<br />that <span class="work">work<span class="period">.</span></span></h1>
+        <div class="c1-name">George B. Johnson</div>
+      </div>
+
+      <div class="system-map" aria-hidden="true">
+        <div class="rail"></div>
+        <div class="endpoint a">A</div>
+        <div class="endpoint b">B</div>
+        <div class="input-stack">
+          <span class="input-card"></span>
+          <span class="input-card"></span>
+          <span class="input-card"></span>
+        </div>
+        <div class="engine">
+          <div class="pin-row top"><i></i><i></i><i></i></div>
+          <div class="pin-row bottom"><i></i><i></i><i></i></div>
+        </div>
+        <div class="output-panel">
+          <span class="money">$ ↗</span>
+          <div class="bars"><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="map-code">{ }</div>
+        <div class="map-tick"></div>
+      </div>
+      <div class="c1-bottom"></div>
+    </section>
+
+    <section class="concept" id="concept-2" aria-label="Operator Console concept">
+      <header class="c2-top">
+        <div class="brand-mark"><span class="brand-symbol"></span><span>Builders Lab</span></div>
+      </header>
+
+      <div class="success-shell">
+        <div class="success-kicker">A → B / Practical outcomes</div>
+        <h2>Success is a system you can use.</h2>
+        <p class="success-intro">Use what you know to build AI tools that solve real problems.</p>
+        <div class="success-list">
+          <div class="success-item"><span class="mono">01</span><span>Clearer thinking</span></div>
+          <div class="success-item"><span class="mono">02</span><span>Better systems</span></div>
+          <div class="success-item"><span class="mono">03</span><span>Greater ROI</span></div>
+        </div>
+        <div class="success-name">George B. Johnson</div>
+      </div>
+
+      <div class="c2-copy">
+        <div class="c2-route" aria-hidden="true">
+          <span class="route-end">A</span>
+          <span class="route-line"><i></i><i></i><i></i></span>
+          <span class="route-end b">B</span>
+        </div>
+        <h1><span class="build">Build</span> tools<br />that <span class="work">work.</span></h1>
+      </div>
+
+      <div class="console-cards" aria-hidden="true">
+        <span class="console-card"></span>
+        <span class="console-card"></span>
+        <span class="console-card"></span>
+      </div>
+    </section>
+
+    <section class="concept" id="concept-3" aria-label="ROI Blueprint concept">
+      <header class="c3-top">
+        <div class="brand-mark"><span class="brand-symbol"></span><span>Builders Lab</span></div>
+      </header>
+
+      <div class="c3-copy">
+        <h1>Build<br /><span class="tools">tools</span><br />that <span class="work">work.</span></h1>
+      </div>
+
+      <div class="c3-blueprint" aria-hidden="true">
+        <div class="stair">
+          <i class="h h1"></i><i class="v v1"></i>
+          <i class="h h2"></i><i class="v v2"></i>
+          <i class="h h3"></i><i class="v v3"></i>
+          <i class="h h4"></i><i class="arrow"></i>
+        </div>
+        <span class="blueprint-end a">A</span>
+        <span class="blueprint-end b">B</span>
+      </div>
+
+      <div class="c3-name">George B. Johnson</div>
+      <img class="c3-portrait" src="assets/george-johnson.jpg" alt="George B. Johnson" />
+      <div class="c3-code">BL / 03</div>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const initial = ["1", "2", "3"].includes(params.get("concept")) ? params.get("concept") : "1";
+
+    function showConcept(number) {
+      document.querySelectorAll(".concept").forEach((concept) => {
+        concept.classList.toggle("active", concept.id === `concept-${number}`);
+      });
+      document.querySelectorAll("[data-concept]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.concept === number);
+      });
+      const url = new URL(window.location.href);
+      url.searchParams.set("concept", number);
+      history.replaceState({}, "", url);
+    }
+
+    document.querySelectorAll("[data-concept]").forEach((button) => {
+      button.addEventListener("click", () => showConcept(button.dataset.concept));
+    });
+
+    if (params.get("export") === "1") {
+      document.body.classList.add("export");
+    }
+
+    showConcept(initial);
+  </script>
+</body>
+</html>

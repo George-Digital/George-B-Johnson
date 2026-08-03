@@ -1,5 +1,5 @@
 {
-  "generated": "2026-07-27T21:25:00Z",
+  "generated": "2026-07-29T17:45:27.632753Z",
   "sections": [
     {
       "id": "mockups",
@@ -11,6 +11,15 @@
             {
               "label": "George B. Johnson | Technical Consultant for AI Automation",
               "path": "mockups/homepage-seo-redesign/index.html"
+            }
+          ]
+        },
+        {
+          "slug": "builders-lab-about",
+          "files": [
+            {
+              "label": "Builders Lab Concepts",
+              "path": "mockups/builders-lab-about/builders-lab-concepts.html"
             }
           ]
         },
